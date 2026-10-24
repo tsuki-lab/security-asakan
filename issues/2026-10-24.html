@@ -20,6 +20,7 @@
 
 <article class="topic">
   <h2><span class="num">1</span>本物そっくりの偽サイトを作れる「鍵」が漏れていた</h2>
+  <p class="lede">偽サイトを本物に見せかけられる「鍵」が漏れました。ブラウザ側はもう対策済みです。</p>
   <p>Web サイトの「身元保証書」（証明書）を出しているインドの会社 eMudhra で、保証書を作るための大事な鍵が、誰でも割り出せる状態だったと分かりました（10月17日に報告）。この鍵があれば、銀行や通販サイトにそっくりな偽サイトを「本物」と見せかけることができてしまいます。</p>
   <p>Chrome・Firefox・Safari（Apple）・Windows（Microsoft）は、すでにこの鍵で作られた保証書を受け付けないようにしています。今のところ悪用されたという報告はありません。この会社は、Web サイト向けの保証書の事業から撤退すると発表しました。</p>
   <div class="todo"><strong>みんながやること</strong>
@@ -33,6 +34,7 @@
 
 <article class="topic">
   <h2><span class="num">2</span>PHP に深刻な欠陥。各地でサービスが一時停止</h2>
+  <p class="lede">多くのサイトを動かす PHP に、乗っ取りにつながる欠陥が見つかりました。</p>
   <p>世界中の多くの Web サイトで使われている PHP（サイトを動かすためのプログラムの言語）に、外からサーバーを乗っ取れてしまう深刻な欠陥が見つかり、10月21日に修正版が出ました。攻撃しようとする動きも確認されています。</p>
   <p>対応のため、ソフトバンクの緊急速報メールが一時止まるなど、国内でもサービスを止めて点検する会社が相次ぎました。サイトの更新が遅れているところでは、まだ危ない状態が続いています。</p>
   <div class="todo"><strong>みんながやること</strong>
@@ -45,6 +47,7 @@
 
 <article class="topic">
   <h2><span class="num">3</span>個人情報の漏えいの発表が続いています</h2>
+  <p class="lede">大手の個人情報漏えいが続き、それに便乗した詐欺メールが増えています。</p>
   <p>10月23日だけでも、佐川急便（荷物の問い合わせサービス。最大約5,323万件の可能性）、トレジャー・ファクトリー、タイムズカー（本人確認書類の画像）、グッドスマイルカンパニー公式ショップなどが、不正アクセスによる漏えいやその可能性を発表しました。</p>
   <p>こうした発表のあとは、漏れた情報を使って本物の会社を装うメールや SMS が増えます。名前や注文内容が合っていても、本物とは限りません。</p>
   <div class="todo"><strong>みんながやること</strong>
@@ -65,6 +68,37 @@
   </ol>
 </section>
 
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。</p>
+
+  <h3>1. eMudhra の鍵漏えい：ブラウザ以外の信頼ストアを更新</h3>
+  <ul>
+    <li>修正版：Node.js <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code>（10/21。Node 自体の脆弱性10件も修正）、Python の certifi <code>2026.10.18</code> 以上・pip <code>26.2.2</code> 以上・uv <code>0.13.4</code> 以上（仮想環境ごとに更新）、Go <code>1.27.3</code> / <code>1.26.10</code>（バイナリの再ビルドが必要。1.25 以前は修正なし）、Java は 10/21 の緊急更新（Temurin など配布元ごとの cacerts に注意）。</li>
+    <li>Docker イメージは作った時点の証明書を持つので、<code>--pull --no-cache</code> で作り直す。</li>
+    <li>macOS 標準の curl・git・python3 が読む <code>/etc/ssl/cert.pem</code> は、報道時点で未更新。</li>
+    <li>Chrome は 10/27（米国太平洋時間）に「emSign ECC Root CA – G3」を信頼リストから外す予定。自分のサイトの証明書がこのルートに連なっていないか確認する。</li>
+  </ul>
+
+  <h3>2. PHP2Shell（CVE-2026-109618 / 109619、CVSS 9.2）</h3>
+  <ul>
+    <li>修正版：<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。8.1 以前は公式の修正版がなく、7.4〜8.1 向けには最小限のソースパッチのみ。悪用の試行が観測されている。</li>
+    <li>10/23 には別の未修正の欠陥 CVE-2026-115560 も公表。影響は限られた設定のみで、<code>session.upload_progress.enabled=0</code> で防げる。</li>
+  </ul>
+
+  <h3>3. サプライチェーン攻撃</h3>
+  <ul>
+    <li>PyPI：<code>litellm==1.107.0</code>（10/21。PyPI と Docker の <code>v1.107.0</code>・<code>latest</code> など）に、認証情報を盗む仕掛けとリモートからコードを動かす仕掛けが入っていた。Python を起動するだけで動く。<code>1.106.2</code> 以前は安全。入れた環境は作り直し、そこから届く鍵・トークンをすべて交換する。</li>
+    <li>npm：MALFEX（<code>imgdecode</code> など）や、Shai-Hulud 系のワーム（10/5・10/8 に <code>@subql/common</code>、<code>tensorlake</code> が侵害）が続いている。ロックファイルの作り直しや依存の一括更新は、侵害版が取り下げられたか確認してから。</li>
+  </ul>
+
+  <h3>4. そのほかの修正</h3>
+  <ul>
+    <li>Ruby <code>4.0.9</code> / <code>3.4.12</code> / <code>3.3.13</code>（10/23）：正規表現エンジンの欠陥を修正。外部からの入力で正規表現を組み立てるアプリは更新する。</li>
+    <li>米 CISA の悪用済みリストに追加：Plex Media Server（Plex2Shell）、SiteGuard Server Edition、Siemens Software Center、Ivanti Connect Secure（ゼロデイ）など。</li>
+  </ul>
+</section>
+
 <section class="sources">
   <b>出典</b>
   <ul>
@@ -73,6 +107,14 @@
     <li><a href="https://news.livedoor.com/topics/detail/32643738/">PHPの脆弱性問題が拡大、緊急地震速報の配信停止などに影響（FNN／ライブドアニュース）</a></li>
     <li><a href="https://news.yahoo.co.jp/articles/4d8feacc6edcecda61be971530371493967f5be5">「PHP」の“致命的”な脆弱性2件が修正（窓の杜／Yahoo!ニュース）</a></li>
     <li><a href="https://rocket-boys.co.jp/security-measures-lab/">セキュリティ対策Lab（佐川急便ほか各社の発表）</a></li>
+    <li><a href="https://hol.org/blog/cve-2026-111943-emudhra-ca-key-compromise-go-certifi-node-java">eMudhra CA keys leaked: how to fix Go, certifi, Node, Java</a></li>
+    <li><a href="https://www.aikido.dev/blog/emudhra-ca-compromise">eMudhra CA compromise（Aikido）</a></li>
+    <li><a href="https://delcano.jp/web-production/posts/php-critical-vulnerability-2026-10/">PHPの重大な脆弱性（2026年10月）</a></li>
+    <li><a href="https://cybernews.com/security/php2shell-attacks-php-new-vulnerabilities-found/">PHP’s new unpatched vulnerability（Cybernews）</a></li>
+    <li><a href="https://socket.dev/blog/litellm-compromise">LiteLLM PyPI Package and Docker Images Compromised（Socket）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html">MALFEX（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html">Ruby Fixes Three Regex Engine Bugs（The Hacker News）</a></li>
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/10/20/cisa-adds-six-known-exploited-vulnerabilities-catalog">CISA Adds Six Known Exploited Vulnerabilities</a></li>
   </ul>
 </section>
 

@@ -16,6 +16,8 @@
   --safe-bg: #e4f3ec;
   --sun: #f2b705;        /* 朝日 / 注意の黄 */
   --mark: #fff2bf;       /* 今日のひとことの帯 */
+  --dev-bg: #e4e8ed;     /* エンジニア向けの面 */
+  --dev-rule: #cbd3dc;
   --font: "LINE Seed JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
   color-scheme: light;
 }
@@ -32,6 +34,8 @@
     --safe-bg: #12291f;
     --sun: #f5c330;
     --mark: #3a3114;
+    --dev-bg: #121920;
+    --dev-rule: #2c3846;
     color-scheme: dark;
   }
 }
@@ -43,30 +47,32 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font);
-  font-size: 17px;
-  line-height: 1.85;
-  letter-spacing: .02em;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0;           /* 本文は字間を詰めない・開けない（LINE Seed JP は字面が広い） */
   line-break: strict;
   overflow-wrap: anywhere;
   -webkit-font-smoothing: antialiased;
 }
-/* 本文 1 行はおよそ 36〜38 字に収まる幅 */
+/* 本文 1 行：スマホ約 21 字、広い画面で約 36 字 */
 .wrap {
   max-width: 46rem;
   margin: 0 auto;
-  padding: 20px 14px 56px;
+  padding: 18px 10px 48px;
   display: grid;
-  gap: 20px;
+  gap: 18px;
 }
 a { color: var(--accent); text-underline-offset: .2em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
-h1, h2, h3 { margin: 0; line-height: 1.45; text-wrap: balance; font-feature-settings: "palt"; }
+h1, h2, h3 { margin: 0; line-height: 1.45; letter-spacing: .02em; text-wrap: balance; font-feature-settings: "palt"; }
+/* 見出し・要点は文節で折り返す（対応ブラウザのみ。非対応でも通常の折り返し） */
+h1, h2, h3, .lede, .today { word-break: auto-phrase; }
 p, li { text-wrap: pretty; }
 p { margin: 0; }
 
 /* ---------- 題字（マストヘッド） ---------- */
-.masthead { display: grid; gap: 12px; padding-top: 8px; }
+.masthead { display: grid; gap: 12px; padding: 8px 4px 0; }
 .masthead .site {
   display: flex;
   align-items: flex-end;
@@ -104,11 +110,11 @@ p { margin: 0; }
 .today {
   background: var(--mark);
   border-radius: 6px;
-  padding: 14px 18px 14px 22px;
+  padding: 12px 14px 12px 20px;
   box-shadow: inset 6px 0 0 var(--sun);
-  font-size: 17.5px;
+  font-size: 16.5px;
   font-weight: 700;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 /* ---------- 話題 ---------- */
@@ -116,7 +122,7 @@ article.topic {
   background: var(--sheet);
   border: 1px solid var(--rule);
   border-radius: 14px;
-  padding: 22px 18px 20px;
+  padding: 20px 14px 18px;
   display: grid;
   gap: 14px;
 }
@@ -145,15 +151,22 @@ article.topic h2 {
   letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
-article.topic h2 + p { margin-top: 2px; }
+/* 要点の 1 行：本文でいちばん強い行 */
+.lede {
+  font-size: 1.0625em;
+  font-weight: 700;
+  line-height: 1.7;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
 
 /* みんながやること */
 .todo {
-  margin: 4px 0 0;
+  margin: 4px -8px 0;          /* カードの内幅をほぼ使い切る */
   background: var(--safe-bg);
   border: 1.5px solid var(--safe);
   border-radius: 10px;
-  padding: 14px 16px 14px;
+  padding: 12px 10px 14px;
 }
 .todo strong {
   display: block;
@@ -164,12 +177,12 @@ article.topic h2 + p { margin-top: 2px; }
   line-height: 1.4;
 }
 .todo ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
-.todo li { position: relative; padding-left: 1.6em; line-height: 1.75; }
+.todo li { position: relative; padding-left: 1.45em; line-height: 1.75; }
 .todo li::before {                       /* チェック欄 */
   content: "";
   position: absolute;
-  left: .1em;
-  top: .42em;
+  left: 0;
+  top: .45em;
   width: .9em;
   height: .9em;
   border: 2px solid var(--safe);
@@ -191,13 +204,13 @@ section.basics {
   margin-top: 8px;
   background: var(--accent-bg);
   border-radius: 14px;
-  padding: 20px 18px;
+  padding: 20px 14px;
   display: grid;
   gap: 12px;
 }
 section.basics h2 { font-size: 19px; font-weight: 800; }
 section.basics ol { list-style: none; counter-reset: basic; margin: 0; padding: 0; display: grid; gap: 10px; }
-section.basics li { counter-increment: basic; position: relative; padding-left: 40px; min-height: 28px; line-height: 1.75; }
+section.basics li { counter-increment: basic; position: relative; padding-left: 36px; min-height: 28px; line-height: 1.75; }
 section.basics li::before {
   content: counter(basic);
   position: absolute;
@@ -214,6 +227,39 @@ section.basics li::before {
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0;
+}
+
+/* ---------- エンジニア向け ---------- */
+/* 一般向けの紙面とは別の面。密度を上げ、版番号は等幅で */
+section.dev {
+  margin-top: 8px;
+  background: var(--dev-bg);
+  border: 1px solid var(--dev-rule);
+  border-radius: 14px;
+  padding: 22px 14px 24px;
+  font-size: 15px;
+  line-height: 1.75;
+  display: grid;
+  gap: 10px;
+}
+section.dev h2 { font-size: 19px; font-weight: 800; }
+.dev-note {
+  color: var(--muted);
+  font-size: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--dev-rule);
+}
+section.dev h3 { font-size: 16px; font-weight: 700; margin-top: 10px; }
+section.dev ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+section.dev li::marker { color: var(--muted); }
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .9em;
+  padding: .05em .35em;
+  border-radius: 4px;
+  background: var(--sheet);
+  border: 1px solid var(--dev-rule);
+  overflow-wrap: anywhere;
 }
 
 /* ---------- 出典 ---------- */
@@ -263,13 +309,16 @@ footer {
 
 /* ---------- 広い画面 ---------- */
 @media (min-width: 640px) {
+  body { font-size: 17px; }
   .wrap { padding: 40px 28px 72px; gap: 24px; }
   .masthead { gap: 16px; }
   .masthead .site { font-size: 32px; }
   article.topic { padding: 30px 32px 28px; gap: 16px; }
+  .todo { margin: 4px -14px 0; padding: 16px 18px 16px; }
   article.topic h2 { font-size: 22px; column-gap: 14px; }
   .num { width: 34px; height: 34px; margin-top: 0; }
   section.basics { padding: 26px 32px; }
+  section.dev { padding: 28px 32px 30px; }
   .issues li { grid-template-columns: 6.5em 1fr; gap: 12px; align-items: baseline; padding: 16px 24px; }
 }
 
