@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 10/25（日）</title>
+<meta name="description" content="Apple がパソコン向けの遮断を拡大、PHP に修正版のない新しい欠陥、会社の機器への攻撃。今日みんながやること。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>10月25日（日）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：スマホ・PC・ブラウザを「最新に更新して再起動」。大きな新事件はなく、先日の話の続報が中心です。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>偽サイト用の「鍵」流出の続報：Apple も対策を広げました</h2>
+  <p class="lede">iPhone・Mac のブラウザ側の対策はさらに進みました。27日にはもう一段、Chrome が対応します。</p>
+  <p>先日お伝えした、インドの会社 eMudhra の鍵の流出について、Apple が10月23日に対策を広げました。Safari など Apple の標準の仕組みを使うアプリは、自動の更新で守られます。Chrome は10月27日（日本時間では28日未明）に、この会社の古い「身元保証」の登録そのものを外す予定です。その日から、この会社の証明書を使ったままのサイトでは警告画面が出ることがあります。</p>
+  <p>この会社は、Web サイト向けの証明書の事業から撤退する方針です。今のところ、鍵が悪用されたという報告はありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>スマホ・PC・ブラウザを最新にして、一度再起動する</li>
+      <li>警告画面が出たサイトには、先へ進まずに閉じる。普段使うサイトなら、運営からのお知らせを待つ</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>PHP に、修正版のない新しい欠陥が見つかりました</h2>
+  <p class="lede">ごく限られた設定のサイトだけが対象で、設定を一つ変えれば防げます。</p>
+  <p>先日修正された欠陥とは別に、10月23日に新しい欠陥が公表されました。まだ修正版はありませんが、特殊な使い方をしているサイトだけが対象で、悪用の報告もありません。サイトの運営側が設定を一つ変えることで防げます。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>利用者としては特にありません。使っているサービスのお知らせに目を通す程度で大丈夫です</li>
+      <li>自分でブログやお店のサイトを持っている人は、サーバー会社の案内を確認する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>会社や学校のネットワーク機器への攻撃が続いています</h2>
+  <p class="lede">個人のスマホやパソコンに直接の影響はありませんが、勤め先の機器が狙われています。</p>
+  <p>米国の政府機関（CISA）が、遠隔会議や文書編集に使う Collabora Online と、拠点をつなぐ Arista VeloCloud の欠陥が実際に悪用されていると警告しました。Cisco のメール用の機器や Ivanti の VPN 機器でも、悪用が続いています。ランサムウェア（データを人質にして身代金を求める攻撃）集団が、Palo Alto の機器の欠陥を狙う動きも報告されています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>勤め先で社内のネットワーク機器を担当している人は、メーカーの案内に沿って更新する</li>
+      <li>それ以外の人は、会社からの「更新してください」という連絡に従って、早めに再起動や更新を済ませる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. eMudhra：Apple がルートも遮断。ターミナルのツールは別</h3>
+  <ul>
+    <li>Apple（サポート記事 149555、10/23）：10/19 の中間証明書に続き、<code>emSign ECC Root CA – G3</code> 自体も遮断。自動の設定更新で届く。</li>
+    <li>macOS 標準の curl・git・python3・ruby・perl・openssl が読む <code>/etc/ssl/cert.pem</code> には効かない。Apple は「将来のソフトウェア更新で直す」とし、急ぐ管理者向けにこのルートを外す手順を公開（macOS の更新でファイルが戻ることがある）。</li>
+    <li>Chrome：G3 を 10/27 朝（米国太平洋時間）に外す見込み。G3 の下の証明書を使っているサイトは、全画面の警告が出うる。<code>emSign Root CA – G1</code> の扱いも Chrome が見直していると報じられている（Mozilla は G1 を残している）。</li>
+    <li>eMudhra は TLS 証明書事業から撤退する方針で、影響を受ける顧客の証明書を同社が取り替えるとしている（協力先・時期は未公表）。原因は 2025年4月の鍵の生成作業の不備と説明。</li>
+    <li>修正版（Node <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code>、certifi <code>2026.10.18</code>、Go <code>1.27.3</code> / <code>1.26.10</code> など）は前号のまま。</li>
+  </ul>
+
+  <h3>2. PHP：CVE-2026-115560（修正版なし）</h3>
+  <ul>
+    <li>アプリが <code>session.serialize_handler</code> を <code>php_binary</code> か <code>php_serialize</code> にし、実行時に <code>ini_set()</code> で <code>php</code> に戻してから <code>session_start()</code> し、かつセッションのアップロード進捗が有効なときだけ、リモートでコードを実行されうる。</li>
+    <li>回避策：<code>session.upload_progress.enabled=0</code>。PHP は次の定例リリースで直す予定で、悪用の報告はまだない。</li>
+    <li>PHP2Shell（CVE-2026-109618 / 109619）は修正版 <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> のまま。探りの通信は確認されているが、侵害の確認はない。</li>
+  </ul>
+
+  <h3>3. 悪用が確認されているもの</h3>
+  <ul>
+    <li>CISA の悪用済みリストに Collabora Online と Arista VeloCloud（対応期限 10/26）。</li>
+    <li>Cisco Secure Email Gateway（CVE-2026-76519）：File Reputation が有効で、Content Scanner Tools が <code>25.3.0.5525</code> 未満の機器が対象。</li>
+    <li>Ivanti Connect Secure（CVE-2026-104935）：認証回避のゼロデイ。連鎖する権限昇格の1件は未修正。</li>
+    <li>Palo Alto PAN-OS（CVE-2026-0257）：Qilin などが悪用を試行。修正は5月から提供。</li>
+  </ul>
+
+  <h3>4. LiteLLM 1.107.0 の続報</h3>
+  <ul>
+    <li>入り口は、社内の検証環境のログから漏れた GitHub CLI の OAuth トークンと報じられている。公開されているのは 10/21 の約2時間（PyPI）。安全な版は <code>1.106.2</code>。入れた環境は作り直し、そこから届く鍵とトークンをすべて交換する。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://support.apple.com/en-us/149555">About the compromised eMudhra intermediate CAs（Apple）</a></li>
+    <li><a href="https://www.ssl.com/article/check-your-certificates-before-october-27-chrome-is-removing-an-emudhra-root/amp/">Chrome Removing an eMudhra Root: Check Before Oct 27（SSL.com）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html">eMudhra to Exit Global SSL/TLS Business（The Hacker News）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/php-shares-mitigation-for-new-and-unpatched-rce-vulnerability/">PHP shares mitigation for new RCE vulnerability with no patch（BleepingComputer）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html">CISA Flags Two Actively Exploited Critical Flaws（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html">Cisco Warns of Active Attacks（The Hacker News）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/">Ivanti warns of Connect Secure zero-day（BleepingComputer）</a></li>
+    <li><a href="https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/">Active Exploitation of PAN-OS CVE-2026-0257（Unit 42）</a></li>
+    <li><a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026">Contained: Oct 21, 2026 LiteLLM release v1.107.0 Compromised（LiteLLM）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
