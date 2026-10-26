@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 10/26（月）</title>
+<meta name="description" content="あす Chrome が偽サイト用の鍵の流出に絡む古い登録を外します。大きな新事件はなく、続報が中心の月曜です。今日みんながやること。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>10月26日（月）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：週明けにブラウザとスマホを「最新に更新して再起動」。あす Chrome が一段階対策を進めます。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>あす Chrome が、流出した鍵の会社の古い「身元保証」を外します</h2>
+  <p class="lede">Chrome は日本時間の28日未明に、インドの会社 eMudhra の古い登録を外す予定です。</p>
+  <p>先日お伝えした eMudhra の鍵の流出について、新しい被害の報告はありません。Chrome は予定どおり、米国時間10月27日（日本時間では28日未明）に、この会社の古い「身元保証」の登録そのものを外す見込みです。その日から、この会社の証明書を使ったままのサイトでは、警告の画面が出ることがあります。この会社は Web サイト向けの証明書の事業から撤退する方針で、今のところ鍵が悪用されたという報告はありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Chrome を最新にして、一度閉じて開き直す</li>
+      <li>警告画面が出たサイトは、先へ進まずに閉じる。普段使うサイトなら、運営からのお知らせを待つ</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>会社や学校のネットワーク機器への攻撃は続いています</h2>
+  <p class="lede">個人のスマホやパソコンへの直接の影響はありませんが、勤め先の機器が狙われています。</p>
+  <p>拠点どうしをつなぐ機器（Arista の VeloCloud）の欠陥が実際に悪用されていると、米国政府機関（CISA）が警告しています。新しい種類の被害は今朝の時点で見当たりませんが、更新がまだの機器は狙われ続けます。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>勤め先で機器を担当している人は、メーカーの案内に沿って更新する</li>
+      <li>それ以外の人は、会社からの「更新してください」という連絡に従って、早めに再起動や更新を済ませる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. eMudhra：Chrome の G3 削除は 10/27（PT）の予定</h3>
+  <ul>
+    <li>Chrome は <code>emSign ECC Root CA – G3</code> を 10/27 朝（米国太平洋時間）＝日本時間 28日未明に Chrome Root Store から外す見込み。G3 の下の証明書を使うサイトは全画面の警告が出うる。Chrome は 10/17 の CRLSet 更新で、問題の中間証明書をすでに遮断している。</li>
+    <li>Mozilla は 10/20 の NSS 3.131.1 で G3 を削除済み。Ubuntu も 10/20 の更新で <code>emSign ECC Root CA - G3</code> を ca-certificates から外した（USN-8944-1）。</li>
+    <li>Google は eMudhra の残りのルート（<code>emSign Root CA – G1</code>）も見直し中と報じられている。Mozilla は今のところ残している。</li>
+    <li>ブラウザ以外（コンテナ・CI・独自の信頼リストを持つアプリ）は、更新するまで古いルートを信頼し続けうる。自分のサイトの証明書の発行元に <code>emSign</code> / <code>eMudhra</code> が無いか確認し、あれば別の認証局で取り直す。</li>
+    <li>Apple の対応と修正版（Node <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code>、certifi <code>2026.10.18</code>、Go <code>1.27.3</code> / <code>1.26.10</code> など）は前号のまま。macOS の <code>/etc/ssl/cert.pem</code> の更新は、今朝の時点で確認できていない。</li>
+  </ul>
+
+  <h3>2. PHP：回避策と修正版は前号のまま</h3>
+  <ul>
+    <li>PHP2Shell（CVE-2026-109618 / 109619）の修正版は <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。mod_php が最も危険とされる。PHP 8.1 以前は公式の修正なし（配布元の移植を確認）。</li>
+    <li>CVE-2026-115560 は修正版待ち。回避策 <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>3. Arista VeloCloud Orchestrator：CVE-2026-114625（悪用あり）</h3>
+  <ul>
+    <li>オンプレミス版の SQL インジェクション（CVSS 9.9）。Arista が 10/22 に公表し、悪用を確認したとしている。CISA が 10/23 に悪用済みリストへ追加。</li>
+    <li>使っていれば Arista の案内の修正版へ。外部から管理画面に届く状態なら、更新まで遮断する。</li>
+  </ul>
+
+  <h3>4. LiteLLM 1.107.0：新しい動きなし</h3>
+  <ul>
+    <li>安全な版は <code>1.106.2</code>。入れた環境は作り直し、そこから届く鍵とトークンをすべて交換する。<code>/tmp/.pc_once_*</code> があれば情報の送信はすでに起きている。10/21 に PyPI と Docker の <code>latest</code> 系を取ったものも対象。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.ssl.com/article/check-your-certificates-before-october-27-chrome-is-removing-an-emudhra-root/">Chrome Removing an eMudhra Root: Check Before Oct 27（SSL.com）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html">eMudhra to Exit Global SSL/TLS Business（The Hacker News）</a></li>
+    <li><a href="https://osv.dev/vulnerability/USN-8944-1">USN-8944-1（OSV）</a></li>
+    <li><a href="https://bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws">PHP ships emergency patches for critical PHP2Shell flaws（BleepingComputer）</a></li>
+    <li><a href="https://aviatrix.ai/threat-research-center/arista-velocloud-sql-injection-zero-day-cve-2026-114625-exploited-attacks/">Arista VeloCloud CVE-2026-114625（Aviatrix）</a></li>
+    <li><a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026">LiteLLM Security Incident Oct 21 2026（LiteLLM）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
