@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 10/27（火）</title>
+<meta name="description" content="So-net・plala の会員情報が約258万件漏えい。ウェブサイトを動かす仕組み PHP の欠陥が実際に攻撃されています。今日みんながやること。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>10月27日（火）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：So-net・plala の会員は公式のお知らせを確認し、「会員情報の確認」を名乗るメール・SMS のリンクは開かないでください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>So-net・plala の会員情報が約258万件漏えい</h2>
+  <p class="lede">ソニーネットワークコミュニケーションズが、会員データベースへの不正アクセスで約258万件の情報が漏えいしたと発表しました。</p>
+  <p>報道によると、内訳は So-net の会員が約214万件、plala の会員が約44万件で、退会した人の情報も含まれます。漏えいしたのは氏名・電話番号・メールアドレス・ユーザーIDなどで、パスワードの漏えいはないとされています。件数や内容は今後の調査で変わる可能性があります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>So-net・plala を使っている（使っていた）人は、会社の公式のお知らせを確認する</li>
+      <li>「会員情報の確認」「料金の未払い」などを名乗るメール・SMS のリンクは開かず、公式アプリや自分で保存したページから確かめる</li>
+      <li>同じパスワードを他のサービスでも使っていたら、この機会に変える</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>ウェブサイトを動かす仕組み「PHP」の欠陥が、実際に攻撃されています</h2>
+  <p class="lede">米国政府機関（CISA）が、PHP の深刻な欠陥2件を「攻撃が確認された欠陥」の一覧に加えました。</p>
+  <p>PHP は多くのウェブサイトの裏側で動いている仕組みです。欠陥を突かれると、サイトを外から乗っ取られるおそれがあります。修正はすでに公開されていて、直すのはサイトを運営している会社や担当者です。利用者側にできることは多くありませんが、サイトの運営者から「更新のためお待ちください」と案内があったときは、その指示に従ってください。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>自分でサイトを運営している人は、使っている PHP を最新に更新する（レンタルサーバーなら管理画面から）</li>
+      <li>利用しているサービスから「パスワード変更のお願い」が届いたら、公式のサイトから手続きする</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>GMO のFX自動売買用サーバーへの不正アクセス、攻撃者が情報を公開</h2>
+  <p class="lede">「お名前.com デスクトップクラウド」のFX自動売買用サーバーが狙われ、攻撃者が顧客の情報を公開したと報じられています。</p>
+  <p>報道によると、対象になりうるサーバーは約2万6千台で、取引口座のログイン情報が取られて不正に使われた可能性があります。GMO は金銭の要求を拒否し、不正な操作による損害は補償する方針と報じられています。公開された情報の範囲は、現時点で確かめられていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>該当サービスの利用者は、証券・FX の口座と取引ツールのパスワードを変え、ログイン中の端末を切断する</li>
+      <li>公開された情報を探したり、拡散したりしない</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. PHP2Shell（CVE-2026-109618 / 109619）が CISA KEV に追加</h3>
+  <ul>
+    <li>CISA が 10/26 に両方を KEV へ追加（連邦機関の対応期限は 10/29）。実際の攻撃と、Apache mod_php での RCE の成功例が報じられている。</li>
+    <li>修正版は <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>（10/21 公開）。8.1 以前は公式リリースなし（7.4・8.0・8.1 向けは最小限のソース移植が公開）。</li>
+    <li>完全な対策は更新のみ。<code>session.upload_progress.enabled=0</code> などの設定は部分的な緩和にとどまる。コンテナはイメージを作り直す（ホストの更新ではイメージ内の PHP は変わらない）。</li>
+    <li>CVE-2026-115560 は修正版待ちのまま（回避策は <code>session.upload_progress.enabled=0</code>）。</li>
+  </ul>
+
+  <h3>2. eMudhra：Chrome の G3 削除は今日（10/27 PT 朝）</h3>
+  <ul>
+    <li>Chrome は <code>emSign ECC Root CA – G3</code> を Chrome Root Store から外す予定。G3 の下の証明書を使うサイトは警告が出うる。残りのルート <code>emSign Root CA – G1</code> も見直し中。</li>
+    <li>Mozilla は 10/20 の NSS 3.131.1 で削除済み。certifi・Homebrew の ca-certificates・Debian / Ubuntu も G3 を外した。</li>
+    <li>macOS の <code>/etc/ssl/cert.pem</code>（curl・git など）は Apple が将来の更新で直すと案内中で、未更新の報道がある。Apple のサポート記事 149555 に、このファイルから該当ルートを外す手順がある（OS 更新で戻ることがある）。</li>
+    <li>自分のサイトの証明書の発行元に <code>emSign</code> / <code>eMudhra</code> が無いか確認し、あれば別の認証局で取り直す。</li>
+  </ul>
+
+  <h3>3. Node.js 10/21 の修正：Brotli の RCE（CVE-2026-111497）ほか</h3>
+  <ul>
+    <li>修正版は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code>。TLS のホスト名検証2件、DNS の NUL 文字の件も含む10件。21・23・25 系と EOL の 18・20 系に修正なし。</li>
+    <li>報道により「RCE」と「メモリ破壊と情報漏えいまで確認」で深刻度の表現が割れている。Firefox・.NET など Brotli を使う他の製品にも影響し、Microsoft は .NET の緊急更新を出している。</li>
+  </ul>
+
+  <h3>4. LiteLLM 1.107.0：新しい動きなし</h3>
+  <ul>
+    <li>安全な版は <code>1.106.2</code>。入れた環境は作り直し、鍵とトークンをすべて交換する。10/21 に PyPI と Docker の <code>latest</code> 系を取ったものも対象。</li>
+  </ul>
+
+  <h3>5. 情報漏洩の公表（国内）</h3>
+  <ul>
+    <li>ソニーネットワークコミュニケーションズ：So-net 約214万件＋plala 約44万件（計約258万件、退会者を含む）。氏名・電話番号・メール・ユーザーID、口座情報16件（日経の見出し）。不正アクセスの確認は 10/23。</li>
+    <li>GMO インターネット：FX自動売買用 VPS（約2万6千台が対象になりうる）。取引口座のログイン情報の不正利用の可能性。攻撃者が 10/27 に情報を公開したと報じられている。</li>
+    <li>ユミルリンク（メール配信サービス）：10/19 公表。メールアドレスを含む情報が延べ約900万件出力されたと試算。委託元の自治体や証券会社にも波及。件数・内容は調査中。</li>
+    <li>取引先のメール配信・会員基盤の委託先に同種の侵害がないか、委託先の公表を確認する。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.sbbit.jp/article/cont1/187829">ソニーネットワーク、So-net不正アクセスで会員の個人情報258万件が漏えいと発表（ビジネス+IT）</a></li>
+    <li><a href="https://nikkei.com/article/DGXZQOUC277HE0X21C26A0000000">So-netなど会員情報258万件漏洩（日本経済新聞）</a></li>
+    <li><a href="https://theregister.com/cyber-crime/2026/10/27/cisa-confirms-php2shell-under-attack-as-researchers-clock-successful-exploits/5305681">CISA confirms PHP2Shell under attack（The Register）</a></li>
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerabilities-catalog">CISA Adds Two Known Exploited Vulnerabilities to Catalog（CISA）</a></li>
+    <li><a href="https://www.nikkei.com/article/DGXZQOUC2748H0X21C26A0000000/">GMO、「個人情報」拡散防止へ法的措置も検討（日本経済新聞）</a></li>
+    <li><a href="https://support.apple.com/en-us/149555">About the compromised eMudhra intermediate CAs（Apple）</a></li>
+    <li><a href="https://blog.qualys.com/product-tech/2026/10/23/node-js-patches-brotli-remote-code-execution-flaw-find-vulnerable-runtimes-before-attackers-do">Node.js Patches Brotli Remote Code Execution Flaw（Qualys）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/22/56541.html">ユミルリンクのメール配信サービスへの不正アクセス（ScanNetSecurity）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
