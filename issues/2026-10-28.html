@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 10/28（水）</title>
+<meta name="description" content="カーセンサーnet の利用者情報が最大約321万件漏えいした可能性。GMO は不正取引の補償を発表。ウェブサイトの仕組み PHP の更新も引き続き必要です。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>10月28日（水）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：中古車サイト「カーセンサーnet」で販売店に問い合わせたことがある人は、リクルートからの連絡を待ち、「確認のお願い」を名乗るメール・SMS のリンクは開かないでください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>「カーセンサーnet」の利用者情報が、最大約321万件漏えいした可能性</h2>
+  <p class="lede">リクルートが、中古車情報サイト「カーセンサーnet」と販売店向けサービスへの不正アクセスを発表しました。</p>
+  <p>発表によると、販売店へ問い合わせた利用者について、氏名と住所を中心に最大約321万件の情報が漏れた可能性があります。一部には電話番号・メールアドレスなども含まれます。クレジットカード情報とログインパスワードは含まれないとされ、10月21日の時点で悪用は確認されていません。件数は「可能性のある最大数」で、実際の人数とは異なることがあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>カーセンサーnet で販売店に問い合わせた覚えがある人は、リクルートからの個別の連絡を待つ</li>
+      <li>これに便乗した「情報の確認」を名乗るメール・SMS のリンクや添付ファイルは開かない</li>
+      <li>気になるときは、公式サイトのお知らせを自分で開いて確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>GMO、FX自動売買用サーバーの不正取引を補償へ</h2>
+  <p class="lede">「お名前.com デスクトップクラウド」への不正アクセスで、GMO が損失の補償と、利用者への一律5,000円の見舞金を発表しました。</p>
+  <p>影響の可能性があるサーバーは2万6千台あまりで、取引口座のログイン情報が取られて不正に使われた可能性があります。補償の申請方法は11月6日までに公式サイトとメールで案内される予定です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>このサービスの利用者は、証券・FX の口座と取引ツールのパスワードを変え、ログイン中の端末を切断する</li>
+      <li>申請の案内は、公式サイトに載ったものだけを信じる（メール内のリンクからは入らない）</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>ウェブサイトを動かす仕組み「PHP」の更新は、まだ急ぎです</h2>
+  <p class="lede">攻撃が確認された PHP の欠陥について、更新の期限（米国政府機関向け）が明日 10月29日に迫っています。</p>
+  <p>欠陥を突かれるとサイトを外から乗っ取られるおそれがあります。修正はすでに公開されていて、直すのはサイトの運営者です。利用者側にできることは多くありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>自分でサイトを運営している人は、PHP を最新に更新する（レンタルサーバーなら管理画面から）</li>
+      <li>利用しているサービスから「パスワード変更のお願い」が届いたら、公式のサイトから手続きする</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. PHP2Shell（CVE-2026-109618 / 109619）：更新は継続して最優先</h3>
+  <ul>
+    <li>修正版は <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。CISA KEV の連邦機関の期限は 10/29。8.1 以前は公式リリースなし。</li>
+    <li>Amazon の honeypot は公表の4日前（10/17）に攻撃の試行を記録。一方、カナダのサイバーセキュリティセンターは PoC を認めつつ実際の悪用は未確認とするなど、報道は割れている。確実に成立する条件は限られるとの分析もあるが、更新の優先度は変わらない。最も危険なのは mod_php。</li>
+    <li>完全な対策は更新のみ。コンテナはイメージを作り直す。Palo Alto Networks の PAN-OS・Panorama は全版が対象で未修正と報じられている（10/23 時点）。Fortinet・Cisco は調査中。</li>
+    <li>CVE-2026-115560 は修正版待ち（次の通常リリースで修正予定）。回避策は <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>2. eMudhra：Chrome の G3 削除（10/27 PT）</h3>
+  <ul>
+    <li>Chrome は <code>emSign ECC Root CA – G3</code> を Chrome Root Store から外した（予定は 10/27 PT 朝）。Google は残りのルートも調査中。Mozilla は G3 を削除済みで、C1・ECC C3 の退役も進め、G1 は今のところ残す。</li>
+    <li>eMudhra は 10/22 に TLS 証明書事業から撤退する方針を表明。G3 配下に約3万件、約97%は ACME 発行と報じられている。ACME クライアントは別の CA へ切り替える。</li>
+    <li>macOS の <code>/etc/ssl/cert.pem</code>（curl・git など）の更新は、今朝も確認できていない。Apple のサポート記事 149555 に手順がある（OS 更新で戻ることがある）。</li>
+    <li>自分のサイトの証明書の発行元に <code>emSign</code> / <code>eMudhra</code> が無いか確認する。</li>
+  </ul>
+
+  <h3>3. LiteLLM 1.107.0：新しい動きなし</h3>
+  <ul>
+    <li>安全な版は <code>1.106.2</code>。入れた環境は作り直し、鍵とトークンを交換する。配布は技術者3人の GitHub アカウント（GitHub CLI の OAuth トークンとみられる）経由と LiteLLM が説明している。</li>
+    <li>npm / PyPI の別の新しい侵害は、今朝の検索では確認できなかった。</li>
+  </ul>
+
+  <h3>4. 情報漏洩の公表</h3>
+  <ul>
+    <li>リクルート（カーセンサーnet・C-MATCH）：最大 3,709,551 件の可能性。販売店へ問い合わせた利用者 最大321万421件、口コミ投稿者 最大5,289件、C-MATCH 登録の販売店関係者 最大48万3,168件（氏名・電話・古物商許認可番号・ログインID。個人事業主は引落口座情報なども）、従業員・委託先関係者 最大1万673件。カード情報とログインパスワードは含まれないとされる。10/17 に検知、10/21 に発表。</li>
+    <li>GMO インターネット：影響の可能性があるサーバー 26,739 件。損失の補償、見舞金5,000円、代替サービスと6カ月無償化。申請案内は 11/6 まで。</li>
+    <li>ラクス「ブラストメール」（子会社ラクスライトクラウド）が 10/21 に不正アクセスを発表したと報じられた。件数・項目は未確認。メール配信の委託先を使っているなら、委託先の公表を確認する。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://car.watch.impress.co.jp/docs/news/2150016.html">カーセンサーnet 不正アクセス（Car Watch）</a></li>
+    <li><a href="https://www.watch.impress.co.jp/docs/news/2150944.html">GMO 「お名前.comデスクトップクラウド」補償（Watch）</a></li>
+    <li><a href="https://bleepingcomputer.com/news/security/amazon-says-php2shell-exploitation-began-4-days-before-patches">Amazon says PHP2Shell exploitation began 4 days before patches（BleepingComputer）</a></li>
+    <li><a href="https://www.ssl.com/article/check-your-certificates-before-october-27-chrome-is-removing-an-emudhra-root/">Chrome Removing an eMudhra Root（SSL.com）</a></li>
+    <li><a href="https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html">eMudhra to Exit Global SSL/TLS Business（The Hacker News）</a></li>
+    <li><a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026">LiteLLM Security Incident Oct 21 2026</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
