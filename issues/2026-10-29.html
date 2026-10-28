@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 10/29（木）</title>
+<meta name="description" content="「焼肉きんぐ」公式アプリの会員情報が約1,079万件、「CAPCOM ID」のメールアドレスが約1,177万件漏えい。ホームページ作成サービス Studio への侵入も。PHP の更新は引き続き必要です。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>10月29日（木）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：「焼肉きんぐ」のアプリや「CAPCOM ID」を使っている人は、パスワードを変え、同じパスワードを使い回しているサービスもあわせて変えてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>「焼肉きんぐ」アプリと「CAPCOM ID」で、大量の登録情報が漏えい</h2>
+  <p class="lede">焼肉きんぐの公式アプリで約1,079万件、カプコンの会員サービス「CAPCOM ID」で全世界約1,177万件の情報が漏れました。</p>
+  <p>焼肉きんぐでは、会員番号・氏名・メールアドレス・電話番号が漏れました。CAPCOM ID では、メールアドレスと、ログインの日時などの記録が漏れ、196件ではパスワードが勝手に変えられていました。どちらも、記事の範囲ではクレジットカード情報が漏れたという記載はなく、パスワードそのものが漏れたかどうかは確認できていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っている人は、パスワードを変える。同じパスワードを他のサービスにも使っていたら、そちらも変える</li>
+      <li>会社からの個別の連絡を待つ。「情報の確認」を名乗るメール・SMS のリンクは開かない</li>
+      <li>確認したいときは、公式サイトのお知らせを自分で開く</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>ホームページ作成サービス「Studio」に侵入、暗号を解く鍵も読み取られた</h2>
+  <p class="lede">Studio で作られたサイトの問い合わせフォームなどに入力された情報が、知られた可能性があります。</p>
+  <p>Studio は、9月末から10月初めにかけて、サービスの欠陥を突かれて不正に侵入されたと発表しました。登録していた全ての顧客が対象の可能性があり、件数は調べている途中です。暗号化して保存していた情報も、解くための鍵が一緒に読み取られたため、内容が知られた可能性があるとしています。デジタル庁のホームページの問い合わせフォームの情報もこの影響を受けたと報じられました。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Studio で作られたサイトの問い合わせフォームに情報を送ったことがある人は、そのサイトや Studio からの案内を待つ。不審なメール・電話に注意する</li>
+      <li>Studio でサイトを作っている人は、Studio のパスワードを変え、連携している他のサービスの鍵（API キー）も取り替える</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>ウェブサイトを動かす仕組み「PHP」の更新は、今日が期限です</h2>
+  <p class="lede">攻撃が確認された PHP の欠陥について、米国政府機関向けの更新の期限が今日 10月29日です。</p>
+  <p>欠陥を突かれるとサイトを外から乗っ取られるおそれがあります。修正はすでに公開されていて、直すのはサイトの運営者です。利用者側にできることは多くありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>自分でサイトを運営している人は、PHP を最新に更新する（レンタルサーバーなら管理画面から）</li>
+      <li>利用しているサービスから「パスワード変更のお願い」が届いたら、メールのリンクではなく公式サイトから手続きする</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. PHP2Shell（CVE-2026-109618 / 109619）：期限は今日</h3>
+  <ul>
+    <li>修正版は <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>（10/21 公開）。CISA KEV の連邦機関の期限は 10/29。8.1 以前は公式リリースなし。</li>
+    <li>悪用の程度は報道で割れている（Amazon は公表前の試行を観測、別の分析では確実に成立する条件は限られるとされる）が、更新の優先度は変わらない。最も危険なのは mod_php。英 NCSC は直ちに更新するか、更新できるまでサーバーを止めるよう求めている。</li>
+    <li>コンテナはイメージを作り直す。CVE-2026-115560 は修正版待ちで、回避策は <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>2. Brotli の C 実装：境界外書き込み（CVE-2026-111497）</h3>
+  <ul>
+    <li>IPA・JPCERT/CC が 10/26 に注意喚起。Node.js の 10/21 の修正（22.23.4 / 24.22.1 / 26.12.1）と同じ CVE。</li>
+    <li>影響は Brotli 1.2.0、1.1.0 以上 1.1.1 未満、1.0.3 以上 1.0.10 未満。修正版は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。</li>
+    <li>細工した圧縮データの処理で任意のコード実行・情報窃取・DoS のおそれ。Node 以外でも、Brotli を同梱する Web サーバー・プロキシ・CDN のモジュール、ネイティブ拡張を持つ言語のパッケージを確認する。</li>
+  </ul>
+
+  <h3>3. Studio のクラウド環境への侵入（10/16 発表）</h3>
+  <ul>
+    <li>9/30〜10/1 に脆弱性を突かれ、全顧客が対象の可能性。流出の可能性がある情報は、アカウント情報（ハッシュ化パスワードを含む）、デザイン・CMS の内容、フォーム送信内容、reCAPTCHA v3 の設定、Webhook の URL、公開前ページのプレビュー URL、API キー・トークン、パスワード保護ページのパスワード、Google スプレッドシート連携の認証情報、カスタムプロキシのキー。</li>
+    <li>暗号化して保存していた内容も、復号に必要な鍵が同時に読まれた。</li>
+    <li>Studio 利用者は、パスワード変更、連携先の API キー・トークンの再発行、パスワード保護ページのパスワード変更、スプレッドシート連携の再設定を。フォームで個人情報を集めていた場合は、個人情報保護委員会への報告の要否を Studio の案内で確認する。</li>
+  </ul>
+
+  <h3>4. eMudhra：Chrome の G3 削除（予定は 10/27 PT）</h3>
+  <ul>
+    <li>Chrome は <code>emSign ECC Root CA – G3</code> を外す予定どおり。今朝の検索では、実施後の不具合の報告や Google の追加発表は確認できなかった。Mozilla は G3 を削除済みで、C1・ECC C3 の退役も進め、G1 は今のところ残す。</li>
+    <li>eMudhra は 10/22 に TLS 証明書事業から撤退する方針を表明。自分のサイトの証明書の発行元に <code>emSign</code> / <code>eMudhra</code> が無いか確認し、あれば別の CA で取り直す。</li>
+    <li>macOS の <code>/etc/ssl/cert.pem</code>（curl・git など）の更新は、今朝も確認できていない。Apple のサポート記事 149555 に手順がある。</li>
+  </ul>
+
+  <h3>5. LiteLLM 1.107.0：新しい動きなし</h3>
+  <ul>
+    <li>安全な版は <code>1.106.2</code>。入れた環境は作り直し、鍵とトークンを交換する。npm / PyPI の別の新しい侵害は、今朝の検索では確認できなかった。</li>
+  </ul>
+
+  <h3>6. 情報漏洩の公表</h3>
+  <ul>
+    <li>焼肉きんぐ 公式アプリ：10,788,963 件（10/5 公表）。会員番号・氏名（アプリ登録名）・メールアドレス・電話番号。10/2 に確認、10/3 に漏えい判明。</li>
+    <li>CAPCOM ID：全世界 11,774,247 件のメールアドレスとアカウントの時刻・IP の記録（10/22 発表、10/23 第二報）。196件でパスワードが不正に変更された。日本では通販サイトのマイページ19件で氏名・住所・購入履歴などが漏れた。</li>
+    <li>見出しのみ確認（本文は未読）：ヤマダデンキ「ヤマダビデオ」「スマホゴールド会員」、アイラッシュガレージ（4万9,191件）、トイポアプリ（最大69万7,209人）、アエナ「ECアプリ」（最大81万7,215人）。</li>
+    <li>前号までの続き：リクルート カーセンサーnet（最大約371万件）、GMO「お名前.com デスクトップクラウド」（補償の申請案内は 11/6 まで）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/26/56563.html">「焼肉きんぐ」公式アプリ会員管理システムに不正アクセス（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/27/56585.html">「CAPCOM ID」に不正アクセス（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/28/56606.html">Studio が利用するクラウド環境に不正アクセス（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/28/56593.html">Brotli の C 言語実装に境界外書き込みの脆弱性（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/">2026年10月の記事一覧（ScanNetSecurity）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
