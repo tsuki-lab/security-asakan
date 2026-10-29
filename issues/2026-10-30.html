@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 10/30（金）</title>
+<meta name="description" content="ネットショップ作成サービス「ショップサーブ」から約2,336万人分の購入情報が漏えい。国内の漏えいは4月以降で延べ約2億6000万人に。「NP後払い」への不正アクセスも。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>10月30日（金）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：ネットショップで買い物をした覚えがある人は、カードの利用明細を見て、身に覚えのない請求がないか確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>ネットショップ作成サービス「ショップサーブ」から、約2,336万人分の購入情報が漏えい</h2>
+  <p class="lede">多くのネットショップが使う「ショップサーブ」で、買い物をした人の名前・住所・電話番号などが外に持ち出されました。</p>
+  <p>運営会社の最終報告によると、5月21日から8月1日にかけて、サービスの欠陥を突かれて内部のデータが持ち出されました。対象は約2,336万人で、7,858店のお客さんです。購入時の氏名・住所・電話番号・メールアドレスのほか、約210万人ではカードの名義、番号の最初の6桁と最後の4桁、有効期限も含まれていました。会員のパスワードは暗号化されていたとのことです。対象の人には個別に連絡したと発表されています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>ネットショップでの買い物が多い人は、カードの利用明細に身に覚えのない請求がないか確かめる</li>
+      <li>「購入内容の確認」「配送の不備」などを名乗るメール・SMS のリンクは開かず、公式サイトやアプリから確かめる</li>
+      <li>買い物サイトのパスワードを他のサービスと同じにしているなら、変える</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>国内の漏えいは4月以降で延べ約2億6000万人。「NP後払い」にも不正アクセス</h2>
+  <p class="lede">個人情報保護委員会は、不正アクセスによる漏えいの対象者が、4月から10月16日までで延べ約2億6000万人にのぼると公表しました。</p>
+  <p>報道では、メール配信会社のアララ（約300万件のメールアドレス）、ソニー生命（約38万件）、ライフカード（約33万件のメールアドレスなど）の名前も挙がっています。後払い決済「NP後払い」でも、請求書の再発行の仕組みへ想定外の大量のアクセスがあり、28,884件の取引の氏名・住所が見られました（10/22 発表）。対象の人には個別に連絡が届くとされています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>「自分も対象かもしれない」と考え、同じメールアドレスに届く不審なメール・SMS に注意する</li>
+      <li>NP後払いを使った覚えがある人は、会社からの連絡を待つ。連絡を名乗るメールのリンクは開かず、公式サイトのお知らせを自分で開く</li>
+      <li>二段階認証（ログイン時の確認コード）をオンにできるサービスは、オンにする</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. ショップサーブ（Eストアー）：最終報告（10/16）</h3>
+  <ul>
+    <li>5/21〜8/1、サーバー上のアプリケーションの脆弱性を突かれ、不正なコードの実行とデータベースの持ち出し。8/1 に把握し通信を遮断。バックドアなどの常駐は確認されていないとのこと。</li>
+    <li>対象は約2,335万6,000人・7,858店（約209万6,900人にカード情報の一部）。会員情報は会員 ID と<strong>暗号化された</strong>パスワード。管理画面のログイン ID・パスワード、アフィリエイト登録者のメールアドレス・パスワードも含まれる（これらが暗号化されていたかは記事に記載なし）。</li>
+    <li>自社でカート・会員機能を運用している人への示唆：保管するカード情報は最小限に（先頭6桁＋末尾4桁でも組み合わせで悪用されうる）、パスワードは強いハッシュで保存、管理画面は二要素認証とIP制限、DB の持ち出し検知（大きな転送のアラート）を。</li>
+  </ul>
+
+  <h3>2. NP後払い：請求書再発行の仕組みへの自動リクエスト（10/22 発表）</h3>
+  <ul>
+    <li>10/14 に把握。想定外の繰り返しのリクエストで、28,884件の取引の氏名・住所（法人は会社名・部署名）が閲覧された。システムは安全確認ののち再開予定。</li>
+    <li>示唆：番号や ID を推測して他人のデータが引ける API（列挙攻撃）になっていないか、再発行・照会系のエンドポイントのレート制限、認証なしで返す項目の見直しを。</li>
+  </ul>
+
+  <h3>3. PHP2Shell（CVE-2026-109618 / 109619）：CISA KEV の期限は昨日で過ぎた</h3>
+  <ul>
+    <li>修正版は <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。8.1 以前は公式の修正なし。まだなら最優先。コンテナはイメージを作り直す。</li>
+    <li>CVE-2026-115560 は修正版待ち。回避策は <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>4. Brotli の C 実装（CVE-2026-111497）／eMudhra／LiteLLM</h3>
+  <ul>
+    <li>Brotli：修正版は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。Node.js は 22.23.4 / 24.22.1 / 26.12.1。Brotli を同梱する Web サーバー・CDN モジュールも確認を。</li>
+    <li>eMudhra：Chrome は <code>emSign ECC Root CA – G3</code> を 10/27 PT に外す予定。Apple は 10/19 に12件の証明書を遮断し、10/23 に G3 の遮断を追加（OS の更新なしで配信）。ただし <code>/etc/ssl/cert.pem</code> を読む curl・git などは将来の macOS 更新まで受け入れうる。Apple のサポート記事 149555 に手順（要注意点つき）がある。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。</li>
+    <li>LiteLLM 1.107.0（マルウェア版。安全な版は <code>1.106.2</code>）と npm / PyPI の新しい侵害：今朝の検索では新しい動きを確認できなかった（確認できなかっただけで、無いとは限らない）。</li>
+  </ul>
+
+  <h3>5. 情報漏洩の公表（10/29 時点）</h3>
+  <ul>
+    <li>個人情報保護委員会（速報値）：4/1〜10/16 の不正アクセスによる漏えい対象者が延べ約2億6000万人。</li>
+    <li>見出しのみ確認（本文は未読）：フジテレビの番組宣伝システム（メディア関係者の個人情報の可能性）、三井住友DS投信直販ネット（委託先システムへの不正アクセスでマイページにログイン不可）、医療機関業務支援システム「@link」（サービス一時停止）、blastmail（ラクスライトクラウド）。</li>
+    <li>報道ベース（公式発表は未確認）：アララ約300万件、ソニー生命約38万件、ライフカード約33万件。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/29/56620.html">「ショップサーブ」に不正アクセス（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/29/56616.html">「NP後払い」に不正アクセス（ScanNetSecurity）</a></li>
+    <li><a href="https://news.web.nhk/newsweb/na/nd-20261029de68067">不正アクセスによる個人情報漏えい のべ約2億6000万人分（NHK）</a></li>
+    <li><a href="https://support.apple.com/en-us/149555">About the compromised eMudhra intermediate CAs（Apple。検索結果の要約）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/">2026年10月の記事一覧（ScanNetSecurity）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
