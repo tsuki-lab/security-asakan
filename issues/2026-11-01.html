@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/1（日）</title>
+<meta name="description" content="大きな新しい動きは少ない朝。先週の漏えいの確認のしかたと、医療従事者向け予約サービス「エンタッチ」のランサムウェア被害。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月1日（日）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：会員登録しているサービスから「情報が漏れた」と連絡が来たら、メールのリンクは開かず、公式サイトのお知らせを自分で開いて確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>先週の大きな漏えい、新しい発表はまだありません。使っていた人は今日確認を</h2>
+  <p class="lede">阪急・阪神百貨店の予約サイト、ニフティ、チケット購入サービス「GETTIIS」、So-net・plala などの会員情報の漏えいは、新しい発表が今朝は見つかっていません。</p>
+  <p>いずれも原因などは調査中で、会社から会員へ順にメールで連絡が届いています。週末は、便乗した偽のメール・SMS が増えやすい時期です。メールに書かれたリンクからではなく、いつも使っている公式サイトやアプリから、お知らせを確認してください。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使ったことがあるサービスは、公式サイトのお知らせを自分で開いて確かめる</li>
+      <li>GETTIIS や So-net のメールを使っていた人は、パスワードを変える。同じパスワードを使い回している他のサービスも変える</li>
+      <li>カードの利用明細に身に覚えのない請求がないか、ときどき見る</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>医療従事者向けの予約サービス「エンタッチ」が、ランサムウェアで情報流出</h2>
+  <p class="lede">犯罪グループに会社のシステムへ入られ、データを盗まれたうえで脅される「ランサムウェア」の被害が、また一件公表されています。</p>
+  <p>エンタッチ株式会社が10月19日に発表しました。10月9日に侵入され、13日に気づいたとのことです。医療従事者の名前・勤め先の医療機関・都道府県のほか、予約のときに入力された電話番号やメールアドレスなどが流出しています。件数は調査中です。会社はパスワードの強制変更などを行ったと説明しています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>このサービスで予約をしたことがある人は、会社からの連絡を確認する</li>
+      <li>見覚えのない電話・メールには、折り返さず、リンクも開かない</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Rust：<code>webpki-roots</code> 1.0.9 は eMudhra のルートを信頼したまま</h3>
+  <ul>
+    <li>Rust ユーザーフォーラムの 10/28 の投稿による。1.0.9（7/18 公開）は emSign のルートを含む。<code>1.0.10</code>（10/19）で <code>emSign ECC Root CA – G3</code> を、<code>1.0.11</code>（10/23）で <code>emSign Root CA – C1</code> と <code>emSign ECC Root CA – C3</code> を削除。</li>
+    <li>やること：<code>cargo update -p webpki-roots</code> で 1.0.10 以上（できれば 1.0.11）に。<code>=1.0.9</code> の固定があれば外す。<code>rustls-webpki</code> は <code>0.103.16</code> 以上、<code>webpki-root-certs</code> は <code>1.0.10</code> 以上。<code>cargo audit</code> で RUSTSEC-2026-0381 / 0382 / 0383 を確認。ルート証明書を自前で同梱しているなら <code>emSign</code> で検索する。</li>
+  </ul>
+
+  <h3>2. エンタッチ：ランサムウェア（10/19 発表）</h3>
+  <ul>
+    <li>10/9 侵入、10/13 発覚。ソフトウェアへのセキュリティパッチ適用、アクセスログの保全、パスワードの強制変更、外部専門機関による調査を実施と説明。侵入経路は記事に記載なし。件数は調査中。（ScanNetSecurity の記事を読んだ。会社の原文は未読）</li>
+  </ul>
+
+  <h3>3. 続報なし：PHP2Shell／Brotli／eMudhra／LiteLLM／各社の漏えい</h3>
+  <ul>
+    <li>PHP2Shell（CVE-2026-109618 / 109619）：修正版は <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。8.1 以前は公式の修正なし。CVE-2026-115560 の回避策は <code>session.upload_progress.enabled=0</code>。</li>
+    <li>Brotli の C 実装（CVE-2026-111497）：<code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。Node.js は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code>。</li>
+    <li>eMudhra：Chrome の G3 削除（10/27 PT の予定）後の追加の発表、Apple の <code>/etc/ssl/cert.pem</code> を直す macOS 更新は、今朝も確認できなかった。手順は Apple のサポート記事 149555。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。</li>
+    <li>LiteLLM 1.107.0（マルウェア版。安全な版は <code>1.106.2</code>）、npm / PyPI の新しい侵害、CISA KEV の新しい追加：今朝の検索では確認できなかった（確認できなかっただけで、無いとは限らない）。</li>
+    <li>So-net・plala・ニフティ・GETTIIS・H2O の侵入経路は引き続き調査中。管理系の社内システムと共有アカウントの多要素認証・IP 制限・権限の棚卸しは、前号の示唆のとおり。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/category/incident/latest/">インシデント記事一覧（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/10/30/56627.html">エンタッチにランサムウェア攻撃（ScanNetSecurity）</a></li>
+    <li><a href="https://users.rust-lang.org/t/if-you-pin-webpki-roots-check-the-version-1-0-9-still-trusts-the-emudhra-root-apple-told-everyone-to-delete/143328">webpki-roots 1.0.9 の件（Rust ユーザーフォーラム）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
