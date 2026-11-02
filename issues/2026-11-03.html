@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/3（火）</title>
+<meta name="description" content="メール配信サービス「アララメッセージ」の流出が最大約7,700万件に拡大。カード会社を装う不審メールに注意。Webサービスを動かす部品の欠陥が攻撃に使われています。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月3日（火）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：「カード会社」を名乗る「利用内容の確認」メールが大量に出回っています。メールのリンクは開かず、カードの裏面にある番号や公式アプリから確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>メール配信サービス「アララ」の流出が、最大約7,700万件に拡大</h2>
+  <p class="lede">会社がメルマガなどを送るために使うサービスから、メールアドレスなどが大量に外へ出た可能性があります。</p>
+  <p>運営するアララ（ペイクラウドホールディングスの子会社）が11月2日に発表しました。10月29日の第一報は約301万件でしたが、調べるうちに、契約している会社ごとの環境でも被害が見つかり、メールアドレスが最大約7,700万件、最大約380社に関わる可能性があります（同じ人が重なっているため、7,700万人という意味ではありません）。会社によっては、氏名・生年月日・電話番号・住所なども含まれます。カード番号は持っていないと説明しています。また、10月28日から30日にかけて、犯人がこのサービスを使い、カード会社を装った不審なメールを最大約713万通送りました。サービスは10月31日から全面停止中です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>「利用内容確認のご依頼」「ご利用明細確認のご依頼」といったカード会社風のメールのリンクは開かず、削除する</li>
+      <li>うっかり開いてカード情報を入れてしまったら、すぐカード会社に連絡する</li>
+      <li>メルマガや会員登録をした会社から連絡が来たら、リンクではなく公式サイトのお知らせで確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>Webサイトの裏側で使われる部品の欠陥が、実際に攻撃されています</h2>
+  <p class="lede">ネットの通信を小さく圧縮する「Brotli（ブロトリ）」という仕組みに重大な欠陥が見つかり、すでに悪用が確認されました。</p>
+  <p>アメリカのサイバー防衛機関 CISA が10月27日に「悪用されている欠陥」の一覧に加えました。細工したデータを送りつけるだけで、サービスを動かすコンピューターが乗っ取られるおそれがあります。ふつうにサイトを見ている側が直接やられる話ではなく、主にサービスを作って運営している側の対応が必要です。ただ、パソコンやスマホ、アプリが更新されると自然に直るものも多いので、更新を後回しにしないことが大切です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>OS・ブラウザ・アプリの更新が出ていたら、今日のうちに入れる</li>
+      <li>サイトやサービスを運営している人は、下の「エンジニア向け」を確認する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>続報：先週の大量流出は、公式のお知らせで確かめて</h2>
+  <p class="lede">ユミルリンク「Cuenote」（延べ約5,163万件）や楽天トラベルなど、先週までに出た流出は、新しい続報が見つかっていません。</p>
+  <p>対象の人には各社から順にお知らせが届きます。便乗した偽のお知らせも出回りやすい時期です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>お知らせが届いたら、メールのリンクではなく、会社の公式サイトで同じ内容があるか確かめる</li>
+      <li>パスワードの変更を求められたら、公式サイトから自分で開いて変える。他のサービスで同じパスワードを使っていたら、そちらも変える</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Brotli の復号の欠陥 CVE-2026-111497：悪用あり、CISA KEV 10/27、連邦機関の期限 11/10</h3>
+  <ul>
+    <li>Brotli の復号処理の範囲外書き込み（重大、CVSS 9.8とされる）。細工した Brotli データを復号させると、クラッシュ・メモリ漏えい・条件次第でリモートコード実行。公開された攻撃コードがあり、悪用が確認されている（BleepingComputer、シンガポール CSA）。</li>
+    <li>影響：Node.js（<code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> より前。20・23・25 系は修正なし）、.NET 8・9・10・11（Microsoft が 10/25 に緊急更新。.NET Framework は対象外。版番号は Microsoft の勧告で確認）、Brotli 1.0.3〜1.2.0 を使う HTTP サーバー／クライアント（修正版は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>）。</li>
+    <li>やること：更新後はプロセスの再起動とコンテナイメージの再ビルド・再デプロイ。アプリが自前で持つ Brotli は OS の更新では直らない。すぐ直せないときは、プロキシ／WAF で Brotli 圧縮のリクエスト（<code>Content-Encoding: br</code>）を止めるか、復号を無効にする。</li>
+  </ul>
+
+  <h3>2. アララメッセージ（メール配信 SaaS）：最大約7,700万件・最大約380社（第二報 11/2）</h3>
+  <ul>
+    <li>契約企業向けのサーバー97台が新たに侵害。メールアドレス約7,700万件（持ち出されたおそれを含み精査中。共用環境の 3,386,187 件（重複除外）とは単純合算できない）。氏名・性別・生年月日・電話・会員番号・住所は企業ごとに異なる。</li>
+    <li>10/28〜30 に、カード会社を装う不審メールを最大約713万通送信（送信先は攻撃者が持ち込んだアドレス）。10/30 13:26 に通信を遮断、10/31 にサービスを全面停止。原因は Web サーバーの脆弱性に加え環境の問題とされ、侵入経路は調査中。</li>
+    <li>やること：契約している場合は、アララからの個別連絡を確認し、再開時に管理画面のパスワード・API キーを再設定。自社の顧客に不審メールへの注意を案内する。（セキュリティ対策Lab の記事を読んだ。会社の原文は未読）</li>
+  </ul>
+
+  <h3>3. 続報：eMudhra・PHP2Shell・LiteLLM</h3>
+  <ul>
+    <li>eMudhra：Chrome の <code>emSign ECC Root CA – G3</code> 削除（10/27 PT の予定）が実施された報道は、今朝も確認できなかった。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上（できれば <code>1.0.11</code>）、<code>rustls-webpki</code> を <code>0.103.16</code> 以上に。</li>
+    <li>PHP2Shell（CVE-2026-109618 / 109619、悪用あり）：修正版 <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。8.1 以前は公式の修正なし。CVE-2026-115560 の回避策は <code>session.upload_progress.enabled=0</code>。</li>
+    <li>LiteLLM 1.107.0 はマルウェア版（安全な版は <code>1.106.2</code>）。新しい動きは見つからなかった。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/arara_message_77000000_second_report_20261102/">アララ メッセージ 第二報（セキュリティ対策Lab）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/amp/">CISA warns of hackers now exploiting critical Node2Shell flaw（BleepingComputer）</a></li>
+    <li><a href="https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-154/">Brotli の欠陥の悪用（シンガポール CSA）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/category/incident/latest/">インシデント記事一覧（ScanNetSecurity）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
