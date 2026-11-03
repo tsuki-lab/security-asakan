@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/4（水）</title>
+<meta name="description" content="家電量販店ノジマのネット会員約700万件が流出。スマートニュースにも別の不正アクセス。Androidは11月分の更新を。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月4日（水）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：ノジマのネット会員約700万件の流出が公表されました。会員だった人は、パスワードを変え、同じパスワードを使い回していた他のサービスも変えてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>ノジマのネット会員 約700万件が流出</h2>
+  <p class="lede">家電量販店ノジマの通販サイトなどの会員情報が、外部から不正に持ち出されました。</p>
+  <p>ノジマが11月2日に発表しました。対象は「ノジマオンライン」と「中古スマホ買取サイト」の会員（退会済みの人は対象外）で、約700万件です。氏名・生年月日・性別・住所・電話番号・メールアドレス・ログインID・暗号化されたパスワードが含まれます。クレジットカード情報は、この2つのサイトでは持っていないため対象外と説明しています。2つのサイトは一時休止中で、再開は安全確認のあとです。侵入された経路は、発表の時点では分かっていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>会員だった人は、パスワードを変える。同じパスワードを使い回している他のサービスも変える（メールと銀行を先に）</li>
+      <li>「再登録のお願い」「返金」などを名乗るメール・SMS のリンクは開かず、公式サイトから確かめる</li>
+      <li>氏名や住所を知っている相手でも、電話や SMS で認証コードを教えない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>Android の11月分の更新が出ています</h2>
+  <p class="lede">Google が Android の欠陥216件を直す更新を公開しました。実際に攻撃に使われた形跡は、今のところ公表されていません。</p>
+  <p>操作しなくても外から悪用されるおそれがある欠陥も含まれます。「セキュリティパッチレベル」が「2026-11-05」以降なら、216件すべてが直った状態です。機種によって届く時期が違うので、まだ届いていなくても、数日おきに確認してください。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>設定でセキュリティパッチレベルを確かめ、古ければシステム更新を入れる</li>
+      <li>更新が来ない機種でも、Google Play システムアップデートがないか見る</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>スマートニュースに、先月とは別の不正アクセス</h2>
+  <p class="lede">ニュースアプリのポイント・特典の仕組みで、第三者による不正な操作が確認されました。</p>
+  <p>スマートニュースが11月1日に公表しました。10月31日から11月1日にかけてのことで、10月22日の件とは別の事案だと会社は説明しています。ポイントの交換や一部の特典などを止めています。個人情報が漏れたか、ポイントが実際に抜かれたかは、公表の時点では分かっていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っている人は、ポイント残高と交換履歴に身に覚えのない変化がないか見る</li>
+      <li>「再認証が必要」といった連絡のリンクは開かず、アプリから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Brotli の復号の欠陥 CVE-2026-111497：悪用あり、CISA の連邦機関の期限は 11/10（続報）</h3>
+  <ul>
+    <li>Node.js は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> 以上へ（20・23・25 系は修正なし）。.NET 8〜11 は Microsoft の10/25の緊急更新（.NET Framework は対象外。版番号は Microsoft の勧告で確認）。Brotli 本体は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。</li>
+    <li>やること：更新後はプロセスの再起動とコンテナイメージの再ビルド。アプリが自前で持つ Brotli は OS の更新では直らない。すぐ直せないときは、プロキシ／WAF で <code>Content-Encoding: br</code> のリクエストを止める。</li>
+  </ul>
+
+  <h3>2. ノジマ（約700万件、11/2）：暗号化されたパスワードの扱い</h3>
+  <ul>
+    <li>会員DBが丸ごと持ち出され、パスワードは「暗号化」と説明されているが、方式（ソルト付きのハッシュか、復号できる暗号か）は公表されていない。自社のサービスでは、パスワードは bcrypt / Argon2 などで一方向にハッシュ化し、暗号化して保存しない。</li>
+    <li>侵入経路は未公表。会員DBに直接触れる経路（管理画面・委託先・外部SaaS）の権限と監査ログを見直す。（セキュリティ対策Lab の記事を読んだ。会社の原文は未読）</li>
+  </ul>
+
+  <h3>3. Android 2026年11月分（パッチレベル 2026-11-01 / 2026-11-05）</h3>
+  <ul>
+    <li>216件を修正（Android 14〜17）。重大は Framework の CVE-2026-58868、システム領域の CVE-2026-58876 / CVE-2026-58936（リモートからのコード実行）。悪用の確認は公表されていない。</li>
+    <li>業務で端末を配っている場合は、MDM でパッチレベル 2026-11-05 以上かを一括確認し、未適用の端末は更新まで業務データへのアクセスを制限する。</li>
+  </ul>
+
+  <h3>4. 続報：eMudhra・PHP2Shell・GitLab</h3>
+  <ul>
+    <li>eMudhra：Chrome の <code>emSign ECC Root CA – G3</code> 削除（10/27 PT の予定）の実施結果は、一次情報では確認できていない。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上（できれば <code>1.0.11</code>）、<code>rustls-webpki</code> を <code>0.103.16</code> 以上に。</li>
+    <li>PHP2Shell（CVE-2026-109618 / 109619、悪用あり）：修正版 <code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>。CISA の期限(10/29)は過ぎた。CVE-2026-115560 の回避策は <code>session.upload_progress.enabled=0</code>。</li>
+    <li>GitLab CVE-2026-97229（CVSS 10.0、CI/CD の正規表現エンジンの整数オーバーフロー、10/12 に修正）：セルフホストなら <code>19.4.2</code> / <code>19.3.5</code> / <code>19.2.8</code> 以上へ（19.3 の版番号は出典で食い違うため GitLab の勧告で確認）。10/13 時点で実際の悪用は未確認。（検索結果の要約のみ、本文は未読）</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/nojima_online_7million_breach_risks/">ノジマオンライン 約700万件（セキュリティ対策Lab）</a></li>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/smartnews_second_unauthorized_access_points_rewards_20261102/">スマートニュース 再び不正アクセス（セキュリティ対策Lab）</a></li>
+    <li><a href="https://cyber.spool.co.jp/cyber_news/20261104-android-bulletin-november-2026/">Android 2026年11月のセキュリティ情報（CyberCrew）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/amp/">CISA warns of hackers now exploiting critical Node2Shell flaw（BleepingComputer）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
