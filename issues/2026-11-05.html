@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/5（木）</title>
+<meta name="description" content="無印良品のアプリで最大約2,726万件、松屋のアプリなどで約238万件の情報が流出。WordPressを使っているサイトは更新を。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月5日（木）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：無印良品と松屋のアプリの会員情報が流出しました。使っていた人は、公式アプリ・サイトのお知らせを自分で開いて確かめ、松屋のパスワードは変えてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>無印良品「MUJIアプリ」の情報 最大約2,726万件が流出のおそれ</h2>
+  <p class="lede">良品計画が、公式アプリへの外部からの不正なアクセスを検知したと公表しました。</p>
+  <p>公表は10月30日です。流出したおそれがあるのは、メールアドレス・生年月日・性別で、退会済みの人の情報も含まれます。会社は該当箇所のアクセスを遮断して直したとしており、対象の人には順次連絡するとしています。侵入された経路は、記事には書かれていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>アプリを使っていた（退会した人も）なら、会社からの連絡を待ち、公式アプリ・公式サイトのお知らせを自分で確かめる</li>
+      <li>「確認のお願い」を名乗るメール・SMS のリンクは開かない。メールアドレスと生年月日は知られている前提で警戒する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>松屋のアプリなどで約238万件が流出のおそれ</h2>
+  <p class="lede">松屋フーズが、公式アプリの管理システムへの不正アクセスを公表しました。</p>
+  <p>10月28日に第三者が入り込み、10月30日に公表されました。公式アプリの登録者（約2,000件、最大3,000件の可能性）は、氏名・電話番号・生年月日・メール・暗号化されたパスワードなどが対象です。「松弁ネット」やモバイルオーダー、デリバリーの利用者（約238万件）は、氏名・住所・電話番号などが対象です。公式アプリは停止中で、注文やポイントが使えません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っていた人は、会社からの連絡を確かめる。アプリのパスワードは変え、同じパスワードを使い回した他のサービスも変える</li>
+      <li>住所や電話番号が知られている前提で、「配達」「当選」を名乗る不審な電話・SMS に注意する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>ノジマの約700万件、スマートニュースの件は続報待ち</h2>
+  <p class="lede">先日お伝えしたノジマ（約700万件）とスマートニュースの件で、新しい発表は今朝は見つかりませんでした。</p>
+  <p>ノジマの2つのサイトは一時休止中で、スマートニュースもポイント交換などを止めています。まだ対応していない人は、パスワードの変更とポイント残高の確認をしておいてください。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>会員だった人は、パスワードを変え、使い回しのある他のサービスも変える</li>
+      <li>「再登録」「再認証」を名乗る連絡のリンクは開かず、公式の入り口から確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. WordPress 6・7 系の wp2shell：CVE-2026-63030（CVSS 9.8）／ CVE-2026-60137、攻撃コード公開</h3>
+  <ul>
+    <li>REST API のバッチ処理のルート取り違え（CVE-2026-63030）と、WP_Query の <code>author__not_in</code> の SQL インジェクション（CVE-2026-60137）。設定を変えていない環境でも、ログインなしで遠隔コード実行につながりうる。流れは、SQL インジェクションで管理者を作り、悪性プラグインを入れて実行、とされる。</li>
+    <li>影響：6.9.0〜6.9.4、7.0.0〜7.0.1（SQL インジェクションのみ 6.8.0〜6.8.5 も）。修正版：<code>6.9.5</code> / <code>7.0.2</code> 以上、6.8 系は <code>6.8.6</code> 以上。攻撃コードが GitHub で公開されている。</li>
+    <li>やること：自動更新を確認して更新。管理者ユーザーと入っているプラグインに身に覚えのないものがないか確認し、あれば侵害を疑ってパスワード・鍵を取り替える。記事内で CVE 番号の表記が揺れているため、WordPress の公式勧告でも確認する。（ScanNetSecurity の記事を読んだ）</li>
+  </ul>
+
+  <h3>2. 会員向けアプリの管理システムへの侵入：松屋フーズ（約238万件）、良品計画（最大約2,726万件）</h3>
+  <ul>
+    <li>松屋は「公式アプリの管理システム」への第三者の不正アクセス（10/28）。パスワードは暗号化されたものが対象と説明されている（方式は記事になし）。MUJI アプリは外部からの不正なアクセスとだけ書かれ、経路は未公表。</li>
+    <li>自社のアプリ・サービスでは、管理画面の IP 制限と多要素認証、会員 DB へのアクセスの監査ログ、パスワードの一方向ハッシュ（bcrypt / Argon2 など）を確認する。（ScanNetSecurity の記事を読んだ。会社の原文は未読）</li>
+  </ul>
+
+  <h3>3. 続報：Brotli CVE-2026-111497（CISA の期限 11/10）、PHP2Shell、eMudhra</h3>
+  <ul>
+    <li>Brotli：Node.js は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> 以上、.NET 8〜11 は10/25の緊急更新、Brotli 本体は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。更新後はプロセスの再起動とイメージの再ビルド。</li>
+    <li>PHP2Shell（CVE-2026-109618 / 109619、悪用あり）：<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> 以上。CVE-2026-115560 の回避策は <code>session.upload_progress.enabled=0</code>。</li>
+    <li>eMudhra：Chrome の <code>emSign ECC Root CA – G3</code> 削除（10/27 PT の予定）の実施結果や Apple の更新は、今朝も一次情報では確認できていない。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上（できれば <code>1.0.11</code>）に。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/04/56662.html">「MUJIアプリ」で最大 約2,726万件の顧客情報が流出した可能性（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/04/56661.html">松屋公式アプリに不正アクセス 会員情報等が漏えい（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/04/56667.html">WordPress 6系および 7系における遠隔からの任意のコード実行が可能となる複数の脆弱性（ScanNetSecurity）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
