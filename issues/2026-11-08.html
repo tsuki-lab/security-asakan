@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/8（日）</title>
+<meta name="description" content="一番くじONLINEの配送情報が流出のおそれ。オンライン診療でもIDの使い回しを狙った不正ログイン。無印良品のカード番号流出は引き続き確認を。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月8日（日）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：新しい大型の発表は少ない朝です。パスワードの使い回しをやめて、無印良品の「MUJI Card」を持っていた人はカードの利用明細を確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>「一番くじONLINE」の配送情報が流出のおそれ。オンライン診療でも不正ログイン</h2>
+  <p class="lede">買い物や診療のサービスで、住所などが漏れたり、他のサービスから漏れたIDとパスワードで入られたりする事例が続いています。</p>
+  <p>「一番くじONLINE」の配送を請け負う会社が不正アクセスを受け、配送先の氏名・住所・電話番号が漏れた可能性があると10月26日に公表されました（件数は調査中）。オンライン診療サービス「クロンオンライン診療」では、ほかのサービスから漏れたIDとパスワードを使った「リスト型攻撃」とみられる不正ログインが10月23日に確認されました。キャンペーン用のサービス「OWNLY」でも、参加者の情報が見られた形跡があり、合計1万4,034件とされています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っていた人は、会社のお知らせを公式サイトで確かめる。「荷物の確認」「再配達」を名乗るメール・SMS・電話のリンクは開かない</li>
+      <li>パスワードはサービスごとに変える。使い回していたものは、重要なサービス（メール・銀行・買い物）から順に変え、二段階認証をオンにする</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>引き続き：無印良品のカード番号など、各社の流出</h2>
+  <p class="lede">前号までにお伝えした流出の続報はありません。対象の人への連絡は、各社から順に届きます。</p>
+  <p>無印良品の「MUJI Card」会員約109万件（カード番号の全桁を含む）、@cosme約300万人、クラブツーリズム約432万件が対象と公表されています。会社からのメールや郵送を待つ間に、なりすましの連絡が来やすくなります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>MUJI Cardを持っていた人は、カードの利用明細に身に覚えのない請求がないか確かめる。不安ならカード会社に相談する</li>
+      <li>「カードを確認してください」「キャンセル料・返金」などの連絡のリンクは開かず、公式アプリや公式サイトから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. 続報：Brotli CVE-2026-111497 の期限は11/10、WordPress の wp2shell、PHP2Shell</h3>
+  <ul>
+    <li>Brotli（悪用あり）：CISA の連邦機関向け期限は11/10。Node.js は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> 以上、.NET 8〜11 は10/25の緊急更新、Brotli 本体は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。更新後はプロセスの再起動とイメージの再ビルドが必要。</li>
+    <li>WordPress：<code>6.9.5</code> / <code>7.0.2</code> 以上（6.8 系は <code>6.8.6</code> 以上）。攻撃コードが公開されている。管理者ユーザーと入っているプラグインに身に覚えのないものがないか確認。</li>
+    <li>PHP2Shell（CVE-2026-109618 / 109619、悪用あり）：<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> 以上。回避策は <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>2. eMudhra：Apple が macOS から AAA Certificate Services ルートを外す予定（Sectigo の告知）</h3>
+  <ul>
+    <li>Sectigo によると、Apple は11/2の週に macOS の一部から AAA Certificate Services ルートを外す更新を出す予定。AAA ルートは eMudhra の CA の相互署名に使われていた。OS 側が先で、キーチェーンからの完全な削除は後に続く見込み。（Sectigo の告知を読んだ。Apple の原文は未確認。対象の macOS の版は告知になし）</li>
+    <li>やること：このルートへの証明書ピン留めがあれば外す（ピン留めが無ければ影響は想定されていない、と Sectigo は説明）。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上に。</li>
+  </ul>
+
+  <h3>3. Ivanti Connect Secure：追加のゼロデイ（報道ベース）</h3>
+  <ul>
+    <li>報道では、CVE-2026-111357 などが、10月に修正された CVE-2026-104935 と連鎖して悪用された。11/8の検索で、CISA の悪用済みリスト（KEV）の告知に CVE-2026-111357 の記載があることを、検索結果の要約で確認した。</li>
+    <li>やること：運用していれば Ivanti の勧告で修正版を適用し、整合性チェックツール（ICT）の結果と、管理者・認証まわりのログを見直す。（告知の原文と版は未読）</li>
+  </ul>
+
+  <h3>4. 認証・入力まわりの流出：リスト型攻撃とファイルアップロードの不備</h3>
+  <ul>
+    <li>クロンオンライン診療：リスト型攻撃とみられる不正ログイン（サーバー・DB への侵入の形跡は今のところなし）。OWNLY：ファイルアップロード機能の不備が侵入経路で、通知設定の不備により把握が遅れた。ferret One：内部管理機能の不備で第三者がアカウントを作成できた。</li>
+    <li>やること：ログイン試行の制限・二段階認証・漏えい済みパスワードの拒否、アップロード機能の検証（種類・保存先・実行権限）、アラート通知の宛先と到達の定期確認、管理機能の認可の見直し。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.sectigo.com/resource-library/removal-of-aaa-certificate-services-from-the-apple-root-store">Removal of AAA Certificate Services from the Apple Root Program（Sectigo）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/06/56685.html">バンダイロジパルに不正アクセス、「一番くじONLINE」の配送情報が漏えいした可能性（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/06/56691.html">オンライン診療サービス「クロンオンライン診療」にリスト型攻撃（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/06/56690.html">SNSキャンペーンツール「OWNLY」に不正アクセス（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/06/56693.html">マーケティングプラットフォーム「ferret One」への不正アクセス（ScanNetSecurity）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
