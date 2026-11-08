@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/9（月）</title>
+<meta name="description" content="今朝は新しい大きな漏えいの発表は見つかりませんでした。これまでに公表された会社を使っていた人は、パスワードの変更と明細の確認を。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月9日（月）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：新しい大きな発表は少ない朝です。この1〜2週間に公表された会社のサービスを使っていた人は、パスワードを変え、カードの明細を一度見てください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>今朝は新しい漏えいの発表なし。続いている流出への備えを</h2>
+  <p class="lede">新しい発表は見つかりませんでしたが、これまでの流出で届く「なりすましの連絡」はこれからが本番です。</p>
+  <p>無印良品（アプリ最大約2,726万件、MUJI Card 約109万件）、@cosme 約300万人、クラブツーリズム約432万件、ノジマ約700万件、松屋のアプリなどが、すでに公表されています。会社からの連絡を待つ間に、「カードの確認」「荷物の再配達」「返金」を名乗るメールやSMSが増えやすくなります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>対象の会社のサービスを使っていた人は、会社のお知らせを公式サイトで確かめ、パスワードを変える（同じものを使い回していた他のサービスも）</li>
+      <li>カードの利用明細に身に覚えのない請求がないか見る。メール・SMSのリンクは開かず、公式アプリや公式サイトから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Brotli CVE-2026-111497：CISA の連邦機関向け期限は明日 11/10（悪用あり）</h3>
+  <ul>
+    <li>Node.js は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> 以上、.NET 8〜11 は10/25の緊急更新、Brotli 本体は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。更新後はプロセスの再起動とイメージの再ビルドが必要（アプリが自前で持つ Brotli は OS の更新では直らない）。</li>
+    <li>すぐ直せないときは、プロキシ／WAF で <code>Content-Encoding: br</code> のリクエストを止めるか、Brotli の復号を無効にする。</li>
+  </ul>
+
+  <h3>2. WordPress の wp2shell と PHP2Shell は引き続き先に</h3>
+  <ul>
+    <li>WordPress：<code>6.9.5</code> / <code>7.0.2</code> 以上（6.8 系は <code>6.8.6</code> 以上）。攻撃コードが公開されている。管理者ユーザーと入っているプラグインに身に覚えのないものがないか確認。</li>
+    <li>PHP（CVE-2026-109618 / 109619、悪用あり）：<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> 以上。回避策は <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>3. CISA の悪用済みリスト（KEV）：Adobe Commerce/Magento と Ivanti（検索結果の要約ベース）</h3>
+  <ul>
+    <li>KEV の告知の検索結果に、Adobe Commerce/Magento の CVE-2026-48356 と Ivanti Connect Secure の CVE-2026-111357 の記載があった。告知ページに日付が出ておらず、追加日・期限・修正版は未確認。</li>
+    <li>やること：運用していれば、各社の勧告で修正版を確認して適用する。Ivanti は整合性チェックツール（ICT）の結果と管理者・認証まわりのログも見直す。</li>
+  </ul>
+
+  <h3>4. 続報：eMudhra（証明書）</h3>
+  <ul>
+    <li>Apple が macOS から AAA Certificate Services ルートを外す予定とする Sectigo の告知（11/2の週）について、実施を確かめられる資料は今朝も見つからなかった。ピン留めをしていなければ影響は想定されていない、と Sectigo は説明。</li>
+    <li>やること：このルートへの証明書ピン留めがあれば外す。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上に。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/category/incident/latest/">インシデント記事一覧（ScanNetSecurity）</a></li>
+    <li><a href="https://www.sectigo.com/resource-library/removal-of-aaa-certificate-services-from-the-apple-root-store">Removal of AAA Certificate Services from the Apple Root Program（Sectigo）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/04/56662.html">MUJIアプリ 最大約2,726万件（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/04/56667.html">WordPress 6系・7系の脆弱性（ScanNetSecurity）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/amp/">CISA warns of hackers now exploiting critical Node2Shell flaw（BleepingComputer）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
