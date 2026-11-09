@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/10（火）</title>
+<meta name="description" content="花キューピットの会員約424万件のID・パスワード（ハッシュ値）・メールなどが漏えい。使っていた人はパスワードの変更を。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月10日（火）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：花キューピットの会員だった人は、パスワードを変えてください。同じパスワードを使い回している他のサービスも一緒に変えるのが安全です。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>花キューピットの会員約424万件の情報が漏えい</h2>
+  <p class="lede">「インターネット花キューピット」「ビジネス花キューピット」の会員のログインID、パスワード（読み取りにくくした形）、メールアドレスが外部に漏れました。</p>
+  <p>10月14〜15日に会社の管理システムへ第三者が侵入し、10月28日に会社が公表しました。カード情報については発表で触れられていません。対象の人には会社からメールで順次連絡があり、全員に届くまで時間がかかる見込みです。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>花キューピットを使っていた人は、パスワードを変える。同じパスワードを使い回していた他のサービスも変える</li>
+      <li>会社を名乗るメールやSMSのリンクは開かず、公式サイトのお知らせから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>保険・飲食・ポイントのサービスでも漏えいの公表</h2>
+  <p class="lede">ソニー生命が扱ったメディケア生命の契約者約38.5万件、デニーズの旧アプリ、ポイントインカムなどでも情報が漏れた可能性があります。</p>
+  <p>メディケア生命の契約者・被保険者は、氏名・住所・電話番号・証券番号・契約内容などが対象です。ポイントインカムは暗号化されたパスワードを含み、CoinTrade はメールアドレスのみ（約8.8万件）です。いずれも対象者へは会社から個別に連絡があります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っていたサービスの公式サイトで、お知らせを自分で確かめる（メールのリンクは開かない）</li>
+      <li>保険や口座を名乗る電話・メールが急に増えたら、すぐに応じず、公式の窓口にかけ直す</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Brotli CVE-2026-111497：CISA の連邦機関向け期限は今日 11/10（悪用あり）</h3>
+  <ul>
+    <li>Node.js は <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> 以上、.NET 8〜11 は10/25の緊急更新、Brotli 本体は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。更新後はプロセスの再起動とイメージの再ビルドが必要。</li>
+    <li>すぐ直せないときは、プロキシ／WAF で <code>Content-Encoding: br</code> のリクエストを止めるか、Brotli の復号を無効にする。</li>
+  </ul>
+
+  <h3>2. Node.js：2026-11-11 前後に 22・24・26 系のセキュリティリリースが予告されている</h3>
+  <ul>
+    <li>oss-security への 11/4 の事前告知による。最高重大度は HIGH、件数・CVE は未公表。日付は目標で、前後することがある（検索結果の要約で確認。原文は未読）。</li>
+    <li>やること：告知が出たら nodejs.org で版を確認し、本番・CI・コンテナを更新して再デプロイできるよう準備しておく。</li>
+  </ul>
+
+  <h3>3. WordPress の wp2shell と PHP2Shell は引き続き先に</h3>
+  <ul>
+    <li>WordPress：<code>6.9.5</code> / <code>7.0.2</code> 以上（6.8 系は <code>6.8.6</code> 以上）。攻撃コードが公開されている。</li>
+    <li>PHP（CVE-2026-109618 / 109619、悪用あり）：<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> 以上。回避策は <code>session.upload_progress.enabled=0</code>。</li>
+  </ul>
+
+  <h3>4. 情報漏洩の技術的な背景（ScanNetSecurity の記事より）</h3>
+  <ul>
+    <li>デニーズ：旧アプリから新アプリへの移行処理で、第三者が認証情報を不正に作成できた。移行用の経路は、完了後に閉じ、操作ログで本人と第三者を区別できるようにしておく。</li>
+    <li>ポイントインカム：開発環境に置いた過去のテスト用データが閲覧された可能性。本番データを開発環境にコピーしない、置くなら匿名化する。</li>
+    <li>CoinTrade：委託先が使うメール配信システム（アララ）から流出。メール配信の委託先は、権限・API キーの管理と停止時の連絡手順を確認しておく。</li>
+  </ul>
+
+  <h3>5. 続報：eMudhra（証明書）</h3>
+  <ul>
+    <li>今朝も新しい動きは見つからなかった。Apple が macOS から AAA Certificate Services ルートを外す予定とする Sectigo の告知の実施は確かめられていない。</li>
+    <li>やること：このルートへの証明書ピン留めがあれば外す。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上に。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/09/56701.html">花キューピット（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/09/56705.html">ソニー生命・メディケア生命（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/09/56704.html">デニーズアプリ（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/09/56707.html">ポイントインカム・CoinTrade（ScanNetSecurity）</a></li>
+    <li><a href="https://www.sectigo.com/resource-library/removal-of-aaa-certificate-services-from-the-apple-root-store">Removal of AAA Certificate Services from the Apple Root Program（Sectigo）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/amp/">CISA warns of hackers now exploiting critical Node2Shell flaw（BleepingComputer）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
