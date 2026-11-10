@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/11（水）</title>
+<meta name="description" content="ドコモオンラインショップ・My docomo から最大約30万件の顧客情報が流出。Windows と Office の11月の更新では、すでに悪用されている Outlook の欠陥も直っています。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月11日（水）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：Windows パソコンは今日「Windows Update」を当てて再起動を。ドコモを名乗る電話・メール・SMS は、急かされても応じずに公式の窓口へかけ直してください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>ドコモのオンラインショップ・My docomo から最大約30万件の顧客情報が流出</h2>
+  <p class="lede">氏名・住所・電話番号・メールに加え、本人確認書類の番号や、一部の人は銀行口座の情報まで漏れた可能性があります。</p>
+  <p>11月4日に外部からの不正アクセスが確認され、ドコモが11月5日に公表しました。契約中の料金プランなどの契約内容も含まれます。原因はまだ調べている段階で、オンラインショップと My docomo の手続きは止まったままです。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>ドコモを名乗るメール・SMS のリンクは開かない。手続きはアプリや公式サイトを自分で開いて確かめる</li>
+      <li>契約内容や口座を知っている前提の電話にも注意。いったん切って、公式の窓口にかけ直す</li>
+      <li>銀行口座を登録していた人は、口座の入出金をときどき確認する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>Windows と Office の11月の更新：Outlook の欠陥はすでに悪用</h2>
+  <p class="lede">マイクロソフトが毎月の更新を出しました。すでに攻撃に使われている Outlook（メールソフト）の欠陥も直っています。</p>
+  <p>細工したメールを受け取るだけで、パソコンが攻撃者のサーバーにつながり、ログインに使う情報が漏れるおそれがある欠陥です。今月は修正の数が非常に多く、Windows のほか Office も対象です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Windows は「設定」→「Windows Update」で更新を当てて再起動する</li>
+      <li>Office（Word・Excel・Outlook）も更新する。会社のパソコンは管理者の案内に従う</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>お金・保険のサービスでも流出：SMBCコンシューマーファイナンスは最大約32万人</h2>
+  <p class="lede">ローンの保証の仕組みから、運転免許証の番号や勤務先・年収を含む情報が漏れました。東京海上ダイレクトの「マイページ」でも74件の契約情報が見られました。</p>
+  <p>SMBCコンシューマーファイナンスは、ほかの金融機関のローンを保証するシステムに不正アクセスされ、最大32万118人分の情報が外に送られたと11月5日に公表しました。対象の人にはメールや SMS で個別に案内があるとしています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>「保証」「返済」「保険金」を名乗る連絡は、リンクや折り返し番号を使わず、手元のカードや証券に書かれた窓口で確かめる</li>
+      <li>免許証の番号などが漏れた前提で、身に覚えのない契約・請求の案内が届いたらすぐに相談する</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Microsoft 2026年11月の月例更新：約1,093件、Outlook の CVE-2026-124194 が悪用あり</h3>
+  <ul>
+    <li>悪用済みは Outlook のなりすまし（CVE-2026-124194、CVSS 6.5）の1件。細工したメッセージで外部の場所へ警告なしに接続させ、認証情報が漏れうる。まず最優先で適用。</li>
+    <li>緊急度の高いもの：Windows LDAP・CredSSP・IIS・Message Queuing・Office のリモートコード実行、Windows Schannel（CVE-2026-119952、CVSS 8.1）、AD DS（CVE-2026-118146）、Exchange Server（CVE-2026-118207）。SharePoint Server の権限昇格（CVE-2026-120002、CVSS 9.9）も。</li>
+    <li>件数は集計元で 1,093〜1,094 と揺れる（Tenable・Qualys の解説を読んだ。MSRC の原文は未読）。Exchange・SharePoint・AD をオンプレミスで運用していれば優先度を上げる。</li>
+  </ul>
+
+  <h3>2. Node.js：22・24・26 系のセキュリティリリースは 11/11（米国時間）以降の予定。まだ出ていない</h3>
+  <ul>
+    <li>Node.js の公式告知（11/3 更新）では、最高重大度は HIGH。版番号・CVE は未公表。</li>
+    <li>やること：出たら本番・CI・コンテナのベースイメージを更新して再デプロイ。20 系以前は修正が出ないので 24 系へ。</li>
+  </ul>
+
+  <h3>3. npm：放置されていたパッケージ10個が乗っ取られ、12の版にローダー（11/3、Sonatype）</h3>
+  <ul>
+    <li>何年も更新のなかったパッケージに、Ethereum の取引から次の段の配布元を読み出すローダーが仕込まれた。インストールスクリプトではなく、コードを読み込んだ時点で動く。</li>
+    <li>パッケージ名と版は読んだ記事に載っておらず確認できていない。<code>npm ci</code> とロックファイルで版を固定し、長く更新のなかった依存が急に新しい版を出したら中身を確かめてから上げる。</li>
+  </ul>
+
+  <h3>4. 情報漏洩の技術的な背景（ScanNetSecurity の記事より）</h3>
+  <ul>
+    <li>イープラス（フェス専用アプリ、3,571件）：管理画面への総当たり攻撃で侵入。管理画面は IP 制限と多要素認証を入れ、ログイン試行の回数制限と検知を。</li>
+    <li>Vook：社内で使っていたデータ分析ツールの脆弱性を経由して DB に入られた（会員のログイン情報は 10/22 に無効化）。BI・分析ツールが本番 DB に繋がっているなら、外部公開の有無・版・接続ユーザーの権限を見直す。</li>
+    <li>東京海上ダイレクト（74件）：マイページへの不審なアクセスを検知し、経路となった外部サービスとの接続を停止。連携先経由のログインも監視の対象に。</li>
+  </ul>
+
+  <h3>5. 続報：Brotli CVE-2026-111497 と eMudhra（証明書）</h3>
+  <ul>
+    <li>Brotli（悪用あり）の CISA の期限 11/10 は過ぎた。Node.js <code>22.23.4</code> / <code>24.22.1</code> / <code>26.12.1</code> 以上、Brotli 本体 <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。WordPress（<code>6.9.5</code> / <code>7.0.2</code> 以上）と PHP（<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> 以上）も引き続き。</li>
+    <li>eMudhra は今朝も新しい動きは見つからなかった。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上に。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/10/56724.html">ドコモオンラインショップ・My docomo（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/10/56726.html">SMBCコンシューマーファイナンス（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/10/56725.html">東京海上ダイレクト損害保険（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/10/56727.html">イープラス フェス専用アプリ（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/10/56722.html">Vook（ScanNetSecurity）</a></li>
+    <li><a href="https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194">Microsoft’s November 2026 Patch Tuesday（Tenable）</a></li>
+    <li><a href="https://blog.qualys.com/vulnerabilities-threat-research/2026/11/10/microsoft-patch-tuesday-november-2026-security-update-review">Microsoft Patch Tuesday, November 2026（Qualys）</a></li>
+    <li><a href="https://nodejs.org/en/blog/vulnerability/november-2026-security-releases">November 2026 Security Releases（Node.js）</a></li>
+    <li><a href="https://www.sonatype.com/resources/videos/polinrider-campaign">How a Compromised npm Package Used Ethereum to Fetch Its Next Stage（Sonatype）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
