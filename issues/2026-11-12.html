@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/12（木）</title>
+<meta name="description" content="ティンパンアレイから延べ約120万件の会員情報が流出した可能性。JAL の予約システムの委託先でも約9.2万人分の予約情報が見られた形跡があり、一部はパスポート番号も含まれます。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月12日（木）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：「お詫び」「確認のお願い」を名乗るメール・SMS・電話は、名前や住所を言い当てられても本物とは限りません。リンクや折り返し番号は使わず、公式サイトや公式アプリを自分で開いて確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>ティンパンアレイから延べ約120万件の会員情報が流出した可能性</h2>
+  <p class="lede">氏名・住所・電話番号・生年月日・性別・メールアドレスが漏れた可能性があると、親会社のワールドが10月30日に公表しました。</p>
+  <p>10月17日に業務用のサーバーへ外から入られ、データを抜き出されたとしています。10月28日に気づいてサーバーを切り離しました。会員には準備が整い次第、個別にメールで知らせる予定です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>会員だった人は、会社からのお知らせを公式サイトで確かめる</li>
+      <li>名前や住所を知っている前提の「お詫び」「返金」の連絡を疑う。リンクは開かない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>JAL の予約システムの委託先で、約9.2万人分の予約情報が見られた形跡</h2>
+  <p class="lede">2023年8月10日〜9月23日の便の予約が対象で、約2,000人はパスポート番号やマイレージ番号まで含まれていました。</p>
+  <p>JAL と日本トランスオーシャン航空が使う予約システムを提供する海外の会社（Amadeus）が不正アクセスを受けました。多くの人は予約番号・氏名・搭乗日・区間で、「見られた形跡」があるという段階です。対象の人には JAL からメールで連絡済みです。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>その期間に JAL・JTA に乗った人は、JAL からのメールが届いていないか確かめる（届いたメールのリンクではなく、JAL の公式サイトで内容を確認）</li>
+      <li>「マイルの失効」「予約の変更」「パスポートの確認」を名乗るメール・SMS に注意する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>お店のモバイルオーダー「PICKS」から8,312人分の注文情報が流出</h2>
+  <p class="lede">スマホで先に注文して受け取る仕組みで、会員登録せずに注文した人も含めて、氏名・メール・住所・注文の内容などが持ち出されました。</p>
+  <p>運営する DIRIGIO が10月30日に公表しました。システムの外向けの窓口を通じて入られたとしています。対象の人には、DIRIGIO か、PICKS を使っているお店から順に連絡があります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>お店のモバイルオーダーを使った人は、届いた連絡を、お店の公式サイトやアプリで確かめる</li>
+      <li>注文や返金を名乗るメールのリンクからカード番号を入れない</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Node.js 2026年11月のセキュリティリリース：22.23.5 / 24.22.3 / 26.13.1（HIGH 7件）</h3>
+  <ul>
+    <li>26.13.1・24.22.3 は 11/10、22.23.5 は 11/11 に公開（配布一覧の日付）。計16件で HIGH は7件。</li>
+    <li>HIGH の主なもの：HTTP/2 の解放後使用（CVE-2026-123866・CVE-2026-123874）、HTTPS の長さ0の TLS 書き込みでヒープの中身が応答に混ざる（CVE-2026-123864）、TLS 1.2 の再ネゴで servername を変えてクライアント証明書の認証を回避（CVE-2026-123872）、HTTP/2 のセッション終了時のアサーションでプロセスが落ちる（CVE-2026-123863）、TLS ハンドシェイク後の未捕捉例外（CVE-2026-126051）、プロトコルエラー時のメモリ・FD リーク（CVE-2026-123865）。</li>
+    <li>MEDIUM には <code>https.Agent</code> が CA の設定をまたいで TLS セッションを再利用し検証を回避（CVE-2026-123877）、プロキシの認証情報がエラーメッセージに出る（CVE-2026-123871）、CA だけの SNI コンテキストで mTLS を回避（CVE-2026-123867）など。llhttp・undici・sqlite も更新。</li>
+    <li>やること：本番・CI・コンテナのベースイメージ、<code>.nvmrc</code> / <code>.tool-versions</code> / <code>engines</code> の固定を更新して再デプロイ。10/21 の Brotli 対応版（22.23.4 / 24.22.1 / 26.12.1）からさらに上げる。20 系以前は修正が出ないので 24 系へ。</li>
+  </ul>
+
+  <h3>2. OpenSSH「SSHole」CVE-2026-123158：CISA が 11/9 に悪用済み（KEV）へ追加</h3>
+  <ul>
+    <li>PAM を使わない musl 系 Linux（Alpine など）の sshd で、パスワード認証を回避されうる。Portable OpenSSH <code>10.6p2</code> で修正（HKCERT・Red Hat などの検索結果の要約で確認）。</li>
+    <li>やること：Alpine ベースのイメージ・VM で sshd を動かしていれば <code>apk upgrade openssh</code> などで更新し、パスワード欄が空のアカウントがないか確認。そもそも本番コンテナで sshd を開けない構成に。</li>
+    <li>同じ 11/9 の KEV 追加：GPUStack（CVE-2026-102895）、SignalWire FreeSWITCH（CVE-2026-116779）、IBM Aspera Faspex（CVE-2026-123218）。</li>
+  </ul>
+
+  <h3>3. 情報漏洩の技術的な背景（ScanNetSecurity の記事より）</h3>
+  <ul>
+    <li>PICKS（8,312人）：第三者が API を経由して侵入し、顧客情報を持ち出した。API の認可（他人のデータを取れないか）・レート制限・異常な取得量の検知を見直す。</li>
+    <li>はにくじランド（最大7,622名）：不正なコマンド実行と認証情報の不正利用の形跡。起点の脆弱性は修正済みとされる。サーバーに置いた認証情報（DB・クラウドの鍵）は侵入後に使われる前提で、置き場所と権限を絞る。</li>
+    <li>JAL 委託先 Amadeus（約9.2万人）・九州電力送配電（電力量の情報 4,139件）：委託先・社内システム経由の事案。委託先のシステムで扱うデータの範囲と保存期間（今回は2023年の予約）を見直す。</li>
+  </ul>
+
+  <h3>4. 続報：Microsoft 11月の月例・Brotli・WordPress・PHP・eMudhra</h3>
+  <ul>
+    <li>Microsoft 11月の月例（Outlook の CVE-2026-124194 は悪用あり）はまだなら最優先。</li>
+    <li>Brotli（CVE-2026-111497、悪用あり）は CISA の期限 11/10 を過ぎた。Node.js は今日の修正版でも Brotli 1.2.1。Brotli 本体は <code>1.2.1</code> / <code>1.1.1</code> / <code>1.0.10</code>。WordPress（<code>6.9.5</code> / <code>7.0.2</code> 以上）と PHP（<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code> 以上）も引き続き。</li>
+    <li>eMudhra は今朝も新しい動きは見つからなかった。発行元に <code>emSign</code> / <code>eMudhra</code> があれば別の CA で取り直す。Rust は <code>webpki-roots</code> を <code>1.0.10</code> 以上に。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/11/56738.html">ティンパンアレイ（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/11/56736.html">JAL 委託先 Amadeus（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/11/56740.html">モバイルオーダー PICKS（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/11/56737.html">はにくじランド（ScanNetSecurity）</a></li>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/11/56743.html">九州電力送配電（ScanNetSecurity）</a></li>
+    <li><a href="https://nodejs.org/en/blog/vulnerability/november-2026-security-releases">November 2026 Security Releases（Node.js）</a></li>
+    <li><a href="https://nodejs.org/en/blog/release/v24.22.3">Node.js 24.22.3（Node.js）</a></li>
+    <li><a href="https://www.defconlevel.com/alert/2026-11-09-cisa-alerts-alerts-only-cisa-adds-four-known-exploited-vulnerabilities-to-catalog">CISA Adds Four Known Exploited Vulnerabilities to Catalog（11/9、転載）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
