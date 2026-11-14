@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/15（日）</title>
+<meta name="description" content="無印良品の不正ログインは「よそで漏れたパスワードの使い回し」が原因とみられています。使い回しのパスワードは今日変えましょう。「警察庁推奨アプリ」を勧める偽 SMS にも注意。開発者向けには GitHub アカウントの乗っ取りで CI の秘密情報を盗む攻撃、Git と Next.js の修正版。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月15日（日）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：同じパスワードを複数のサービスで使っているなら、今日それぞれ別のものに変えてください。無印良品の件は、よそで漏れたパスワードの使い回しを狙われたとみられています。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>無印良品の不正ログイン、原因は「パスワードの使い回し」を狙う攻撃か</h2>
+  <p class="lede">良品計画は、MUJI アプリやネットストアへの不正ログインについて、ほかのサービスで漏れた ID とパスワードを使った攻撃の可能性が高いと判断しました。</p>
+  <p>対象は最大約2,726万件で、一部は氏名・住所・電話や、MUJI Card のカード番号も含みます。ネットストアは止まったままで、再開するときは全員にパスワードの再設定を求める方向です。対象者には11月10日からメールや郵便で連絡が始まっています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>同じパスワードを使い回しているサービスがあれば、それぞれ別のパスワードに変える（パスワード管理アプリを使うと楽）</li>
+      <li>MUJI Card を持っている人は利用明細を確認する。無印良品やカード会社を名乗るメール・電話には注意する</li>
+    </ul>
+  </div>
+  <p class="words"><b>リスト型攻撃</b>：どこかで漏れた ID とパスワードの組を、別のサービスで片っ端から試す攻撃。使い回していると次々に入られます。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>「警察庁推奨アプリ」を勧める SMS は偽物</h2>
+  <p class="lede">警察庁を名乗る SMS から偽サイトに誘い、詐欺対策アプリを装った危ないアプリを Android に入れさせる手口が出ています。</p>
+  <p>警察庁が11月11日に注意を呼びかけました。偽アプリは本物の詐欺対策アプリの名前をかたり、入れると「デバイスのフルコントロール」などの許可を求めます。調べられた偽アプリには、入力した文字や画面を盗み見る仕組みがありました。警察が SMS でアプリを案内することはありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>アプリを勧める SMS のリンクは開かない。アプリは Google Play・App Store から自分で探して入れる</li>
+      <li>アプリが「フルコントロール」「ユーザー補助」などの強い許可を求めてきたら、許可しない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>Chrome の更新、まだの人は今日のうちに</h2>
+  <p class="lede">11月9日に出た Chrome の更新は、すでに攻撃に使われている欠陥を直すものです。</p>
+  <p>Chrome は自動で更新されますが、ブラウザを閉じるまで新しい版に切り替わりません。iPhone・iPad・Mac、Windows にも今月の更新が出ています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>パソコンは右上のメニュー →「ヘルプ」→「Google Chrome について」を開いて更新し、「再起動」を押す。Android は Play ストアで Chrome を更新</li>
+      <li>スマホとパソコンの「ソフトウェアアップデート」「Windows Update」も確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. 「wfx」：乗っ取った GitHub アカウント 4,837 個で CI のシークレットを窃取（11/10〜）</h3>
+  <ul>
+    <li>11/10 12:45 UTC ごろから、ブランチ <code>wfx-docs</code> の PR「docs: dependency audit notes」を 61,764 リポジトリに出して書き込み権限を確かめ、その後ワークフローへの追加（コミット「ci: refresh build cache」）や <code>package.json</code> の <code>postinstall</code>（<code>.ci-xxxxxx.sh</code>、コミット「chore: add ci helper」）、<code>.github/workflows/build-audit-xxxxxx.yml</code>（「chore: add dependency audit workflow」）を入れた。SafeDep の集計で公開リポジトリ 8,093 件、少なくとも 1,806 件で実行。直後に「ci: restore」「ci: cleanup」で revert する。</li>
+    <li>盗むもの：Actions のシークレット・変数・<code>GITHUB_TOKEN</code>・OIDC トークン、クラウド / Kubernetes / npm / PyPI / SSH の認証情報、AI サービスのキー、リポジトリ全体。AWS では IAM ロールの信頼ポリシーの書き換えや長期キーの作成、Azure では <code>wfx-ci-*</code> のフェデレーテッド資格情報の追加で裏口を残す。</li>
+    <li>汚染されたパッケージ：Packagist <code>digitalelvis/neuronai-studio</code> 3.14.3（3.14.2 以前に固定）、Go <code>github.com/onuragtas/docker-env</code> v1.0.278 / v1.0.280、<code>github.com/vkuznet/gocurl</code> の擬似版 <code>v0.0.0-20261111095532-8d5aad0cb0da</code>。npm・PyPI の悪性版の名前はまだ報告されていないが、公開者アカウントも含まれるので新しい版の install hook に注意。</li>
+    <li>やること：<code>git log --all --since=2026-11-10</code> で上のコミットメッセージを探す、<code>git ls-remote origin 'refs/heads/wfx-docs' 'refs/heads/chore/*' 'refs/heads/ci-check-*'</code>、ワークフローの <code>toJSON(secrets)</code> と run 番号の欠番を確認。見つかれば CI から届いたシークレットをすべて交換し、CloudTrail（<code>CreateAccessKey</code>・<code>UpdateAssumeRolePolicy</code>）・Entra・GCP・Vault の監査ログで裏口を消す。通信先 <code>194.150.166[.]244:8080</code>・<code>18.143.168[.]96:8080</code>・<code>153.75.82[.]159:8080</code> を遮断。</li>
+  </ul>
+
+  <h3>2. Git 2.56.1 ほか：再帰クローンでコード実行（CVE-2026-111760）など 6 件（11/10）</h3>
+  <ul>
+    <li>CVE-2026-111760：インデックスのパス長の整数切り捨てで、細工したリポジトリを <code>--recursive</code> でクローンするとサブモジュールの <code>.git</code> が置き換えられ、設定やフックでコード実行。CVE-2026-105437：大きなマージでのヒープ破壊（<code>git merge-tree</code> を動かすホスティング側が狙われやすい。GitLab は 19.5.4 / 19.4.6 / 19.3.8 で対応）。ほか CVE-2026-113408・CVE-2026-114467・CVE-2026-114469・CVE-2026-114466。</li>
+    <li>修正版：<code>2.56.1</code> / <code>2.55.1</code> / <code>2.54.1</code> / <code>2.53.1</code> / <code>2.52.1</code> / <code>2.51.3</code> / <code>2.50.2</code>。2.50 より前は修正なし。GitHub.com は対応済み、Actions・Codespaces・GitHub Desktop は順次。</li>
+    <li>やること：手元・CI イメージ・セルフホストランナーの Git を更新。更新までは信頼できないリポジトリを再帰クローンしない。</li>
+  </ul>
+
+  <h3>3. Next.js 16.4.5 / 15.5.29（11/3 のセキュリティリリース、7 件）</h3>
+  <ul>
+    <li>High：Cache Components で <code>unstable_cache</code> と <code>use cache</code> を組み合わせると、ルートパラメータ（テナント ID など）をまたいでキャッシュが漏れる（GHSA-mfr8-8qww-v76h）。</li>
+    <li>Medium：ネストした <code>use cache</code>（GHSA-vc7v-qv4w-wrv8）、バイナリ引数のキャッシュ衝突（GHSA-rhh4-g77r-r9qj）、自前運用の <code>next start</code> のシェルキャッシュ汚染、圧縮レスポンスのフレーミング不一致（GHSA-pc58-hwjq-p385）、Edge ルートで HttpOnly の cookie が <code>x-middleware-set-cookie</code> ヘッダに出る（GHSA-f3mh-rxg3-f5g2）、画像最適化の SVG 拒否の回避（GHSA-7qx7-33qx-rqx2）。</li>
+    <li>やること：<code>next@16.4.5</code> か <code>next@15.5.29</code> へ。本紙は 11/3 の発表をこれまで取り上げていませんでした。</li>
+  </ul>
+
+  <h3>4. eMudhra 続報：emSign Root CA - G1 の TLS distrust-after は 2026-11-16 23:59:59 UTC</h3>
+  <ul>
+    <li>Mozilla bug 2089115 のとおり、この日時より後に G1 の下で発行された TLS 証明書は、その NSS を使うクライアントで信頼されなくなる見込み（どの Firefox の版に入るかは未記載）。新しい動きは見つからなかった。</li>
+    <li>やること：自社のサイト・API の証明書チェーンに <code>emSign</code> / <code>eMudhra</code> があれば、別の CA で取り直す。</li>
+  </ul>
+
+  <h3>5. 漏えいの技術的な背景</h3>
+  <ul>
+    <li>良品計画：11/7 にログイン状況の分析から「リスト型攻撃の可能性が高い」と判断。ネットストアは停止のまま、再開時に全員へパスワード再設定を求める方向。自社サービスでもレート制限・二段階認証・漏えい済みパスワードの拒否を。</li>
+    <li>サイバーセキュリティクラウド：従業員の GitHub の認証情報 1 件が外部に流出し、社内の GitHub 環境に不正アクセス（11/5 に履歴を確認、11/13 公表）。一部顧客の組織名・氏名・メールなどが流出した可能性。PAT・SSH 鍵は期限と権限を絞る。</li>
+  </ul>
+
+  <h3>6. その他</h3>
+  <ul>
+    <li>NetScaler ADC / Gateway に 28 件（最高 CVSS 9.5、CVE-2026-107412 ほか）。Cloud Software Group が 11/12 に公表。修正版は CTX697305・CTX697320 で確認。</li>
+    <li>Chrome <code>157.0.8103.50</code>/<code>.51</code>（CVE-2026-125350 悪用あり）、Node.js（<code>22.23.5</code> / <code>24.22.3</code> / <code>26.13.1</code>）、Outlook CVE-2026-124194（悪用あり）は前号までのとおり。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://piyolog.hatenadiary.jp/entry/2026/11/13/162738">良品計画への不正アクセスについてまとめてみた（piyolog）</a></li>
+    <li><a href="https://piyolog.hatenadiary.jp/entry/2026/11/12/151939">警察庁推奨アプリのダウンロードページを装う偽サイトについてまとめてみた（piyolog）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html">Attacker Used 4,837 Hijacked GitHub Accounts to Run a CI Secret Stealer（The Hacker News）</a></li>
+    <li><a href="https://www.endorlabs.com/learn/github-actions-supply-chain-attack-targeting-ci-secrets-at-scale">Hijacked GitHub Accounts Push “wfx” CI Secret Stealer to Thousands of Repositories（Endor Labs）</a></li>
+    <li><a href="https://github.blog/open-source/git/git-security-vulnerabilities-announced-7/">Git security vulnerabilities announced（GitHub Blog）</a></li>
+    <li><a href="https://www.security-next.com/192648">「GitLab」がアップデート（Security NEXT）</a></li>
+    <li><a href="https://nextjs.org/blog/november-2026-security-release">November 2026 Security Release（Next.js）</a></li>
+    <li><a href="https://www.security-next.com/192847">認証情報が漏洩、GitHub環境に不正アクセス - CSC（Security NEXT）</a></li>
+    <li><a href="https://www.security-next.com/192789">「NetScaler ADC/Gateway」に複数の「クリティカル」脆弱性（Security NEXT）</a></li>
+    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2089115">Bug 2089115: emSign Root CA - G1（Mozilla Bugzilla）</a></li>
+    <li><a href="https://www.malwarebytes.com/blog/bugs/2026/11/update-chrome-now-to-fix-a-flaw-attackers-are-exploiting">Update Chrome now to fix a flaw attackers are exploiting（Malwarebytes）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
