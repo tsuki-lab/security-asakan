@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/16（月）</title>
+<meta name="description" content="京成スカイライナーのネット予約の会員情報 最大約337万件が流出した可能性。通販の発送代行会社からは届け先の情報が流出し、「お届け」を装う偽の連絡に注意が必要です。AI チャットに入力した内容が委託先から漏れた件も。開発者向けには Cursor の改ざん版拡張、KARTE の停止、eMudhra の期限、PostgreSQL の修正版。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月16日（月）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：宅配便や鉄道会社、お店を名乗るメール・SMS のリンクは開かず、公式アプリやいつものブックマークから確かめてください。住所や買った物まで知っている「本物らしい」連絡が増えそうです。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>京成スカイライナーのネット予約、会員情報 最大約337万件が流出の可能性</h2>
+  <p class="lede">京成電鉄は11月13日、特急券のチケットレスサービスが不正アクセスを受け、会員情報が外に持ち出された可能性があると公表しました。</p>
+  <p>対象は会員の ID、暗号化されたパスワード、カナ氏名、電話番号、メールアドレスです。会社は「パスワードは暗号化されていて元に戻せない」と説明しています。ネット予約は止まっていて再開時期は未定ですが、駅の窓口と券売機では通常どおり買えます。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>このサービスと同じパスワードをほかでも使っている人は、ほかのサービスのパスワードを変える</li>
+      <li>京成電鉄を名乗るメールや電話が来ても、リンクは開かず公式サイトから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>通販の発送代行会社から届け先の情報が流出。「お届け」の偽連絡に注意</h2>
+  <p class="lede">ネットショップの発送を請け負うオープンロジが不正アクセスを受け、荷物の届け先の情報が持ち出されました。</p>
+  <p>同社の11月11日の発表によると、対象は今年4月8日から11月8日までに発送を頼まれた荷物の、氏名・住所・電話番号・メールアドレス・商品名と数量です。クレジットカード番号は含まれません。件数は調査中です。グッズ通販など複数のショップが同社を使っていて、買った物の名前を添えた本物らしい偽の連絡が届くおそれがあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>「再配達」「お届け先の確認」をうたう SMS・メールのリンクは開かない。配送会社の公式アプリか、注文履歴の追跡番号で確かめる</li>
+      <li>買ったお店から「お知らせ」が届いていないか、お店の公式サイトで確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>AI に入力した内容が、裏側の会社から流出</h2>
+  <p class="lede">メモアプリ Notion の AI 機能に入力した文章と AI の返事の一部が、Notion が AI の処理を任せていた会社への不正アクセスで流出した可能性があります。</p>
+  <p>対象は全体の1%未満の利用グループで、ふつうのページやファイルは対象外です。ただ、AI への質問文にパスワードや取引先の名前、他人の個人情報を書いていた場合は、それが外に出たおそれがあります。国内でも多くの会社が「社内の AI 利用で入力した内容が含まれる可能性」を公表しています。AI サービスは、目の前の会社とは別の会社の設備で動いていることがあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>AI チャットにパスワード・暗証番号・カード番号・他人の個人情報を貼り付けない</li>
+      <li>過去に貼ってしまったパスワードがあれば、そのパスワードを変える</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Fireworks AI の侵害の波及：Cursor のマーケットプレイスに改ざん版の Claude Code 拡張（10/29）</h3>
+  <ul>
+    <li>Cursor の公表（The Hacker News 11/15）：Cursor が Fireworks AI に発行していたアクセスキーが Fireworks 側から漏れ、共有用の読み取り専用バケット（Privacy Mode でないセッションのエージェントの記録、主に 2025年）がコピーされた。一部は認証情報が伏せられておらず、顧客の 0.01% 未満の API 認証情報が露出。</li>
+    <li>攻撃者は盗んだ認証情報で、10/29 に Cursor の拡張マーケットプレイスのキャッシュへ改ざん版の Claude Code 拡張を置いた。常駐する SSH の裏口を入れようとする。約11時間公開され、最大 5,000 人が受け取った可能性。対象は <code>2.1.312</code> / <code>2.1.313</code> をその時間に Cursor から入れた利用者で、Cursor が通知済み。</li>
+    <li>Cursor は、Privacy Mode の利用者・顧客のコードリポジトリ・本番環境・Cursor 本体と公式の更新・ほかの拡張への影響は確認されていないとしている。11/1 以降の不正な活動はなし。通信先などの痕跡は記事に無い。</li>
+    <li>やること：Cursor で 10/29 にこの拡張を入れた・更新した端末は、<code>~/.cursor/extensions</code> の版を確認し、拡張を入れ直し、<code>~/.ssh/authorized_keys</code> と常駐（launchd・cron・systemd）を確認、端末から使えた鍵・トークンを交換。Privacy Mode を使っていなかった時期にエージェントやサポートへ渡した認証情報も交換。</li>
+    <li>同じ侵害で Notion AI（Insights の分類処理に使われた入力・応答の一部、10/5〜24、全ワークスペースの1%未満。Notion は 11/11 に対象メッセージ内の Notion API キーを失効）。ワークスペースの管理者は PC 版の「？」→「セキュリティインシデントのレビュー」で対象を確認し、会話に含まれた API キー・トークンを発行元で失効させる。</li>
+  </ul>
+
+  <h3>2. KARTE（プレイド）：不正アクセスで全プロジェクトの全機能を停止中（11/13〜）</h3>
+  <ul>
+    <li>11/13 14:44 に緊急メンテナンスを告知。Web・アプリの計測、各種配信、管理画面を含む全機能が対象。KARTE Message の一括配信や Datahub のジョブは途中で止まることがある。</li>
+    <li>11/13 23:35・11/15 16:01 に「外部に流出した可能性のある情報を確認し、該当顧客へメールで連絡」。11/15 時点で対象環境のネットワーク遮断は完了。流出した情報の種類・件数、原因、再開時期は未公表。</li>
+    <li>やること：KARTE を導入しているサービスは、外部サービス連携用の認証情報（シークレットキー、アクセストークン等）を無効化（プレイドが依頼）。計測・接客・配信が止まっている前提で自サービスの動作を確認し、<code>status.karte.io</code> を追う。</li>
+  </ul>
+
+  <h3>3. eMudhra 続報：G1 の期限は今日。Microsoft は今日から残りのルートを削除、Apple は cert.pem から 5 ルートを削除済み</h3>
+  <ul>
+    <li>Chrome：一番早い SCT が 2026-11-16 23:59:59 UTC より後の <code>emSign Root CA - G1</code> の証明書を信頼しない（CCADB の公開リストでの告知）。Firefox も同じ日時の distrust-after（Mozilla bug 2089115）。それ以前の証明書は有効期限まで使える。</li>
+    <li>Microsoft：11/16 から、G1 を含む eMudhra の残り 10 ルートを削除。既存の証明書も Windows・Edge で既定では信頼されなくなる。Apple：11/30 に G1 の証明書すべての信頼を終える（eMudhra の案内による）。</li>
+    <li>Apple は 11/9 の macOS 27.2.1 / 26.7.3 / 15.8.3 で <code>/etc/ssl/cert.pem</code> から <code>emSign ECC Root CA - G3</code>・<code>emSign Root CA - G1</code>・<code>emSign Root CA - C1</code>・<code>emSign ECC Root CA - C3</code>・<code>AAA Certificate Services</code> を外し、標準の curl・git などが漏えいした中間 CA の 12 枚を受け付けなくなった（サポート記事 149555）。この束だけを見るツールは、これらにつながるチェーンのサイトで検証に失敗しうる。古い Sectigo 系のチェーン（AAA）を返しているサーバーは中間証明書を見直す。</li>
+    <li>eMudhra は 10/19 に「影響なし」としていた RSA の中間 CA 8 つ（TLS 6・コード署名 2、発行済み 195 枚）も 10 月下旬に失効（理由コードは cessationOfOperation）。</li>
+    <li>やること：自社のサイト・API の証明書チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば、Windows から使われるホストを優先して別の CA で取り直す。CAA レコードを使っていれば新しい CA を先に足す。</li>
+  </ul>
+
+  <h3>4. PostgreSQL 18.7 / 17.12 / 16.16 / 15.20 / 14.25（11/12、52 件）</h3>
+  <ul>
+    <li>CVE-2026-6460（CVSS 8.8）：複合型の型の取り違え。オブジェクトを作れる DB ユーザーが、PostgreSQL を動かす OS アカウントの権限でコード実行。研究者が 18.6 で動く解説（最後の手順は省略）を公開。悪用の報告はない。</li>
+    <li>CVE-2026-116322：認証なしで PostgreSQL 18 のサーバーを再起動させられる。クライアント側では、細工したアーカイブで <code>pg_restore</code> が、侵害された接続元で <code>psql</code> がコード実行。</li>
+    <li>やること：サーバーとクライアントツールを更新、C 言語の拡張を作り直す、新設の <code>composite_type_mismatch</code> は無効にしない、リリース告知の再インデックス手順を行う。14 系は 14.25 が最後、13 以前は修正なし。マネージドサービスは各社の適用状況を確認。</li>
+  </ul>
+
+  <h3>5. CISA KEV に 11/13 追加：UnrealIRCd と Check Point</h3>
+  <ul>
+    <li>UnrealIRCd CVE-2026-114713（CVSS 8.6、6.0.0〜6.2.7.1 未満）：利用者がサーバー間コマンドを注入できる。修正版は <code>6.2.7.1</code>。</li>
+    <li>Check Point CVE-2026-123039（Gaia OS の権限昇格）：PHP2Shell で侵入した攻撃者が root を取り、裏口や VMware ESXi のワイパーを置くのに使っている（10/30〜）。緊急の修正が出ている。</li>
+  </ul>
+
+  <h3>6. 漏えいの技術的な背景と、続いている話</h3>
+  <ul>
+    <li>京成電鉄（11/13 公表）：座席予約システムへの不正アクセスで、ID・暗号化済みパスワード・カナ氏名・電話・メール 最大約337万件の可能性。オープンロジ（11/11 公表）：11/8〜9 の不正アクセスで 4/8〜11/8 の出荷データ（届け先の氏名・住所・電話・メール・商品名）。</li>
+    <li>集計サイトによると、ニトリ（11/9、最大3,762万件の可能性）、マネックス証券（11/13、委託先の口座開設システム。メール最大113万件・本人確認書類の画像 1,592件）、paiza（11/13、ステージング環境の認証の不備で最大約90万件のおそれ）なども公表されている（各社の発表原文は未確認）。ステージングや検証環境にも本番と同じ認証とデータの最小化を。</li>
+    <li>前号までのとおり：「wfx」（GitHub アカウント乗っ取りで CI のシークレット窃取。新しい汚染パッケージの報告は見つからなかった）、Git <code>2.56.1</code> ほか、Next.js <code>16.4.5</code> / <code>15.5.29</code>、Chrome <code>157.0.8103.50</code>（悪用あり）、Node.js <code>22.23.5</code> / <code>24.22.3</code> / <code>26.13.1</code>、Outlook CVE-2026-124194（悪用あり）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://cyber.spool.co.jp/cyber_news/20261115-keisei-skyliner-data-breach">京成電鉄のスカイライナー予約システムに不正アクセス、最大約337万件の会員情報が流出か（CyberCrew）</a></li>
+    <li><a href="https://www.logi-today.com/1020754">オープンロジに不正アクセス、出荷データの個人情報が流出（LOGISTICS TODAY）</a></li>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/otion-fireworks-ai-chat-security-incident-check/">Notion AIのチャット記録 流出の影響まとめ（セキュリティ対策Lab）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html">Cursor Says Stolen Fireworks AI Key Led to Trojanized Claude Code Extension Incident（The Hacker News）</a></li>
+    <li><a href="https://plaid.co.jp/news/20261113/">当社サービスへの不正アクセスに関するご報告（プレイド）</a> ／ <a href="https://status.karte.io/">KARTE ステータスページ</a></li>
+    <li><a href="https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html">eMudhra Revokes 8 More CAs It Previously Declared Unaffected by Key Compromise（The Hacker News）</a></li>
+    <li><a href="https://www.certkit.io/blog/emudhra-g1-root-distrust-incommon">eMudhra's RSA root is distrusted too, and InCommon schools have to move again（CertKit）</a></li>
+    <li><a href="https://support.apple.com/en-us/149555">Apple サポート記事 149555</a> ／ <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2089115">Bug 2089115: emSign Root CA - G1（Mozilla Bugzilla）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html">PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RCE（The Hacker News）</a></li>
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/11/13/cisa-adds-two-known-exploited-vulnerabilities-catalog">CISA Adds Two Known Exploited Vulnerabilities to Catalog（CISA）</a></li>
+    <li><a href="https://incidents.seory.co.jp/monthly/2026-11/">2026年11月の不正アクセス・情報漏えい（セキュリコ、集計）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
