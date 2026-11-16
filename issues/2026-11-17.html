@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/17（火）</title>
+<meta name="description" content="多くの会社のサイトで使われる顧客分析サービス KARTE から、利用企業の顧客情報の一部などが流出。靖国神社の通販サイトから約1万4500件、スーパーコンピューター「富岳」にも不正アクセス。開発者向けには npm の bee-js 13.3.0 の裏口、AI アプリの API キーを狙う攻撃、Linux の NoisyTCP。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月17日（火）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：同じパスワードをいくつものサービスで使っている人は、大事なもの（メール・ネット銀行・買い物）から別々のパスワードに変えてください。流出が続いていて、1か所から漏れると全部に入られます。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>多くの会社のサイトの裏側で使われるサービスから、情報が流出</h2>
+  <p class="lede">会社のサイトやアプリでお客さんの動きを分析する「KARTE」というサービスが不正アクセスを受け、利用している会社の顧客情報の一部などが持ち出されました。</p>
+  <p>運営するプレイドの11月16日の発表によると、持ち出されたのは KARTE に登録された約7万9千件のメールアドレス、ほかのサービスとつなぐための「合い鍵」、利用企業が取り込んだお客さんの情報の一部です。件数や中身はまだ調べている最中です。KARTE は11月13日から止まっていて、いくつかのサイトでお知らせの表示などが動いていない可能性があります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>よく使うお店や会社から「情報流出のお知らせ」が届いたら、メールのリンクではなく公式サイトで内容を確かめる</li>
+      <li>流出をきっかけにした「確認のため入力を」というメール・SMS は開かない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>靖国神社の通販サイトから約1万4500件。パスワードの手がかりも</h2>
+  <p class="lede">靖国神社のお守りなどを扱う通販サイトが攻撃を受け、利用者の情報が流出しました。</p>
+  <p>流出したのは氏名、メールアドレス、パスワードを変換した値などで、神社は元のパスワードを割り出されるおそれがあるとしています。サイトは10月28日から止まっていて、対象の人にはメールで連絡するとのことです。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>このサイトを使ったことがあり、同じパスワードをほかでも使っている人は、ほかのサービスのパスワードを変える</li>
+      <li>神社を名乗るメールが来ても、リンクは開かず公式サイトから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>スーパーコンピューター「富岳」に不正アクセス。利用者のログイン用の鍵が持ち出される</h2>
+  <p class="lede">理化学研究所のスーパーコンピューター「富岳」が不正アクセスを受け、11月14日から止まっています。</p>
+  <p>利用者への連絡によると、一部の利用者がログインに使う「鍵」や認証の情報が外に持ち出されました。研究データへの影響は調査中で、再開時期は決まっていません。職場や学校のシステムでも同じことが起きうるので、「パスワードを変えて」という連絡が来たときの確かめ方を知っておくと安心です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>職場や学校から「パスワードを変えて」と連絡が来たら、メールのリンクではなく、いつものログイン画面や担当部署に確かめてから変える</li>
+      <li>仕事用と私用で同じパスワードを使わない</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）をオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. KARTE（プレイド）：漏えい内容を公表（11/16）。連携用の認証情報を至急無効化</h3>
+  <ul>
+    <li>漏えいを確認：KARTE のアカウント登録メールアドレス 79,249件、外部サービス連携用の認証情報（シークレットキー・アクセストークン等、件数調査中）、「紐付けテーブル」機能などで利用企業が取り込んだ顧客情報の一部（件数調査中）。</li>
+    <li>原因：サーバーの脆弱性を突かれてシステム・DB の接続用認証情報を盗まれ、アカウントを乗っ取られて DB からデータを持ち出され、管理画面にも侵入された。11/13 未明に発生、8:59 検知、15:23 ごろ封じ込め完了。再開時期は未定。</li>
+    <li>やること：外部連携を設定していれば該当の認証情報を無効化し、連携先（MA・CRM・広告・データ基盤など）のアクセスログで不審な書き換え・読み出しを確認。紐付けテーブルに入れた顧客情報の項目を洗い出し、個人情報保護委員会への報告や本人通知の要否を判断。KARTE の登録メールアドレス宛の偽メールに注意。</li>
+  </ul>
+
+  <h3>2. npm <code>@ethersphere/bee-js</code> 13.3.0 と Swarm Desktop 0.56.2 に裏口（11/9）</h3>
+  <ul>
+    <li>bee-js 13.3.0 は 11/9 00:09〜01:25 UTC（約75分）公開。安全な版は <code>13.2.0</code>。Swarm Desktop 0.56.2 は約8.5時間公開、安全な版は <code>0.56.3</code>。プロジェクト自身の CI・署名の仕組みから出たため、署名・来歴は正しかった。</li>
+    <li>postinstall で <code>api.frameworkmetrics[.]xyz</code> から追加のコードを取り、Swarm のウォレット鍵を盗む。Linux / macOS は <code>~/.solidity/</code> に Go の裏口（systemd <code>solidity-langsupport-runner.service</code> / LaunchAgent <code>com.solidity.langsupport.runner</code>）、Windows は ScreenConnect（<code>ScreenConnect Client (5cbe79c9c25524df)</code>）。</li>
+    <li>やること：ロックファイル・キャッシュ・社内レジストリ・CI のログで 13.3.0 を探す（swarm-cli・bee-dashboard などのゆるい版指定経由も）。入っていれば端末・ランナーは侵害扱いで、別の端末から鍵・トークンを交換。更新や入れ直しでは裏口は消えない。</li>
+  </ul>
+
+  <h3>3. AI エージェントが公開中の AI アプリから API キーを集める（Amazon の報告）</h3>
+  <ul>
+    <li>標的：LLM の中継（One API・New API・LiteLLM など）と AI アプリの作成ツール（Dify・FastGPT・Langflow・RAGFlow・Open WebUI・LobeChat・Ollama）。攻撃ツール ARTEX を使い、見つけたキーを検証して共有の束に足す。</li>
+    <li>入口：Langflow CVE-2025-3248（<code>1.3.0</code> 未満、CISA KEV）、RAGFlow CVE-2026-28797（0.24.0 以前、<code>0.25.0</code> で修正）、One API の認証回避（修正版の記載なし）、LiteLLM の既定の master key、作りかけのインストール、認証のない管理 API、SSRF でのクラウドのメタデータ、JS・ソースマップ・.env に残った秘密。</li>
+    <li>やること：AI アプリと推論の入口を本番扱いにし、既定の認証情報を変え、管理画面を外に出さない。Cloudflare の API トークンには期限と IP 制限を付け、<code>cfut_</code> で始まるトークンの漏れを探す。<code>artex-*</code> という名前の Worker スクリプトがないか確認。AI の利用料金の急増を監視。</li>
+  </ul>
+
+  <h3>4. 「富岳」：一部利用者の SSH 秘密鍵・認証情報が持ち出された</h3>
+  <ul>
+    <li>11/12 に利用者認証のシステムへ不審な通信、11/14 4:30 に外部からのアクセスを遮断して運用停止。ホームディレクトリなどのファイルが読み出された。原因・経路は調査中。</li>
+    <li>共有の計算機・踏み台に置いた秘密鍵は持ち出されうる前提で、そこで使った鍵を交換し、同じ鍵を登録したほかのサーバー・Git ホスティングからも外す。鍵にはパスフレーズを付け、可能ならハードウェアキーや短期の証明書に。</li>
+  </ul>
+
+  <h3>5. Linux「NoisyTCP」・Windows「SignDrop」・N-central</h3>
+  <ul>
+    <li>Linux カーネル CVE-2026-99288（NoisyTCP）：細工した TCP パケットで認証なしにカーネルを落とせる（コード実行はなし、競合の窓は狭い）。ほぼすべてのディストリビューションが対象で、修正はメインラインに入っている。各ディストリの更新を当てて再起動。</li>
+    <li>Windows CLFS の「SignDrop」：一般ユーザーから SYSTEM を取る攻撃コードが公開、CVE 未付番・未修正（Microsoft は調査中）。</li>
+    <li>N-able N-central「4EverAble2Shell」CVE-2026-114406：悪用あり（21 台が侵害）。CISA KEV に 11/13 追加の UnrealIRCd CVE-2026-114713（<code>6.2.7.1</code> で修正）と Check Point CVE-2026-123039 の連邦機関向けの期限は 11/16 だった。</li>
+  </ul>
+
+  <h3>6. 続いている話</h3>
+  <ul>
+    <li>eMudhra：<code>emSign Root CA - G1</code> の新規証明書の期限（2026-11-16 23:59:59 UTC、Chrome・Firefox）は過ぎた。Microsoft は 11/16 から残りのルートを削除（Windows・Edge では既存の証明書も既定で信頼されない）。Apple は 11/30 に G1 の証明書すべての信頼を終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。</li>
+    <li>Cursor の改ざん版 Claude Code 拡張（10/29、<code>2.1.312</code> / <code>2.1.313</code>）、Notion AI（委託先 Fireworks AI 経由）、「wfx」（乗っ取り GitHub アカウントで CI のシークレット窃取）。</li>
+    <li>PostgreSQL <code>18.7</code> / <code>17.12</code> / <code>16.16</code> / <code>15.20</code> / <code>14.25</code>、Chrome <code>157.0.8103.50</code>（悪用あり）、Git <code>2.56.1</code> ほか、Next.js <code>16.4.5</code> / <code>15.5.29</code>、Node.js <code>22.23.5</code> / <code>24.22.3</code> / <code>26.13.1</code>、Outlook CVE-2026-124194（悪用あり）、古い Apple 端末の CVE-2024-27834（CISA 期限 11/18）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://plaid.co.jp/news/20261116/">不正アクセスによる個人情報を含む可能性のある情報等の漏えいに関するお詫びとお知らせ（プレイド）</a> ／ <a href="https://status.karte.io/">KARTE ステータスページ</a></li>
+    <li><a href="https://www.security-next.com/192746">通信販売サイトで個人情報が流出 - 靖国神社（Security NEXT）</a></li>
+    <li><a href="https://piyolog.hatenadiary.jp/entry/2026/11/17/030254">スーパーコンピューター「富岳」への不正アクセスについてまとめてみた（piyolog）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html">Hackers Compromise Ethersphere's bee-js and Swarm Desktop（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html">Amazon Uncovers AI Agent Campaign Targeting LiteLLM, Dify, and Other Apps for API Keys（The Hacker News）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel-flaw-lets-attackers-crash-servers/">New NoisyTCP vulnerability lets attackers crash Linux servers（BleepingComputer）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/weekly-recap-n-able-0-days-windows-0.html">Weekly Recap: N-able 0-Days, Windows 0-Days, Chrome 0-Days（The Hacker News）</a> ／ <a href="https://www.security-next.com/192892">米当局、悪用確認の脆弱性2件に注意喚起（Security NEXT）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
