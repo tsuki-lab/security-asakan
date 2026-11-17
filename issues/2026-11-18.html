@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/18（水）</title>
+<meta name="description">楽天証券から最大約447万口座分の個人情報（年収や出金先口座も）が漏れたおそれ。KARTE 経由の流出を JINS・Francfranc など多くの会社が公表。大手サイトに仕込まれたカード情報を盗むコード。開発者向けには Optimizely の改ざん、Oracle Java の 11 月の更新、Puppet Enterprise の悪用。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月18日（水）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：楽天証券やよく使うお店を名乗る「確認してください」というメール・SMS・電話が来ても、リンクは開かず、公式アプリや公式サイトから自分で確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>楽天証券から最大約447万口座分の個人情報が漏れたおそれ。年収や出金先の口座も</h2>
+  <p class="lede">楽天証券は11月17日、不正アクセスで、お客さんの情報が外に漏れたおそれがあると発表しました。</p>
+  <p>最大約447万口座（解約した人を含む）は、氏名・住所・生年月日・電話番号・メールアドレス・勤務先・出金先の銀行口座・申告した年収や資産などが対象です。ほかに最大約1,125万口座のログイン ID も含まれます。パスワードと暗証番号の漏えい、不正な取引は確認されていないとしています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>楽天証券を使っている人は、ログイン時の「パスキー」を設定する。ログイン後のセキュリティ設定で、取引や出金を一時的に止めることもできる</li>
+      <li>年収や資産を知った上での「投資のお誘い」「本人確認のお願い」は詐欺を疑い、楽天証券を名乗る連絡のリンクは開かない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>お店やサービスの「お客さん分析」の仕組みから流出。JINS・Francfranc などが次々に公表</h2>
+  <p class="lede">前号で伝えた KARTE（多くの会社がサイトの裏側で使う分析サービス）への不正アクセスで、利用していた会社が自社のお客さんの情報も流出したおそれがあると発表し始めました。</p>
+  <p>JINS は最大約1,829万アカウント（メールアドレス・生年月日など）、Francfranc は最大約598万件（氏名・生年月日など）、クラブツーリズム約406万件、アインズ＆トルペ・アユーラ最大約260万件など、30社近くが公表しています。日経電子版・WOWOW・集英社・CAMPFIRE・mineo なども調査中です。多くの会社は、パスワードやカード情報は対象外としています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っているお店やサービスから届いたお知らせは、メールのリンクではなく公式サイトで内容を確かめる</li>
+      <li>流出をきっかけにした「ポイント付与」「確認のため入力を」というメール・SMS は開かない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>BBC・CNN・Zoom などの大手サイトに、カード情報を盗むコードが一時的に仕込まれた</h2>
+  <p class="lede">多くの会社がサイトの見た目を試すのに使う外部サービスが乗っ取られ、11月16日に少なくとも178の組織のサイトで不正なコードが配られました。</p>
+  <p>コードは、サイトの入力欄に打ち込んだカード番号を盗んだり、暗号資産の送金先を差し替えたり、古い iPhone を狙ったりするものでした。サービス側はすでに直し、コードは取り除かれています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>iPhone・iPad を最新の iOS に更新する</li>
+      <li>11月16日に海外の大手サイトでカード払いをした人は、カードの明細に覚えのない請求がないか確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Optimizely Web Experimentation の改ざん（11/16）</h3>
+  <ul>
+    <li>Optimizely の欠陥を突いて各社の Project JavaScript にローダーを書き込み、正規の <code>cdn.optimizely.com</code> から配信。少なくとも 178 組織（CNN・BBC・Zoom・Salesforce・GitLab・HSBC など）。最初の注入は 11/16 04:21 UTC、大半は同日 21:52 UTC までに除去。再感染した例もある。</li>
+    <li>中身：暗号資産アドレスのすり替え（<code>1688360[.]cc/track.js</code>）、自前フォームのカード番号・期限・CVV の窃取（別オリジンの決済 iframe は読めない）、HttpOnly でない Cookie と画面の送信、iOS 13〜18・26 向けの攻撃チェーンのローダー。</li>
+    <li>やること：Project JavaScript とカスタムコードで <code>1688360</code>・<code>atob(</code>・覚えのないコードを探す。Optimizely に書き込めるアカウント・API トークンを交換。CSP の <code>script-src</code> / <code>connect-src</code> を絞る（<code>cdn.optimizely.com</code> を許可するだけでは防げない）。決済ページに第三者タグを置かず、決済代行の別オリジンの入力欄を使う。11/16 に自社フォームに入ったカード情報は漏れた前提で扱う。</li>
+  </ul>
+
+  <h3>2. Oracle Java の 11 月の更新（11/17）と「Java4Shell」CVE-2026-114938</h3>
+  <ul>
+    <li>Oracle は Java SE の 11 件を修正。修正版は <code>8u513</code>・<code>11.0.33.1</code>・<code>17.0.21.1</code>・<code>21.0.13.1</code>・<code>25.0.5.1</code>・<code>27.0.1.1</code>。GraalVM・JavaFX も対象に挙がっている。</li>
+    <li>Java4Shell は Calif の報告で、OpenJDK 17.0.6 以降・CVSS 4.0 で 9.2 と報じられたが、CVE は予約のみで Oracle の 11 件に含まれるかは不明。AVX-512 の Base64 デコードの欠陥で JVM が落ちる程度との分析もある。悪用の報告はまだない。</li>
+    <li>やること：Oracle JDK は上の版へ。Temurin・Corretto・Zulu・ディストリの OpenJDK は各配布元の 11 月の版が出たら当てる。外から受け付けるサービスを優先し、Docker イメージは作り直す。</li>
+  </ul>
+
+  <h3>3. KARTE（プレイド）の続報</h3>
+  <ul>
+    <li>プレイドは 11/17 20:53 の更新で、漏えいを確認したデータ（「紐付けテーブル」などで取り込んだもの）を申請のあった利用企業へ送り始めた。再開は未定。</li>
+    <li>利用企業の公表：JINS 最大約1,829万アカウント、Francfranc 会員 最大約598万件＋購入履歴 最大約400万件、クラブツーリズム 約406万件、アインズ＆トルペ・アユーラ 最大約260万件、四国電力 約60万件、阪急阪神ホテルズ 最大331,586件 ほか。件数は集計単位が違い合算できない。</li>
+    <li>やること：KARTE の外部連携用のシークレットキー・アクセストークンを無効化し、連携先のログを確認。取り込んだ顧客データの項目を洗い出し、個人情報保護委員会への報告・本人通知の要否を判断。</li>
+  </ul>
+
+  <h3>4. 楽天証券：テスト環境から本番相当の顧客データ</h3>
+  <ul>
+    <li>テスト環境のシステムに置いていた情報が 11/11 に漏えいしたおそれ（11/16 検知）。最大約447万口座の氏名・住所・勤務先・出金先口座・年収・資産など、最大約1,125万口座のログイン ID。</li>
+    <li>教訓：テスト・検証環境に本番の個人データを置かない（置くならマスキング・合成データに）。テスト環境も本番と同じ監視・アクセス制御の対象にする。</li>
+  </ul>
+
+  <h3>5. CISA KEV・その他</h3>
+  <ul>
+    <li>Perforce Puppet Enterprise CVE-2026-115731（信頼できないデータのデシリアライズ）を 11/17 に KEV へ追加。修正版は 2023.8.13 / 2025.12.1 / 2026.0.1 以上と各所が案内している（Perforce の原文は未確認）。更新まで証明書要求の自動署名を止める。</li>
+    <li>富岳：利用者 4,222人の氏名・メール・ユーザー ID と SSH 秘密鍵・アクセスキーが流出。盗まれたキーでほかのシステムへの接続も試みられた。共有の計算機・踏み台に置いた鍵は交換を。</li>
+  </ul>
+
+  <h3>6. 続いている話</h3>
+  <ul>
+    <li>eMudhra：<code>emSign Root CA - G1</code> の新規証明書の期限は過ぎ、Microsoft は 11/16 から削除、Apple は 11/30 に既存の G1 の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。</li>
+    <li>npm <code>@ethersphere/bee-js</code> 13.3.0（安全な版は <code>13.2.0</code>）、公開中の AI アプリから API キーを集める ARTEX（Langflow <code>1.3.0</code>・RAGFlow <code>0.25.0</code> 以上、LiteLLM の既定の master key を変える）、Linux NoisyTCP CVE-2026-99288、Windows CLFS「SignDrop」（未修正）。</li>
+    <li>Chrome <code>157.0.8103.50</code>（悪用あり）、古い Apple 端末の CVE-2024-27834（CISA 期限 11/18）、PostgreSQL <code>18.7</code> ほか、Git <code>2.56.1</code> ほか、Next.js <code>16.4.5</code> / <code>15.5.29</code>、Node.js <code>22.23.5</code> / <code>24.22.3</code> / <code>26.13.1</code>。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.rakuten-sec.co.jp/web/info/info20261117-02.html">当社お客様の情報漏えいの可能性に関するお詫びとお知らせ（楽天証券）</a></li>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/karte_unauthorized_access_affected_companies_roundup_2026/">プレイド「KARTE」不正アクセスの影響企業まとめ（セキュリティ対策Lab）</a> ／ <a href="https://www.francfranc.co.jp/news/2026/qa3pcqeqbdc7">Francfrancにおけるお客さま情報流出の可能性について（Francfranc）</a> ／ <a href="https://status.karte.io/">KARTE ステータスページ</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html">Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html">Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges（The Hacker News）</a> ／ <a href="https://www.aikido.dev/blog/java-17-rce-vulnerability-cve-2026-114938">Java4Shell CVE-2026-114938（Aikido）</a></li>
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog">CISA Adds One Known Exploited Vulnerability to Catalog（CISA）</a></li>
+    <li><a href="https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/">Japan takes Fugaku supercomputer offline after cyberattack（BleepingComputer）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
