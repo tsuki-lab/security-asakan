@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/19（木）</title>
+<meta name="description">KARTE 経由の流出の公表が三菱UFJ銀行・CAMPFIRE などにも広がりました。Chrome 158 で200件以上の欠陥を修正。開発者向けには PyPI の Microsoft agent-framework の改ざん版、CISA が LiteLLM などを悪用済みに追加、Java4Shell の続報。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月19日（木）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：銀行やよく使うサービスから「情報流出のお詫び」が届いたら、メールのリンクは開かず、公式アプリやブックマークから内容を確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>「お客さん分析」の仕組みからの流出、三菱UFJ銀行や CAMPFIRE などにも広がる</h2>
+  <p class="lede">多くの会社がサイトの裏側で使う分析サービス KARTE への不正アクセスで、11月18日に銀行や証券、クラウドファンディングなどの会社も、自社のお客さんの情報が流出したと発表しました。</p>
+  <p>三菱UFJ銀行は約650万件（性別・年齢・住んでいる地域。氏名や連絡先は含まない）、CAMPFIRE は約582万件（メールアドレスなど）、ウェルスナビは約91万人分などです。多くの会社は、パスワードやカード番号は対象外としています。サービスの再開時期はまだ決まっていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>使っているサービスのお知らせは、メールのリンクではなく公式サイトや公式アプリで確かめる</li>
+      <li>「お詫びのポイント」「本人確認のため入力を」というメール・SMS・電話は詐欺を疑う</li>
+    </ul>
+  </div>
+  <p class="words"><b>KARTE</b>：サイトに来た人の行動を分析して、案内やおすすめを出すための仕組み。利用者からは見えにくいところで使われています。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>Chrome に大きな更新。200件以上の欠陥を直した新しい版</h2>
+  <p class="lede">Google は11月17日、ブラウザ Chrome の新しい版（158）を出し、204件の欠陥を直しました。</p>
+  <p>このうち6件は重大なものです。今のところ悪用されたという報告はありませんが、更新は自動では反映されきらないことがあり、Chrome を再起動して初めて新しい版になります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>パソコンは Chrome のメニュー →「ヘルプ」→「Google Chrome について」を開き、更新が終わったら再起動する</li>
+      <li>スマホは Google Play・App Store でアプリを更新する</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. PyPI の Microsoft <code>agent-framework</code> 1.26.1 / 1.26.2 に認証情報窃取コード（11/17）</h3>
+  <ul>
+    <li>Microsoft の正規の公開者アカウントから 33分おいて2版が公開され、PyPI は両方を隔離。公開の時間帯は 11/17 20:35〜21:20 UTC ごろ。月に約19万ダウンロードのパッケージ。公開できた経路は不明。</li>
+    <li>site-packages に <code>.pth</code>（1.26.1 は <code>agent_framework_meta.pth</code>、1.26.2 は <code>af_runtime_diag.pth</code> ＋ <code>af_runtime_diag.py</code>）を置き、import しなくても Python（pip を含む）の起動のたびに実行される。</li>
+    <li>環境変数、Azure CLI・<code>.npmrc</code>・<code>pip.conf</code>・<code>.netrc</code>・<code>.git-credentials</code>・Docker・Hugging Face・<code>.env</code> などを集め、Azure DevOps・GitHub Actions（1.26.2）の OIDC トークン、Azure のマネージド ID のトークンも要求して <code>webhook[.]site</code> へ送る。</li>
+    <li>やること：<code>1.26.0</code> に固定し、クリーンな環境で作り直す。該当時間帯にインストールしたホスト・CI ランナーを隔離し、プロキシ・DNS のログで <code>webhook.site/d381fd80-ec62-42ad-8f5c-d1b15103c9bb</code> を探す。別の端末から認証情報を交換し、Azure の ID のサインイン・アクティビティを監査。Azure へデプロイする GitHub Actions のワークフローも確認。</li>
+  </ul>
+
+  <h3>2. CISA KEV に4件追加（11/18）：LiteLLM・Apache Axis・Synology DSM・REDCap</h3>
+  <ul>
+    <li><strong>LiteLLM CVE-2026-40217</strong>：<code>POST /guardrails/test_custom_code</code> のサンドボックスをバイトコードの細工で抜け、proxy のプロセスで任意コード実行（既定の Docker イメージでは root）。対象は <code>1.81.8</code> 以上 <code>1.83.10</code> 未満、<code>1.83.10</code> で修正。既定では proxy の管理者の鍵が必要（CVSS 3.1 で 8.8）。低権限から管理者へ上がる欠陥との連鎖も報告されている。10/21 にマルウェア入りで配られた <code>1.107.0</code> は避ける。</li>
+    <li><strong>Apache Axis CVE-2026-90436</strong>（安全でないリフレクション）：Axis 1.x（1.4 まで）は保守終了で修正版は出ない見込み。Axis2 へ移行するか上流のコミットを当てる。</li>
+    <li><strong>Synology DSM CVE-2024-10441</strong>・<strong>REDCap CVE-2026-90817</strong>：使っていれば最新版へ。</li>
+  </ul>
+
+  <h3>3. Java4Shell CVE-2026-114938：CISA が即時の更新を呼びかけ</h3>
+  <ul>
+    <li>x86-64 の HotSpot の Base64 デコーダの範囲外書き込み（CVSS 8.1）。細工した入力で JVM がクラッシュし、条件によっては認証なしでコード実行。悪用の報告はまだない。</li>
+    <li>Oracle と OpenJDK が 11/17 に修正。Oracle JDK は <code>8u513</code>・<code>11.0.33.1</code>・<code>17.0.21.1</code>・<code>21.0.13.1</code>・<code>25.0.5.1</code>・<code>27.0.1.1</code>。Keycloak は「17.0.6 以降の未修正の OpenJDK、21・25 も対象」と説明。</li>
+    <li>やること：同梱・コンテナ内のランタイムも含めて JDK を棚卸しし、配布元（Temurin・Corretto など）の 11 月の版へ。すぐ当てられないときは Base64 入力の大きさを制限し、認証なしで受け付ける口を絞る。</li>
+  </ul>
+
+  <h3>4. Chrome 158（11/17）</h3>
+  <ul>
+    <li>Windows・Mac <code>158.0.8127.36/.37</code>、Linux <code>158.0.8127.36</code>。204件を修正、うち Critical 6件（すべてメモリ安全性）。悪用の報告はなし。XSLT は既定で無効になったので、XSLT に頼るページは確認を。</li>
+    <li>Puppeteer・Playwright などで固定した Chromium を使う CI・コンテナも更新を。</li>
+  </ul>
+
+  <h3>5. KARTE（プレイド）の続報</h3>
+  <ul>
+    <li>11/18 に三菱UFJ銀行 約650万件、CAMPFIRE 5,819,779件、ユニフォームネクスト 最大1,701,006件、ウェルスナビ 約91万人、ポケットマルシェ 約95万人、エス・エム・エス 延べ484,504件などが公表。プレイドは漏えいデータの申請企業への提供を続け、再開は未定。</li>
+    <li>やること（利用企業）：外部連携用のシークレットキー・アクセストークンを無効化し、連携先のログを確認。取り込んだ顧客データの項目を洗い出す。</li>
+  </ul>
+
+  <h3>6. 続いている話</h3>
+  <ul>
+    <li>Optimizely Web Experimentation の改ざん（11/16、<code>1688360[.]cc</code>）、楽天証券のテスト環境からの漏えい、Puppet Enterprise CVE-2026-115731（KEV）。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。</li>
+    <li>npm <code>@ethersphere/bee-js</code> 13.3.0（安全な版は <code>13.2.0</code>）、Linux NoisyTCP CVE-2026-99288、Windows CLFS「SignDrop」（未修正）、PostgreSQL <code>18.7</code> ほか、Git <code>2.56.1</code> ほか、Next.js <code>16.4.5</code> / <code>15.5.29</code>、Node.js <code>22.23.5</code> / <code>24.22.3</code> / <code>26.13.1</code>。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/karte_unauthorized_access_affected_companies_roundup_2026/">プレイド「KARTE」不正アクセスの影響企業まとめ（セキュリティ対策Lab）</a> ／ <a href="https://www.itmedia.co.jp/news/article/2611/17/2000003257/">モリサワや「mineo」など会員情報漏えい（ITmedia NEWS）</a></li>
+    <li><a href="https://www.securityweek.com/chrome-158-patches-204-vulnerabilities/">Chrome 158 Patches 204 Vulnerabilities（SecurityWeek）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html">Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials（The Hacker News）</a></li>
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog">CISA Adds Four Known Exploited Vulnerabilities to Catalog（CISA）</a> ／ <a href="https://advisories.gitlab.com/pypi/litellm/CVE-2026-40217/">LiteLLM CVE-2026-40217（GitLab Advisory Database）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/cisa-urges-immediate-patching-of.html">CISA Urges Immediate Patching of Java4Shell Flaw（The Hacker News）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
