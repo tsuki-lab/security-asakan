@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/20（金）</title>
+<meta name="description">コーセーの予約システムや通販の発送代行から、氏名・住所などの流出が続いています。サービスの障害に便乗した「急がせる」詐欺メールにも注意。開発者向けには PHP・Ruby・nginx・WordPress の修正版、Java4Shell の続報。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月20日（金）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：「24時間以内に消えます」「再配達はこちら」と急がせるメールや SMS は、リンクを開かずに公式アプリやブックマークから確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>お店の予約や通販の「届け先」の情報が流出。コーセー、通販の発送代行など</h2>
+  <p class="lede">化粧品のコーセーは、店頭体験・レッスンの予約システムから、お客さんの情報 28,098件が流出したと発表しました。</p>
+  <p>対象は直営店「Maison KOSE 銀座」と、閉店した「Maison KOSE 表参道」で予約した人で、氏名・住所・電話番号・生年月日・メールアドレスなどです。また、多くの通販サイトの発送を引き受けている会社「オープンロジ」への不正アクセスでは、届け先の氏名・住所・電話番号に加えて、注文番号や金額なども対象だったと分かり、鹿島アントラーズ（40,844名）や日本テレビ系の通販（10,529件）などが相次いで公表しています。どちらも、パスワードやカード番号が流出したという発表はありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>心当たりのある人は、各社の公式サイトのお知らせを確かめる（メールのリンクからではなく）</li>
+      <li>注文内容や住所を知った上での「再配達」「お詫び」「返金」の連絡は詐欺を疑い、SMS やメールのリンクは開かない</li>
+    </ul>
+  </div>
+  <p class="words"><b>発送代行</b>：通販サイトの代わりに、倉庫で商品を保管して発送する会社。買った店とは別の会社が届け先を知っていることがあります。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>サービスの障害に便乗する「急がせる」詐欺メール。AI で文面を磨く道具も</h2>
+  <p class="lede">11月12日に起きた Microsoft 365 の大きな障害に合わせて、「保留中のメールが24時間で消えます」と急がせる偽メールが世界中で出回りました。</p>
+  <p>ニュースになった障害や情報流出は、すぐに詐欺の材料にされます。さらに、生成 AI に文面を書かせ、迷惑メールの判定を通り抜けるまで自動で書き直す道具が、犯罪者向けに売られていることも報告されました。日本語の不自然さで見分けるのは、もう当てになりません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>「期限つきで急がせる」連絡は、まず詐欺を疑う。確かめるのは公式アプリ・ブックマークから</li>
+      <li>ログイン画面に進んでしまったら入力せずに閉じる。入力してしまったら、すぐにパスワードを変え、二段階認証をオンにする</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>ブログやお店のサイトを WordPress で作っている人は更新を</h2>
+  <p class="lede">サイト作成ソフト WordPress が11月18日に、20件の修正をまとめた新しい版（7.1.5）を出しました。</p>
+  <p>サイトを乗っ取られるおそれのある欠陥も含まれています。今のところ悪用されたという報告はありません。多くのサイトは自動で更新されますが、止めている場合や古い版のままの場合は手動での更新が必要です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>管理画面の「ダッシュボード」→「更新」を開き、WordPress 本体・プラグイン・テーマを最新にする</li>
+      <li>制作会社やレンタルサーバーに任せている人は、「更新は済んでいますか」と聞く</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. PHP 8.5.13 / 8.4.28 / 8.3.37 / 8.2.36（11/19）：「phpAfterShell」CVE-2026-126714 ほか</h3>
+  <ul>
+    <li>8件を修正（CVSS 9.2 が 7件、8.8 が 1件）。8.6.0 も同日公開。8.1 以前は保守終了。攻撃の報告はなし。10/21 の緊急版（<code>8.5.12</code> / <code>8.4.27</code> / <code>8.3.36</code> / <code>8.2.35</code>）にはこの修正は入っていない。</li>
+    <li><strong>CVE-2026-126714（phpAfterShell）</strong>：標準の files セッションハンドラの TOCTOU。セッションの書き込みを途中で止めると新旧のデータが混ざり、次の <code>session_start()</code> がそれをオブジェクトとして読む。試された経路は <code>session.upload_progress</code>（アップロード画面が無くても成立）。コード実行にはアプリ側のガジェットが必要。ログイン状態や CSRF トークンの書き換えにも使える。Redis・DB のセッションはこの欠陥の対象外。</li>
+    <li>ほか：CVE-2026-115560（入力検証）、CVE-2026-129289（リクエスト解釈の食い違い。nginx の <code>fastcgi_keep_conn on</code>、Apache mod_proxy_fcgi の <code>enablereuse=on</code>、HAProxy FastCGI、LSAPI など接続を使い回す構成）、CVE-2026-129496（認証なしでワーカーを落とす／コード実行）、CVE-2026-129481（8.3 以降）、CVE-2026-129182・CVE-2026-129474（8.5 以降）、CVE-2026-129291（FPM ワーカーからの権限昇格）。</li>
+    <li>修正版では <code>session.upload_progress</code> が既定で無効になった（リリースノートに記載なし）。使っているアプリは更新後に有効へ戻す。</li>
+    <li>やること：修正版へ更新し、コンテナを作り直して再デプロイ。実際に Web を返している PHP の版を確かめる（ディストリのパッケージは版番号を変えずに修正が入ることがある）。更新できないうちは <code>session.upload_progress.enabled = 0</code> にしてワーカーを再起動（完全な対策ではない）。</li>
+  </ul>
+
+  <h3>2. Ruby 4.0.10 / 3.4.13 / 3.3.14（11/18）：正規表現・文字列処理の欠陥 7件</h3>
+  <ul>
+    <li>対象は <code>4.0.0</code>〜<code>4.0.9</code>、<code>3.4.0</code>〜<code>3.4.12</code>、<code>3.3.13</code> 以前。3.2 以前は保守終了で修正なし。CVE は申請中（GHSA-34m4-m9fh-gqp5、GHSA-7x2q-68qv-6p8x、GHSA-3p8q-wmhx-vm2w ほか）。</li>
+    <li>5件はコード実行の実証コードがあると開発チームが説明。攻撃の報告はなし。単一バイトの文字コードでの大文字小文字変換のヒープあふれ、文字クラスの積 <code>&amp;&amp;</code> を使う正規表現のコンパイルでの二重解放など。</li>
+    <li>やること：Ruby 本体を更新する（gem やフレームワークの更新では直らない）。アプリ・ワーカー・コンテナのイメージを作り直す。利用者の入力から正規表現を組み立てる箇所、外部の文字列の大文字小文字を変える箇所を見直す。</li>
+  </ul>
+
+  <h3>3. nginx 1.31.9 / 1.30.7：HTTP/2 の CVE-2026-123007「nginx2root」ほか4件</h3>
+  <ul>
+    <li><code>1.9.5</code>（2015年）〜<code>1.31.8</code> のすべてが対象（CVSS 4.0 で 9.2）。HTTP/2 を有効にしたサーバーで、認証なしにワーカーの権限でコード実行（ASLR の無効化または回避が条件。回避して実行できたとの報告が複数ある）。実証コードは公開済み、攻撃の報告はなし。</li>
+    <li>同時に CVE-2026-123633（HTTP/2）、CVE-2026-123634（SSI・<code>mirror</code>）、CVE-2026-121810（HTTP/3）、CVE-2026-113425（mail proxy）も修正。NGINX Plus は <code>37.3.0.1</code> / <code>37.0.8.1</code>。</li>
+    <li>やること：更新し、reload ではなく再起動かバイナリの入れ替えをする。公式の Docker イメージは修正版のタグあり。すぐ更新できなければ <code>http2 off;</code>（1.25.0 以前は <code>listen</code> から <code>http2</code> を外す）にし、<code>openssl s_client -alpn h2</code> で確かめる。CDN の裏でも、オリジンに直接届くなら対象。</li>
+  </ul>
+
+  <h3>4. WordPress 7.1.5（11/18）・Drupal 11.4.13 / 11.3.22 / 10.6.22</h3>
+  <ul>
+    <li>WordPress：20件の修正。Template Part ブロックの属性による権限昇格（コード実行につながるおそれ）、マルチサイトでサイト管理者が特権管理者を乗っ取れる欠陥、SQL インジェクション 2件、XSS など。4.7 以降の系列にも修正が戻される。</li>
+    <li>Drupal CVE-2026-132165：<code>/core/install.php</code> から認証なしで再インストールを試せる（該当する構成は少ない。実証コードあり）。更新後もインストーラへのアクセスを塞ぐことが勧められている。11.2.x 以前・10.5.x 以前は保守終了。</li>
+  </ul>
+
+  <h3>5. Apache Roller CVE-2026-129448（悪用あり）・VMware vCenter CVE-2026-123890</h3>
+  <ul>
+    <li>Roller <code>4.0.0</code>〜<code>6.1.4</code>：XML-RPC が認証前にデシリアライズする（CVSS 9.8）。<code>6.1.6</code> 以上へ。更新までは <code>WEB-INF/web.xml</code> の <code>enabledForExtensions</code> を <code>false</code> にするか <code>/roller-services/xmlrpc</code> の割り当てを消す。管理画面で XML-RPC を切るだけでは足りない。</li>
+    <li>vCenter 8.0・9.0・9.1：VMware Directory Service の認証回避（CVSS 9.8）。回避策なし。攻撃の報告なし。</li>
+  </ul>
+
+  <h3>6. Java4Shell CVE-2026-114938 の続報：実証コードが公開</h3>
+  <ul>
+    <li>発見者が、標準構成の Keycloak・Jira・Confluence・Jenkins などで認証なしのコード実行を実証し、コードを公開した。JPCERT/CC は 11/18 時点で悪用を確認していない。</li>
+    <li>Oracle Java SE は <code>27.0.1.1</code> / <code>25.0.5.1</code> / <code>21.0.13.1</code> / <code>17.0.21.1</code>。OpenJDK の各配布（Temurin・Corretto など）は提供元の更新を確認。外から受け付ける Java のサーバーを先に。</li>
+  </ul>
+
+  <h3>7. Go 1.27.4 / 1.26.11（11/10）</h3>
+  <ul>
+    <li>12件を修正。うち 11件は cgo・ビルドツール・コンパイラ・リンカーの欠陥で、細工されたパッケージをビルドするとコードを実行されるおそれ（CVE-2026-97033、CVE-2026-97038 ほか）。CI のツールチェーンとビルド用イメージも更新を。</li>
+  </ul>
+
+  <h3>8. PyPI <code>agent-framework</code> 1.26.1 / 1.26.2 の続報</h3>
+  <ul>
+    <li>攻撃者は 1.26.1 が隔離された後に 1.26.2 を公開しており、公開する権限を持ち続けていた。公開できた方法は今も説明されていない。名前に TOKEN・SECRET・AZURE・AWS・GITHUB を含む環境変数と、ほかのプロセス最大300個の環境変数も読む。</li>
+    <li>保存した鍵を交換しても発行済みのトークンは止まらない。OIDC の権限・フェデレーション資格情報・マネージド ID の役割の割り当ても見直す。安全な版は <code>1.26.0</code>。</li>
+  </ul>
+
+  <h3>9. 情報漏洩</h3>
+  <ul>
+    <li>コーセー：予約システムのアクセス制御の不備。会員情報を読み込むリクエストが短時間に繰り返されていた（28,098件）。ID を順に変えて他人の情報を読める作りになっていないか、自分のサービスでも確かめたい。</li>
+    <li>オープンロジ：第2報（11/17）で対象期間（2017/10/27〜2024/11/25 の一部ほか）と項目（金額・注文番号・追跡番号）が拡大。同社は認証キーの無効化・全ユーザーのログイン状態のリセットを実施。連携している事業者は管理画面の認証情報と API キーを再設定。</li>
+    <li>JETRO：職員（退職者を含む）9,252件などを追加で確認。日本郵便の法人向けサイト：不具合でほかの顧客の発注元情報が見えた（最大4,807件）。</li>
+    <li>KARTE（プレイド）：11/18 16時の報告より後の公式発表は確認できていない。再開は未定。</li>
+  </ul>
+
+  <h3>10. 続いている話</h3>
+  <ul>
+    <li>CISA KEV（11/18 追加）：LiteLLM CVE-2026-40217（<code>1.83.10</code> で修正）・Apache Axis 1.x・Synology DSM・REDCap。11/19 の追加は確認できなかった。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。</li>
+    <li>Chrome <code>158.0.8127.36</code>、Optimizely Web Experimentation の改ざん、npm <code>@ethersphere/bee-js</code> 13.3.0、PostgreSQL <code>18.7</code> ほか、Git <code>2.56.1</code> ほか、Next.js <code>16.4.5</code> / <code>15.5.29</code>、Node.js <code>22.23.5</code> / <code>24.22.3</code> / <code>26.13.1</code>、Windows CLFS「SignDrop」（未修正）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.security-next.com/193020">店頭体験レッスン予約システムで個人情報が流出 - コーセー（Security NEXT）</a> ／ <a href="https://piyolog.hatenadiary.jp/entry/2026/11/19/183634">物流代行サービス「オープンロジ」への不正アクセスについてまとめてみた（piyolog）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html">ThreatsDay（The Hacker News、11/19 のまとめ）</a></li>
+    <li><a href="https://www.security-next.com/193073">複数の脆弱性に対処した「WordPress 7.1.5」が公開（Security NEXT）</a> ／ <a href="https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html">Drupal Patches Critical Installer Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html">PHP Fixes 7 Critical Flaws（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html">phpAfterShell Explained（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html">Ruby Releases Fixes for 7 Regex and String Flaws（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html">10-Year-Old NGINX HTTP/2 Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html">Critical Apache Roller RCE Flaw Under Active Exploitation（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html">Critical VMware vCenter Flaw（The Hacker News）</a></li>
+    <li><a href="https://www.security-next.com/193112">「OpenJDK」に脆弱性、PoCも - 修正版が公開（Security NEXT）</a> ／ <a href="https://www.security-next.com/192934">「Go」のビルド関連機能に脆弱性（Security NEXT）</a></li>
+    <li><a href="https://www.helpnetsecurity.com/2026/11/19/microsoft-agent-framework-package-pypi-compromised/">Credential stealer slipped into Microsoft's official Python agent framework（Help Net Security）</a></li>
+    <li><a href="https://www.security-next.com/192759">JETROの一部サイトに不正アクセス（Security NEXT）</a> ／ <a href="https://www.security-next.com/192585">法人顧客向けサイトで顧客情報が閲覧可能に - 日本郵便（Security NEXT）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
