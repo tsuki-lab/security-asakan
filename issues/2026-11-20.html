@@ -128,7 +128,18 @@
     <li>KARTE（プレイド）：11/18 16時の報告より後の公式発表は確認できていない。再開は未定。</li>
   </ul>
 
-  <h3>10. 続いている話</h3>
+  <h3>10. 新着 CVE（11/19 公開分）から：Tomcat・MongoDB Java Driver・aws-sdk-php・baserCMS・Etherpad ほか</h3>
+  <ul>
+    <li>いずれも悪用・公開の実証コードの報告はなく、CISA KEV にも入っていない。</li>
+    <li><strong>Apache Tomcat</strong>：HTTP/2 の DoS（CVE-2026-116830、<code>11.0.27</code> / <code>10.1.61</code> / <code>9.0.123</code> 以前）、RewriteValve の <code>[F]</code> <code>[G]</code> <code>[R]</code> ルールでリダイレクト後も処理が続く（CVE-2026-118028）など計11件。<code>11.0.29</code> / <code>10.1.62</code> / <code>9.0.124</code> へ（11.0.28 は出ていない。版は Apache の告知で確認を）。TLS 1.3 ＋ TLS-PSK のクラスタの認証回避 CVE-2026-133325 は修正版がまだ無く、当面は TLS 1.2 の PSK へ。Spring Boot の組み込み Tomcat も対象。</li>
+    <li><strong>MongoDB Java Driver</strong>（3.6.0 以降）：<code>mongodb+srv://</code> の SRV レコードで別ホストへ誘導される（CVE-2026-129932、CVSS 9.1、DNS を偽れることが条件）。<code>5.13.0</code> へ。</li>
+    <li><strong>aws-sdk-php</strong>（3.148.0 以降）：S3 暗号化クライアントの復号で改ざんを見逃す（CVE-2026-132607、GHSA-9c62-hqw2-gj46）。<code>3.383.1</code> 以上へ。</li>
+    <li><strong>baserCMS</strong>：テーマファイルの書き込み（CVE-2026-62955）と管理 API の認可回避（CVE-2026-63012）。<code>5.3.0</code> へ（5.2.3 では直らない）。</li>
+    <li><strong>Etherpad</strong> <code>1.8.14</code>〜<code>3.3.2</code>：標準構成で認証なしにファイルを読める（CVE-2026-114516、CVSS 9.8）。<code>3.3.3</code> へ。リバースプロキシでは防げない。</li>
+    <li><strong>Okta / Auth0</strong>：Auth0 Authorization Extension の認証回避（CVE-2026-130236）は <code>2.13</code> へ、Okta の Python SDK（CVE-2026-130153）は <code>0.3.1</code> へ。Keycloak・JBoss EAP の SAML ログアウトの署名回避（CVE-2026-133430）は修正版がまだ示されていない。</li>
+  </ul>
+
+  <h3>11. 続いている話</h3>
   <ul>
     <li>CISA KEV（11/18 追加）：LiteLLM CVE-2026-40217（<code>1.83.10</code> で修正）・Apache Axis 1.x・Synology DSM・REDCap。11/19 の追加は確認できなかった。</li>
     <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。</li>
@@ -147,6 +158,7 @@
     <li><a href="https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html">Critical Apache Roller RCE Flaw Under Active Exploitation（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html">Critical VMware vCenter Flaw（The Hacker News）</a></li>
     <li><a href="https://www.security-next.com/193112">「OpenJDK」に脆弱性、PoCも - 修正版が公開（Security NEXT）</a> ／ <a href="https://www.security-next.com/192934">「Go」のビルド関連機能に脆弱性（Security NEXT）</a></li>
     <li><a href="https://www.helpnetsecurity.com/2026/11/19/microsoft-agent-framework-package-pypi-compromised/">Credential stealer slipped into Microsoft's official Python agent framework（Help Net Security）</a></li>
+    <li><a href="https://cve.now/cves">cve.now（新着 CVE 一覧）</a> ／ <a href="https://cve.now/CVE-2026-116830.md">Tomcat CVE-2026-116830</a> ／ <a href="https://cve.now/CVE-2026-129932.md">MongoDB Java Driver CVE-2026-129932</a> ／ <a href="https://github.com/aws/aws-sdk-php/security/advisories/GHSA-9c62-hqw2-gj46">aws-sdk-php GHSA-9c62-hqw2-gj46</a> ／ <a href="https://cve.now/CVE-2026-114516.md">Etherpad CVE-2026-114516</a></li>
     <li><a href="https://www.security-next.com/192759">JETROの一部サイトに不正アクセス（Security NEXT）</a> ／ <a href="https://www.security-next.com/192585">法人顧客向けサイトで顧客情報が閲覧可能に - 日本郵便（Security NEXT）</a></li>
   </ul>
 </section>
