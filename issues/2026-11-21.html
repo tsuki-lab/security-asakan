@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/21（土）</title>
+<meta name="description">コーセーの予約システムや通販の発送代行から、氏名・住所などの流出が続いています。サービスの障害に便乗した「急がせる」詐欺メールにも注意。開発者向けには PHP・Ruby・nginx・WordPress の修正版、Java4Shell の続報。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月21日（土）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：Web ページに「このコマンドを貼り付けて実行してください」と言われたら、どんなに本物らしく見えても閉じてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>家電量販店のリフォームや通販の注文情報が流出。ヤマダデンキ、多くのネットショップが使うサービスなど</h2>
+  <p class="lede">ヤマダデンキは、リフォームの管理システムに不正アクセスがあり、最大350万件のお客さんの情報が流出した可能性があると発表しました。</p>
+  <p>対象は氏名・住所・電話番号と、リフォームの履歴・見積もりの内容です。また、多くのネットショップが注文の管理に使っているサービス「GoQSystem」からは、1,694の店舗の注文情報（約437万人分の氏名・住所・電話番号・メールアドレス・注文内容）が持ち出されました。楽天市場や Yahoo!ショッピングの店も含まれ、バリューブックスや銀座ウエストなど約70の店が公表しています。カー用品のソフト99 の公式通販（最大136,968人）では、カード番号の下4桁・名義・有効期限も対象です。スーパーの買い物アプリ「Scan&amp;Go ignica」でも、氏名とメールアドレス 64,003件が流出した可能性があります。どれも、パスワードが流出したという発表はありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>心当たりのある人は、各社・各店の公式サイトのお知らせを確かめる（メールのリンクからではなく）</li>
+      <li>買った物や工事の内容を知った上での「お詫び」「返金」「再配達」「点検のご案内」は詐欺を疑い、リンクは開かない・電話は一度切って公式の番号にかけ直す</li>
+      <li>ソフト99 の通販を使った人は、カードの利用明細を確かめる</li>
+    </ul>
+  </div>
+  <p class="words"><b>受注管理サービス</b>：ネットショップが、いくつもの出店先の注文をまとめて処理するために使う裏方のサービス。買った店とは別の会社が、注文の情報を預かっていることがあります。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>「確認のため、このコマンドを実行してください」は詐欺。偽のダウンロードページにも注意</h2>
+  <p class="lede">本物そっくりの「確認」や「修正」の画面を出し、利用者自身にコマンドを貼り付けて実行させる手口が広がっています。</p>
+  <p>検索結果の「広告」の枠から、人気のアプリ（AI アプリの Claude など）の偽のダウンロードページへ誘導し、Mac の「ターミナル」にコマンドを貼らせて、パスワードなどを盗むソフトを入れる例が報告されました。Windows でも、偽の「私はロボットではありません」の画面や偽の Amazon のログイン画面から、画面・マイク・カメラをのぞける遠隔操作ソフトを入れられる例があります。自分で実行してしまうので、ウイルス対策ソフトでも止まりにくいのが厄介なところです。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Web ページや電話の相手に「これを貼り付けて実行して」と言われたら、やめて閉じる。本物の確認画面がそれを求めることはない</li>
+      <li>アプリは、検索の「広告」からではなく、公式サイトか公式のアプリストアから入れる</li>
+      <li>実行してしまったら、その PC をネットから切り、別の端末から大事なサービスのパスワードを変える</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>スマホ：「プレミアム版」を名乗る偽アプリに注意。WhatsApp は更新を</h2>
+  <p class="lede">Android のスマホで、「大人向けの TikTok プレミアム版」などを名乗る偽アプリから入り込む、新しい不正アプリが報告されました。</p>
+  <p>SNS の広告や偽サイトから、公式ストア以外のアプリを入れさせます。入ると、本物そっくりの画面を上に重ねて裏の操作を隠しながら、ロック解除の暗証番号や、SMS で届く確認コードを盗みます。また、メッセージアプリの WhatsApp は 3件の欠陥を直しました。うち1件は、詐欺メッセージで使われた可能性があるとされています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>アプリは Google Play・App Store から入れる。「提供元不明のアプリを許可」を求められたら断る</li>
+      <li>設定の「ユーザー補助」に、覚えのないアプリが入っていないか見る</li>
+      <li>WhatsApp を使っている人は、ストアで最新に更新する</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Ruby：CVE-2026-132825「Ruby2Shell」— 標準の Rails・Sinatra に認証の前で届く</h3>
+  <ul>
+    <li>11/18 の修正版（<code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code>）が直した 7件のうちの1件に CVE が付いた。対象は <code>4.0.0</code>〜<code>4.0.9</code>、<code>3.4.0</code>〜<code>3.4.12</code>、<code>3.3.13</code> 以前（10/23 の版も対象）。3.2 以前は修正なし。JRuby・TruffleRuby は対象外とされる。</li>
+    <li>中身：14 種類の単一バイトの文字コードでの大文字小文字変換（<code>upcase</code>・<code>swapcase</code>・<code>downcase(:fold)</code>・<code>casecmp?</code>）で、ß が「SS」に伸びるときに 1バイトだけ外に書く。</li>
+    <li>届き方（発見者の説明）：<code>_method</code> の部分に対象の文字コードを名乗らせた multipart のリクエストを、<code>Rack::MethodOverride</code> がルーティング・CSRF の確認・認証より前に処理する。標準の Rails（api_only 以外）とクラシック形式の Sinatra は既定で届く。Rack <code>3.2.2</code> は multipart の大きさの制限でこの経路を塞ぐとされる（根本の対策ではない）。</li>
+    <li>評価は分かれている（Ruby は Critical、Red Hat は暫定 9.8、MITRE は 7.4）。Ruby は「一部の条件でコード実行に使える実証コードを把握している」と説明。発見者は 11/25 以降に実証コードを公開する予定。攻撃の報告はなく、CISA KEV にも入っていない（11/20 時点）。</li>
+    <li>配布の状況（11/20 時点）：Ubuntu は USN-9176-1 で修正済み。Debian・Red Hat・SUSE・Amazon Linux 2023 はまだ。Docker 公式の Ruby イメージと Heroku は更新済み。GitLab <code>19.6.1</code> / <code>19.5.8</code> / <code>19.4.10</code>、Mastodon <code>4.7.6</code> ほか、Chatwoot <code>4.20.1</code> が Ruby を更新した版を出した。</li>
+    <li>やること：動いているプロセスの Ruby の版を確かめ、修正版へ上げてアプリサーバーを再起動（gem の更新では直らない）。公式の回避策はない。すぐ上げられなければ、非公式の策として <code>Rack::MethodOverride</code> を外す（<code>_method</code> で PUT / PATCH / DELETE を送るフォームが動かなくなる）か、UTF-8 以外の文字コードを名乗る multipart を手前で拒否する。</li>
+  </ul>
+
+  <h3>2. CISA KEV（11/20 追加）：vCenter CVE-2026-123890・Cisco Expressway CVE-2026-76466・Apache Roller CVE-2026-129448・SAP NetWeaver CVE-2025-42884</h3>
+  <ul>
+    <li><strong>vCenter（前号の訂正）</strong>：前号は「攻撃の報告なし」と書いたが、中国系とみられる集団が 9月初めからゼロデイとして悪用していたと Google（GTIG / Mandiant）が公表した。BeyondTrust Remote Support の CVE-2026-102764 から入り、VMware Directory Service（vmdird）の欠陥で <code>administrator@vsphere.local</code> のセッションを取る。その後、ローカル管理者の作成・VAMI API での SSH の有効化・ESXi のデータへのアクセス。</li>
+    <li>修正（11/19、VMSA-2026-0009）：vCenter <code>8.0 U3m</code>、VCF / vSphere Foundation <code>9.1.1.0200</code> / <code>9.0.2.0200</code>。7.0 は延長サポートの契約者だけ。更新に加えて、覚えのない管理者・SSH の有効化の跡を確かめる。</li>
+    <li><strong>Cisco Expressway</strong>（CVSS 9.8）：認証なしで root のコマンド実行。修正は 10/21 の <code>X15.5.20</code>（X14 以前は修正版へ移行）。実証コードの公開後、外向きの2台からクラスタの内部の2台へ入られた例が報告された。痕跡：<code>erlang.log</code> の <code>wombat@127.0.0.1</code>、<code>/mnt/harddisk/</code> 以下の覚えのない <code>.py</code>。</li>
+    <li>Apache Roller は前号のとおり（<code>6.1.6</code> 以上へ）。</li>
+  </ul>
+
+  <h3>3. Linux KVM CVE-2026-99312：AMD のホストで、ゲストがホストのメモリを読み書きできる</h3>
+  <ul>
+    <li>入れ子の仮想化（nested）を有効にした AMD のホストが対象。Intel は対象外。ゲストの中の root が必要で、ネットワークだけでは突けない。実証コードは未公開、攻撃の報告なし。評価はカーネルの CVE チームが 8.8、Red Hat は暫定 5.6。</li>
+    <li>修正：<code>7.3.5</code> / <code>6.18.64</code> / <code>6.12.118</code>。Debian・Ubuntu・Red Hat（EL9 / EL10）の配布版は記事の時点でまだ。</li>
+    <li>自分で KVM のホストを持つ場合：<code>cat /sys/module/kvm_amd/parameters/nested</code> が 1 / Y なら、<code>options kvm_amd nested=0</code> を設定して再起動（入れ子の VM は動かなくなる）。ゲスト側の更新では直らない。</li>
+  </ul>
+
+  <h3>4. pip の同梱 certifi に CVE-2026-133949（CVSS 9.3）</h3>
+  <ul>
+    <li>pip が同梱する証明書の束に、eMudhra の危殆化した証明書を信頼する内容が残っている件に、11/20 付で CVE が付いた。対象は <code>26.2.2</code> 未満（<code>26.3.0</code> は対象外）。修正版の <code>26.2.2</code> は 10/20 公開。悪用の報告はない。</li>
+    <li>先週の pip のダウンロードの約25% はまだ対象の版だったとされる。Dockerfile や CI で pip の版を固定している所、古い仮想環境を見直す。</li>
+  </ul>
+
+  <h3>5. LibreChat 0.8.6：アカウント乗っ取り CVE-2026-54039 ほか</h3>
+  <ul>
+    <li><code>0.7.0</code>〜<code>0.8.5</code>。登録を開けていて（<code>ALLOW_REGISTRATION=true</code>）ソーシャルログインを使う構成で、攻撃者が先に被害者のメールアドレスで登録しておくと、被害者のソーシャルログインがその登録に結び付く（CVSS 8.1、GHSA-wjpf-x42h-cv4m）。<code>0.8.6</code> へ。</li>
+    <li>同じ日に、共有エージェントの API キーの露出（CVE-2026-54044）・2段階認証コードの総当たり（CVE-2026-54042）など十数件の CVE が公開された（個別の修正版は未確認）。</li>
+  </ul>
+
+  <h3>6. Windows の未修正の欠陥「FastUnlock」・WhatsApp の修正</h3>
+  <ul>
+    <li>FastUnlock（11/19 公開）：ロック中の PC に物理的に触れられる人が、ロック画面の回復の手順とナレーターを使い、サインインせずに制限付きのアカウントでプログラムを動かせる。すべての PC で動くわけではない。修正はまだ、攻撃の報告なし。BitLocker を TPM だけで自動解除していると、ロック画面の時点でディスクは読める状態にある。対策は起動時の PIN、持ち出すときはシャットダウンか休止。</li>
+    <li>WhatsApp：CVE-2026-23871（Android、広告返信メッセージの URL の確認不足。<code>2.26.17.4</code> で修正）、CVE-2026-102769（Android、<code>2.26.35.74</code> で修正）、CVE-2026-44908（iOS・Mac・Android）。</li>
+  </ul>
+
+  <h3>7. ClickFix の広がり（サイト運営側の話）</h3>
+  <ul>
+    <li>7万を超える改ざんサイトが、ブロックチェーン（Polygon）のスマートコントラクトから次のコードを取ってくる JavaScript を埋め込まれている（EtherHiding）。WordPress に悪性のプラグインを入れて居座る例（TRUST#GRAFT）も報告された。</li>
+    <li>配布サービス「ROMULUS」は、PowerShell から MSI（<code>IconEdit2Turb.msi</code>）を入れ、署名付きの実行ファイルに悪性の DLL を読ませる。通信は DNS over HTTPS。社内の端末では、<code>msiexec</code> の不審な実行と、利用者による PowerShell・「ファイル名を指定して実行」の利用を見張る。</li>
+  </ul>
+
+  <h3>8. 情報漏洩（原因が分かっているもの）</h3>
+  <ul>
+    <li>GoQSystem：第三者が同社のシステム上に置いていた問い合わせフォームの欠陥を突かれた（11/10〜11）。1,694店舗・4,984,595件の注文・4,367,390人（11/13 時点）。同社を装う似たドメインへの注意も出ている。利用している事業者は、個人情報保護委員会への報告と、購入者への連絡が必要。</li>
+    <li>ソフト99：問い合わせフォームの画像の添付機能からプログラムのファイルを上げられ、裏口を置かれたとみられる。アップロード先での実行の禁止・拡張子と中身の検証を、自分のサービスでも確かめたい。</li>
+    <li>早稲田大学：ログイン用の情報を管理するシステムに侵入され、暗号化されたパスワードを含む 3,342件が流出。PHP の欠陥への対応で確かめている途中に、8/31 の侵害の痕跡が見つかった。修正版を当てるときに、過去の侵入の痕跡も見る。</li>
+    <li>Gunosy：業務用アカウントの認証情報を取られ、クラウド環境と業務ツールに入られた（取引先の担当者 25人、役員・従業員など 107人）。デジタル庁：GSS のファイル共有サービスに、共有の相手ではない人からのアクセス（7/30〜11/12 の間。件数・内容は調査中）。</li>
+  </ul>
+
+  <h3>9. 続いている話</h3>
+  <ul>
+    <li>PHP <code>8.5.13</code> / <code>8.4.28</code> / <code>8.3.37</code> / <code>8.2.36</code>（phpAfterShell CVE-2026-126714 ほか）、nginx <code>1.31.9</code> / <code>1.30.7</code>（CVE-2026-123007）、WordPress <code>7.1.5</code>、Drupal <code>11.4.13</code> / <code>11.3.22</code> / <code>10.6.22</code>、Java4Shell CVE-2026-114938（実証コード公開済み）、Go <code>1.27.4</code> / <code>1.26.11</code>。</li>
+    <li>Tomcat <code>11.0.29</code> / <code>10.1.62</code> / <code>9.0.124</code>、MongoDB Java Driver <code>5.13.0</code>、aws-sdk-php <code>3.383.1</code>、baserCMS <code>5.3.0</code>、Etherpad <code>3.3.3</code>。</li>
+    <li>PyPI <code>agent-framework</code> 1.26.1 / 1.26.2（安全な版は <code>1.26.0</code>）、LiteLLM CVE-2026-40217（<code>1.83.10</code> で修正、悪用あり）、Chrome <code>158.0.8127.36</code>、Windows CLFS「SignDrop」（未修正）。npm・PyPI の新しい侵害の報告は見つかっていない。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.security-next.com/192867">リフォーム管理システムに不正アクセス - ヤマダデンキ（Security NEXT）</a> ／ <a href="https://piyolog.hatenadiary.jp/entry/2026/11/20/225808">受注管理システム「GoQSystem」への不正アクセスについてまとめてみた（piyolog）</a></li>
+    <li><a href="https://www.security-next.com/192805">通販サイト内に不正ファイル、個人情報流出の可能性 - ソフト99（Security NEXT）</a> ／ <a href="https://www.security-next.com/192800">買い物アプリのシステムに侵害、内部に個人情報 - USMH（Security NEXT）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/romulus-clickfix-attacks-deliver-rat.html">ROMULUS ClickFix Attacks Deliver RAT（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html">Bazuka Android Malware（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html">WhatsApp Patches 3 Security Flaws（The Hacker News）</a></li>
+    <li><a href="https://piyolog.hatenadiary.jp/entry/2026/11/20/224814">Ruby の脆弱性 CVE-2026-132825(Ruby2Shell)についてまとめてみた（piyolog）</a></li>
+    <li><a href="https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog">CISA Adds Four Known Exploited Vulnerabilities to Catalog（11/20）</a> ／ <a href="https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html">China-Linked Hackers Exploit Critical VMware vCenter Zero-Day（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html">Hackers Exploit Critical Cisco Expressway Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html">Linux KVM Flaw CVE-2026-99312（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html">New Unpatched Windows 0-Day FastUnlock（The Hacker News）</a></li>
+    <li><a href="https://cve.now/cves">cve.now（新着 CVE 一覧）</a> ／ <a href="https://cve.now/CVE-2026-133949.md">pip CVE-2026-133949</a> ／ <a href="https://cve.now/CVE-2026-54039.md">LibreChat CVE-2026-54039</a></li>
+    <li><a href="https://www.security-next.com/192578">個人情報管理システムが侵害、脆弱性対応中に判明 - 早稲田大（Security NEXT）</a> ／ <a href="https://www.security-next.com/193094">クラウド環境や業務ツールに不正アクセス、個人情報流出 - Gunosy（Security NEXT）</a> ／ <a href="https://piyolog.hatenadiary.jp/entry/2026/11/21/002438">デジタル庁が運用するGSSのファイル共有サービスからの情報漏えい可能性についてまとめてみた（piyolog）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
