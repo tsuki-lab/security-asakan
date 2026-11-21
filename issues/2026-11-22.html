@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/22（日）</title>
+<meta name="description">証券会社の持株会のシステムから最大5万6千人分の口座情報などが流出。AI アシスタントにつないだアカウントの見直しと、サポートの終わったネット機器の置き換えを。開発者向けには GPGME・Fastify の修正版、Ruby2Shell の続報。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月22日（日）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：「流出のお詫び」や「口座の確認」を名乗る連絡が来たら、リンクは開かず、公式アプリか勤め先の担当に確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>持株会のシステムから最大5万6千人分の情報が流出。振り込み先の口座の情報も</h2>
+  <p class="lede">SMBC日興証券は、会社の「持株会」の事務に使っているシステムに不正アクセスがあり、最大56,487人分の情報が漏れたと発表しました。</p>
+  <p>対象は、氏名・住所・持っている株の残高・配当金、そして振り込み先の口座の情報などです。同社は、対象の持株会に個別に連絡するとしています。パスワードが漏れたという発表はありません。また、11月に大量の流出が分かったメール配信サービス「Cuenote」は、件数を数え直し、延べ約4,786万件（メールアドレス・氏名など）に修正しました。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>勤め先の持株会に入っている人は、会社や証券会社からのお知らせを確かめる</li>
+      <li>「振り込み先の口座を確認・変更してください」という連絡は、メールや SMS のリンクからではなく、勤め先の担当や公式の窓口に確かめる</li>
+      <li>残高や配当の額を知った上での電話・メールでも、詐欺を疑う</li>
+    </ul>
+  </div>
+  <p class="words"><b>持株会</b>：勤め先の会社の株を、給料から少しずつ積み立てて買う制度。事務は証券会社が引き受けていることが多く、会員の情報もそこで預かっています。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>AI アシスタントに任せすぎない。悪いページ1つで会話の中身を抜かれた研究も</h2>
+  <p class="lede">代わりにネットを見て買い物までこなす「AI エージェント」で、悪意のあるページを1つ開かせるだけで、利用者の会話履歴や覚えさせた情報を抜き出せたという研究が発表されました。</p>
+  <p>対象は Meta の AI エージェント「Muse」で、研究者は公開する前に欠陥は直されたと説明しています（実験の環境での話で、実際の被害は報告されていません）。一方、メッセージアプリの Signal は、スマホの AI が画面を読み取って会話の中身を取り込むのを防ぐため、Android と iPhone で画面の読み取りを止める設定を最初からオンにしました。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>AI アシスタントにつないでいるアカウント（メール・買い物・カレンダーなど）を見直し、使っていないものは外す</li>
+      <li>AI に、知らないサイトやメールのリンクを開かせない。支払いを任せる設定は慎重に</li>
+      <li>Signal を使っている人は、その保護の設定をオンのままにしておく</li>
+    </ul>
+  </div>
+  <p class="words"><b>AI エージェント</b>：質問に答えるだけでなく、ネットを見たり、予約や買い物をしたりと、利用者の代わりに作業まで行う AI。つないだアカウントの権限をそのまま使います。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>サポートが終わったネット機器は、欠陥が見つかっても直らない</h2>
+  <p class="lede">ネットワーク機器メーカーの SonicWall は、古い世代の「ファイアウォール」（会社のネットの出入り口を守る機器）には、重大な欠陥でも修正を出さないとして、すぐに置き換えるよう呼びかけました。</p>
+  <p>AI を使って、サポートが切れた機器を素早く見つけて攻撃する動きが強まっていると説明しています。家庭用の Wi-Fi ルーターでも、メーカーのサポートが終わると更新が出なくなります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>家の Wi-Fi ルーターの型番で、メーカーのサイトに「サポート終了」と出ていないか確かめる。終わっていれば買い替えを考える</li>
+      <li>ルーターの自動更新をオンにし、管理画面のパスワードを初期のままにしない</li>
+      <li>お店や事務所で使っている機器は、保守をしている業者にサポートの期限を聞いておく</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Ruby「Ruby2Shell」CVE-2026-132825：実証コードの公開予定（11/25 以降）まであと3日</h3>
+  <ul>
+    <li>修正版は <code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code>（11/18）。標準の Rails（api_only 以外）とクラシック形式の Sinatra は <code>Rack::MethodOverride</code> 経由で認証の前に届くとされる。3.2 以前は修正なし。</li>
+    <li>gem の更新では直らない。動いているプロセスの Ruby の版を確かめ、上げてアプリサーバーを再起動する。攻撃の報告は今朝の時点でも見つかっておらず、CISA KEV にも入っていない。詳細は前号を参照。</li>
+  </ul>
+
+  <h3>2. GnuPG の GPGME に二重解放 CVE-2026-129975</h3>
+  <ul>
+    <li>ユーザー ID が極端に長い OpenPGP の鍵を読むと、<code>read_status()</code> / <code>read_colon_line()</code> で二重解放が起きる。GnuPG はコード実行も否定できないとしている。攻撃の報告はない。</li>
+    <li>対象：GPGME の <code>2.3.0</code> より前のすべて（共有ライブラリ・Windows の DLL・静的リンク）。多くのメールクライアント・XMPP クライアント・Samba・Gpg4win などが使う。GPGMEPP・GPGMEQT は更新不要。</li>
+    <li>修正：GPGME <code>2.3.1</code>（<code>2.3.0</code> は公開されていない）、旧系列 <code>1.24.4</code>、Windows は <code>Gpg4win 5.1.2</code>。回避策はない。コンテナに入れている <code>libgpgme</code>、言語バインディング（Python の <code>gpg</code>、Ruby の <code>gpgme</code> gem など）が抱える版も確かめる。</li>
+    <li>公表は 11/25 の予定だったが、Ruby2Shell の公表を受けて前倒しされた。</li>
+  </ul>
+
+  <h3>3. Fastify：@fastify/express・@fastify/middie の認証回避（CVSS 9.1）</h3>
+  <ul>
+    <li><code>@fastify/express</code> <code>4.0.10</code> 未満：パスを限って付けたミドルウェア（認証など）を、パーセントエンコードの解釈の違い・パスの前方一致のずれ・空のルートパラメータ・正規表現でのマウント・大文字小文字の違いで素通りできる（CVE-2026-133120・CVE-2026-129504・CVE-2026-124626・CVE-2026-133867、CVE-2026-129850 は 7.4。GHSA-w877-hjcp-88rc）。</li>
+    <li><code>@fastify/middie</code> <code>9.3.7</code> 以前：パスを限ったミドルウェアの認証回避（CVE-2026-133250。GHSA-gcf6-j9m3-p97x）。</li>
+    <li>npm には <code>@fastify/express</code> <code>4.0.10</code> / <code>4.0.11</code>、<code>@fastify/middie</code> <code>9.3.8</code> / <code>9.3.9</code> が出ている（レジストリで確認）。</li>
+    <li>すぐ上げられなければ：認証は Fastify の <code>preHandler</code> フックで <code>request.routeOptions.url</code> を見て行い、<code>*</code> で始まる・バックスラッシュを含む要求は <code>onRequest</code> で拒否する。</li>
+  </ul>
+
+  <h3>4. cve.now の新着から（修正版は各 advisory で確かめてください）</h3>
+  <ul>
+    <li>Better Auth：OAuth サインインで未確認のメールによるアカウント乗っ取り（CVE-2026-134312）、メール変更のリンク（CVE-2026-134315）、電話番号プラグイン（CVE-2026-134322、8.6）、admin の update-user での権限昇格（CVE-2026-134311）など十数件。<code>@better-auth/electron</code> は <code>1.7.16</code> で修正とされる。</li>
+    <li>SurrealDB：埋め込み JavaScript の権限の回避（CVE-2026-134292、9.3）ほか多数。Admidio：ロール名からのコード注入（CVE-2026-134262、9.2）。</li>
+    <li>WordPress のプラグイン Nexter Blocks Pro：認証なしの権限昇格（CVE-2026-125294、9.8）。D-Link DIR-600L：認証なしのスタックあふれ（CVE-2026-133993、10.0）。</li>
+  </ul>
+
+  <h3>5. SonicWall 第6世代（SonicOS 6.x）は修正が出ない</h3>
+  <ul>
+    <li>TZ300〜600、SOHO / SOHO 250、NSA 2600〜6600、NSa 2650〜9650、NSsp 12400 / 12800、SuperMassive 9200〜9800、NSv（第6世代）。SonicOS 8 の第8世代への置き換えを求めている。</li>
+    <li>置き換えまで：WAN 側の管理（HTTPS・SSH・SNMP）を閉じる、SSL VPN を止めるか接続元を絞る、管理者とリモートアクセスに多要素認証、ローカルのパスワードを変える、ログで不審なログイン・設定変更を見る。</li>
+  </ul>
+
+  <h3>6. 情報漏洩（原因が分かっているもの）</h3>
+  <ul>
+    <li>ユミルリンク（Cuenote）第三報：サポート担当者の認証情報を、プログラムの欠陥を突いて取られた。経路は2つ。不正なプログラムでデータベースから直接出し、内部ネットワークで別のサーバーへ移る方法と、ログイン中の正規の利用者のセッションを盗んで管理画面の CSV 出力で持ち出す方法。件数は重複を除いて延べ 47,864,147件（Cuenote FC の49システム）に修正。</li>
+    <li>SMBC日興証券：持株会の事務のシステムに 11/9 に不正アクセス、最大56,487名。原因は調査中。</li>
+  </ul>
+
+  <h3>7. 続いている話</h3>
+  <ul>
+    <li>CISA KEV 11/20：VMware vCenter CVE-2026-123890（9月から悪用。<code>8.0 U3m</code> / VCF <code>9.1.1.0200</code> / <code>9.0.2.0200</code>）、Cisco Expressway CVE-2026-76466（<code>X15.5.20</code>）、Apache Roller、SAP NetWeaver。</li>
+    <li>PHP <code>8.5.13</code> / <code>8.4.28</code> / <code>8.3.37</code> / <code>8.2.36</code>、nginx <code>1.31.9</code> / <code>1.30.7</code>、pip <code>26.2.2</code> 以上（CVE-2026-133949）、LibreChat <code>0.8.6</code>、Linux KVM CVE-2026-99312、Windows「FastUnlock」（未修正）。</li>
+    <li>JPCERT/CC：認証を有効にしていない Node-RED に悪意ある制御フローを登録される問題（CVE-2026-58115、11/19）。<code>adminAuth</code> を有効にし、管理画面を外に出さない。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。npm・PyPI の新しい侵害の報告は今朝は見つかっていない。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://scan.netsecurity.ne.jp/article/2026/11/20/56861.html">SMBC日興証券が持株会事務受託業務で使用しているシステムに不正アクセス（ScanNetSecurity）</a> ／ <a href="https://scan.netsecurity.ne.jp/article/2026/11/20/56860.html">ユミルリンクのメール配信サービスに不正アクセス、延べ4,786万4,147件（ScanNetSecurity）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html">A Single Malicious Webpage Let Researchers Hijack Meta Muse（The Hacker News）</a> ／ <a href="https://thehackernews.com/2026/11/signal-blocks-ai-agents-from-reading.html">Signal Blocks AI Agents From Reading Private Chats（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html">SonicWall Warns Gen 6 Firewalls Won't Get Security Patches（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html">GnuPG Warns Critical GPGME Flaw Could Expose App Data via Malicious OpenPGP Keys（The Hacker News）</a></li>
+    <li><a href="https://cve.now/cves">cve.now（新着 CVE 一覧）</a> ／ <a href="https://cve.now/CVE-2026-133120.md">@fastify/express CVE-2026-133120</a> ／ <a href="https://cve.now/CVE-2026-133250.md">@fastify/middie CVE-2026-133250</a></li>
+    <li><a href="https://www.jpcert.or.jp/">JPCERT/CC</a> ／ <a href="https://piyolog.hatenadiary.jp/entry/2026/11/20/224814">Ruby の脆弱性 CVE-2026-132825(Ruby2Shell)についてまとめてみた（piyolog）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
