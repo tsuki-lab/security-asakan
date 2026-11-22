@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/23（月）</title>
+<meta name="description">タワーレコードの通販サイトから約1,100万件（パスワードの暗号化した値も）、ZOZOTOWN・WEAR からも大量の会員情報が流出。同じパスワードの使い回しをやめ、便乗する偽メールに注意。開発者向けには simple-git・binary-parser・Ghostscript・Apache HTTP Server の修正版と、AI 推論サービスのプロンプト窃取。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月23日（月）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：タワーレコードの通販を使ったことがあり、そのパスワードを他のサービスでも使っているなら、他のサービスのパスワードを今日変えてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>タワーレコードの通販サイトから約1,100万件が流出。パスワードの情報も</h2>
+  <p class="lede">CD や本の通販「タワーレコード オンライン」に不正アクセスがあり、約1,100万件の会員情報が流出したと発表されました。</p>
+  <p>流出したのは、メールアドレスと、パスワードを暗号化した値（ハッシュ値）が約1,021万件、氏名・生年月日などが約278万件、住所・電話番号が約78万件です。退会して3年以内の人も含まれます。クレジットカードの情報は含まれていないとしています。パスワードは暗号化されていても、短いものや単純なものは割り出されるおそれがあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>タワーレコード オンラインと同じパスワードを使っているサービスがあれば、そちらのパスワードを変える</li>
+      <li>パスワードはサービスごとに変える。覚えきれなければパスワード管理アプリを使う</li>
+      <li>「流出のお詫び」「パスワードの再設定」を名乗るメールのリンクは開かず、公式サイトから確かめる</li>
+    </ul>
+  </div>
+  <p class="words"><b>ハッシュ値</b>：パスワードをそのまま保存せず、元に戻せない形に変えた値。ただし、よく使われるパスワードは総当たりで見つけられてしまうことがあります。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>ZOZOTOWN・WEAR の会員情報も流出。合わせて2,900万人近く</h2>
+  <p class="lede">ファッション通販の ZOZO は、外部のサービスへの不正アクセスにより、ZOZOTOWN 約1,518万人、WEAR 約1,393万人の会員情報が漏れたと発表しました。</p>
+  <p>ZOZOTOWN では会員番号・年齢・性別・郵便番号が、うち約4.7万人はメールアドレスと電話番号も対象です。WEAR は会員番号・年齢・性別です。パスワードとカード情報は対象ではないとしています。退会した人も含まれます。この外部のサービス（KARTE）を通じた流出は、銀行や通販など多くの会社に広がっています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>ZOZO からのお知らせは、メールのリンクからではなく、公式アプリや公式サイトで確かめる</li>
+      <li>「注文の確認」「返金」「本人確認」を口実にしたメール・SMS・電話で、パスワードやカード番号を入力・回答しない</li>
+      <li>偽のサイトにパスワードを入れてしまったら、すぐ本物のサイトで変更する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>AI に送った文章が、裏側の会社で盗み見られていた</h2>
+  <p class="lede">いろいろな AI をまとめて使えるサービスの裏側で、AI を動かしている3つの会社の内部から、利用者が送った文章（プロンプト）が数か月にわたって盗まれていたことが、研究者の調査で分かりました。</p>
+  <p>「データを残さない」設定で送った文章も含まれていました。研究者がわざと混ぜておいた偽のパスワードは、実際に使われようとしました。AI に送った文章は、表に見えている会社だけでなく、その先の複数の会社を通ることがあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>AI にパスワード・暗証番号・カード番号・人に見られたくない個人情報を貼らない</li>
+      <li>貼ったことがあるなら、そのパスワードを変える</li>
+      <li>AI のサービスは、運営元がはっきりしたものを選ぶ</li>
+    </ul>
+  </div>
+  <p class="words"><b>プロンプト</b>：AI に送る質問や指示の文章。貼り付けた資料やメールの文面も含まれます。</p>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Ruby「Ruby2Shell」CVE-2026-132825：実証コードの公開予定（11/25 以降）まであと2日</h3>
+  <ul>
+    <li>修正版は <code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code>（11/18）。標準の Rails（api_only 以外）とクラシック形式の Sinatra は <code>Rack::MethodOverride</code> 経由で認証の前に届くとされる。3.2 以前は修正なし。</li>
+    <li>gem の更新では直らない。動いているプロセスの Ruby の版を確かめ、上げてアプリサーバーを再起動する。攻撃の報告は今朝の時点でも見つかっていない。</li>
+  </ul>
+
+  <h3>2. npm：simple-git（CVE-2026-134815）・binary-parser（CVE-2026-134814）、どちらも CVSS 9.2</h3>
+  <ul>
+    <li><code>simple-git</code> <code>4.1.0</code> 未満・<code>@simple-git/argv-parser</code> <code>3.0.0</code> 未満：<code>listRemote()</code> / <code>raw()</code> に渡す引数に外から手を入れられると、<code>ls-remote</code>・<code>archive</code>・<code>fetch-pack</code>・<code>send-pack</code> に <code>--exec</code> を差し込み、<code>allowUnsafePack</code> の確認を越えてコマンドを実行される。修正版は npm に 11/16 に出ている（レジストリで確認）。</li>
+    <li><code>binary-parser</code> <code>2.3.1</code> 未満：パーサー定義の文字列オプションが検査されず、定義を外から決められるとコンパイル時に Node のプロセスでコードが動く。<code>2.3.1</code>（11/11）で修正。</li>
+    <li>悪用・公開の実証コードの報告はない。間接依存にも入りやすいので、ロックファイルで版を確かめる。</li>
+    <li>同じ日の新着に Gunicorn の ASGI パーサー（CVE-2026-134821・CVE-2026-134820）、Gradio の Host ヘッダー偽装による認証回避（CVE-2026-134825）、Portainer の認可回避（CVE-2026-134804）、Weblate のパスワード再設定でのアカウント乗っ取り（CVE-2026-134838）。修正版は各 advisory で確かめてください。</li>
+  </ul>
+
+  <h3>3. Ghostscript CVE-2026-125396：細工したファイルで -dSAFER を抜けてコマンド実行</h3>
+  <ul>
+    <li>フォント読み込みの use-after-free。研究者は Roundcube の添付、WordPress のアップロードフォーム（Forminator・Essential Addons for Elementor）、共有の印刷キューなど約10の経路で実証した。攻撃の報告はない。</li>
+    <li>修正：Ghostscript <code>10.08.0</code>（9/8）。Debian 12 は未修正、Amazon Linux・SUSE は対応中。コンテナやアプリに同梱した Ghostscript は OS の更新では置き換わらない。</li>
+    <li>ImageMagick・Pillow・libvips などは拡張子と関係なく PostScript / EPS を Ghostscript に渡すことがある。受け付ける形式を絞る（ImageMagick の policy.xml で PS / EPS / PDF を無効化など）、AppArmor で gs からシェルを起動させない。WordPress は <code>7.0.4</code> 以上（アップロード経路は別の CVE-2026-65640）。</li>
+  </ul>
+
+  <h3>4. Apache HTTP Server 2.4.71（11/11、前号までに未掲載）：mod_http2 CVE-2026-119618</h3>
+  <ul>
+    <li>対象は <code>2.4.55</code>〜<code>2.4.70</code> で HTTP/2 を有効にしたもの。競合状態で、認証なしのコード実行のおそれ（Red Hat は CVSS 9.8）。独立した mod_h2 の 2.0.8〜2.0.42 も対象で、こちらはアーカイブ済みのため修正なし。</li>
+    <li>RHEL 9 / 10 は修正済み（RHEL 6〜8 は対象外）。Debian の安定版は修正待ち。公式の回避策はなく、<code>Protocols</code> から <code>h2</code> / <code>h2c</code> を外して <code>http/1.1</code> だけにする方法が勧められている（各バーチャルホストも）。</li>
+    <li>悪用の状況は、Red Hat が「確実な攻撃手法が示された」、Wiz が「実証コードも悪用もない」と分かれている。</li>
+  </ul>
+
+  <h3>5. AI 推論の中継：推論事業者の内部からプロンプトが数か月盗まれていた</h3>
+  <ul>
+    <li>Dragos が 7〜11月に約200万件のプロンプトに偽の認証情報を仕込み、3つの推論事業者の内部で読まれていたことを見つけた。Zero Data Retention の要求も含む。仕込んだ AWS の鍵は S3・Secrets Manager・Parameter Store の探索や IAM ユーザー作成の試みに使われた。</li>
+    <li>OpenRouter は自社の侵害はないとし、3事業者を外し、125 のエンドポイントを ZDR の対象から外した（社名は非公表）。Phala は 10/21〜11/8 の DeepSeek の1モデルへの要求を漏えい扱いに。Together AI は AI コーディングエージェントが公開リポジトリに認証情報をコミットしたことで、6〜7月の保存サンプルを取られた。</li>
+    <li>やること：プロンプト・エージェントのコンテキストに入った鍵を交換する、上流の事業者を自分で選ぶ、カナリアトークンを仕込んで使われたら事故として扱う。</li>
+  </ul>
+
+  <h3>6. 情報漏洩（開発・運用の目線で）</h3>
+  <ul>
+    <li>タワーレコード オンライン：メールアドレス・会員ID・パスワードのハッシュ値 10,214,652件。侵入の方法は非公表。同じ認証情報でのリスト型攻撃が来ることを前提に、自社サービスのログイン試行の監視とレート制限を見直す。</li>
+    <li>ZOZO：KARTE への 11/13 の不正アクセスで、ZOZOTOWN 約1,518万人・WEAR 約1,393万人・出店ブランド担当者 約2.4万人。外部の SaaS に連携しているデータの範囲と、連携用の認証情報を棚卸しする。</li>
+  </ul>
+
+  <h3>7. 続いている話</h3>
+  <ul>
+    <li>CISA KEV 11/20 の4件（VMware vCenter CVE-2026-123890・Cisco Expressway CVE-2026-76466・Apache Roller CVE-2026-129448・SAP NetWeaver）は連邦機関の期限が今日 11/23。</li>
+    <li>GPGME <code>2.3.1</code> / <code>1.24.4</code>（CVE-2026-129975）、<code>@fastify/express</code> <code>4.0.10</code>・<code>@fastify/middie</code> <code>9.3.8</code>、PHP <code>8.5.13</code> / <code>8.4.28</code> / <code>8.3.37</code> / <code>8.2.36</code>、nginx <code>1.31.9</code> / <code>1.30.7</code>。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。npm・PyPI の新しい侵害の報告は今朝は見つかっていない。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://cyber.spool.co.jp/cyber_news/20261123-tower-records-data-breach/">タワーレコード オンラインで会員情報約1100万件流出か（CyberCrew）</a></li>
+    <li><a href="https://rocket-boys.co.jp/security-measures-lab/zozo_zozotown_wear_karte_data_breach_1518_1393_2026/">ZOZO、ZOZOTOWN 約1,518万人・WEAR約1,393万人の情報漏えい（セキュリティ対策Lab）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html">OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms（The Hacker News）</a></li>
+    <li><a href="https://cve.now/CVE-2026-134815.md">simple-git CVE-2026-134815（cve.now）</a> ／ <a href="https://cve.now/CVE-2026-134814.md">binary-parser CVE-2026-134814（cve.now）</a> ／ <a href="https://cve.now/cves">cve.now（新着 CVE 一覧）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html">Researchers Demonstrate Ghostscript Sandbox-Escape RCE via Crafted File Uploads in Popular Apps（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html">Critical Apache HTTP/2 Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html">Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge（The Hacker News）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
