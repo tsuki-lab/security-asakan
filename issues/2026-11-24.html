@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/24（火）</title>
+<meta name="description">アンケートサイト「リサーチパネル」でパスワードが元に戻せる形のまま流出のおそれ、学習塾ベストコでは口座番号やアプリのパスワードも。古い iPhone を広告で狙う攻撃、メルカリは AI ツールの委託先経由で流出。開発者向けには ScreenConnect・Idunno.AntiCsrf の悪用、React の DoS、GL.iNet のルーターへの侵入、Ruby2Shell の期限。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月24日（火）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：アンケートサイト「リサーチパネル」や「ECナビ」と同じパスワードを他のサービスでも使っているなら、今日そのパスワードを変えてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>アンケートサイトでパスワードが「元に戻せる形」のまま流出のおそれ。学習塾では口座番号も</h2>
+  <p class="lede">ポイントがたまるアンケートサイト「リサーチパネル」が不正アクセスを受け、ログイン用のメールアドレスとパスワードなどが漏れたおそれがあると 11/21 に発表しました。</p>
+  <p>同社は、多くの会員のパスワードを元の文字に戻せる形で保存していたと説明しています。氏名・性別・郵便番号、提携する「ECナビ」の ID も対象です。件数は公表されていません。同じ 11/21 には、学習塾を運営するベストコも、在籍者 最大約5万件と過去の問い合わせ 最大約9.6万件について、保護者と子どもの氏名・住所、引き落とし口座の番号、学習アプリの ID とパスワードが漏れたおそれがあると発表しました（カード情報は含まれないとしています）。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>リサーチパネル・ECナビ・ベストコの学習アプリと同じパスワードを使っているサービスがあれば、そちらを今日変える</li>
+      <li>リサーチパネルは、届いた案内や公式サイトの手順でパスワードを設定し直す（メールのリンクではなく、ブックマークから）</li>
+      <li>ベストコの利用者は、口座の引き落とし履歴に覚えのないものがないか確かめる</li>
+    </ul>
+  </div>
+  <p class="words"><b>元に戻せる形</b>：本来パスワードは、元に戻せない形（ハッシュ値）に変えて保存します。元に戻せる形だと、盗んだ人にパスワードそのものが分かってしまいます。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>広告から古い iPhone に入り込み、暗号資産やパスワードを盗む攻撃</h2>
+  <p class="lede">ネット広告の配信の仕組みを使い、古い iOS の iPhone を攻撃用のページに送り込んで、開いただけで情報を盗むプログラムを入れる攻撃が、セキュリティ会社の調査で見つかりました。</p>
+  <p>5月から11月中旬まで、47か国以上で 480 を超える広告用のドメインが使われていました。狙われるのは暗号資産のウォレットを元に戻すための言葉（復元フレーズ）、保存したパスワード、メッセージなどです。対象は iOS 13〜18 の古い版で、最新の iOS 向けの攻撃は確認されていません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>iPhone・iPad を、その端末で入れられる最新の iOS に更新し、自動アップデートをオンにする</li>
+      <li>広告から開いたページでログインしない。使いたいサービスは公式アプリやブックマークから開く</li>
+      <li>暗号資産の復元フレーズを写真やメモに残さない</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>メルカリでも流出。AI ツールの裏側の会社が不正アクセスを受けた</h2>
+  <p class="lede">メルカリは、社員が業務で使う AI ツール（Notion AI）の処理を請け負う会社が不正アクセスを受け、社員が AI に入力した記録の一部から、利用者 1,522人を含む最大3,796人分の情報が漏れたおそれがあると発表しました。</p>
+  <p>利用者は、人によって氏名・メールアドレス・住所・電話番号・生年月日や問い合わせの内容などが含まれます。ログインパスワードとクレジットカードの番号は含まれていないとしています。同じ会社への不正アクセスは、ほかの AI サービスにも影響が広がっています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>メルカリを名乗るメール・SMS・電話で、パスワードや確認コードを聞かれても答えない（メルカリは聞かないとしています）</li>
+      <li>お知らせはメルカリのアプリの中で確かめる</li>
+      <li>仕事で AI を使うときは、お客さんの個人情報をそのまま貼らない</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM のリンクは開かず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Ruby「Ruby2Shell」CVE-2026-132825：実証コードの公開予定はあす 11/25 以降</h3>
+  <ul>
+    <li>修正版は <code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code>（11/18）。標準の Rails（api_only 以外）とクラシック形式の Sinatra は <code>Rack::MethodOverride</code> 経由で認証の前に届くとされる。3.2 以前は修正なし。</li>
+    <li>gem の更新では直らない。動いているプロセスの Ruby の版を確かめ、上げてアプリサーバーを再起動する。WAF の仮の規則（CrowdSec など）は修正の代わりにならない。</li>
+    <li>攻撃の報告・CISA KEV への追加は今朝の時点で見つかっていない。MITRE の採点は CVSS 7.4（攻撃元区分はローカル）で、「クリティカル」とするブログとは食い違う。</li>
+  </ul>
+
+  <h3>2. ConnectWise ScreenConnect CVE-2026-84869（CVSS 9.9）：悪用あり</h3>
+  <ul>
+    <li>悪意あるゲスト側から技術者の PC にファイルを送り、技術者のクライアントに確認なしで実行させられる。10/20〜11/16 に 42台のサーバーへ少なくとも 68.8万件の「ファイル実行」の要求が観測され、偽の Windows Update から攻撃者の中継先につながる別の ScreenConnect を入れる例も確認された（Huntress）。</li>
+    <li>やること：ホスト側クライアントを <code>26.6.5</code> 以上に。すぐ無理ならロールとセッショングループから <code>TransferFiles</code> の権限を外す。痕跡を調べ、該当する端末を切り離し、そこから使えた認証情報を交換する。</li>
+  </ul>
+
+  <h3>3. ASP.NET WebForms の Idunno.AntiCsrf CVE-2026-131914（CVSS 9.3）：悪用あり、修正なし</h3>
+  <ul>
+    <li><code>0.9.1.0</code> / <code>0.9.1 Beta</code> の <code>AntiCsrfModule</code> が、CSRF のフォーム値を MAC の検証なしに <code>ObjectStateFormatter</code> で逆シリアル化する。認証なし・POST 1回で w3wp.exe の中でコードが動く。Mandiant が悪用を確認。プロジェクトは 2008年から止まっている。</li>
+    <li>やること：Web.config と bin/ で <code>Idunno.AntiCsrf</code> / <code>AntiCsrfModule</code> を探し、<code>System.Web.Helpers.AntiForgery</code>・<code>ViewStateUserKey</code>＋MAC 付き ViewState・ASP.NET Core の <code>IAntiforgery</code> へ移す。.aspx への不審な POST（302 / 500）をログで確かめ、跡があれば machineKey と DB の認証情報を交換する。</li>
+  </ul>
+
+  <h3>4. React CVE-2026-130165（CVSS 8.2）：サーバー関数への細工した要求で DoS</h3>
+  <ul>
+    <li>対象：<code>react</code>・<code>react-server-dom-webpack</code> / <code>-turbopack</code> / <code>-parcel</code> の 19.0〜19.3 系の古い版。認証なしでメモリ不足・CPU の張り付きを起こせる。回避策の記載はない。</li>
+    <li>修正：<code>19.0.9</code> / <code>19.1.10</code> / <code>19.2.9</code> / <code>19.3.1</code>（npm に 10/14 に公開済み、CVE の公開は 11/23）。GHSA-h3gv-c5rc-p453。Next.js などフレームワークが同梱する React の版も確かめる。</li>
+    <li>悪用・公開の実証コードの報告はない。</li>
+  </ul>
+
+  <h3>5. GL.iNet：クラウド管理 GoodCloud 経由でルーター・KVM にマルウェア（CVE なし）</h3>
+  <ul>
+    <li>GoodCloud のクライアントがクラウドからの値を確認せずに root で実行するとされる（研究者の分析）。GL-AXT1800 で root のリバースシェル、GL-RM1 で LAN の走査を確認。GL.iNet はクラウド側を修正したが、感染済みの機器は残る。</li>
+    <li>修正版：GL-MT3000 / GL-MT6000 <code>4.11.1</code>、GL-AXT1800 <code>4.8.4</code>、GL-MT2500 / GL-X2000 <code>4.7.14</code>、RM1 系 <code>1.10.3</code>、RMQ1 <code>1.8.7</code>。</li>
+    <li>やること：再起動・更新の前に <code>ps | grep tmp</code>（<code>crond -i /tmp/.log</code>）を確認（見つからなくても安全とは限らない）。感染していれば設定を引き継がずに入れ直し、VPN の鍵・Wi-Fi と管理のパスワード・SSH 鍵を交換。すぐ更新できなければ GoodCloud を切る。</li>
+  </ul>
+
+  <h3>6. 情報漏洩（開発・運用の目線で）</h3>
+  <ul>
+    <li>リサーチパネル：サイト内検索の欠陥を突かれ、ログイン用のメールアドレス・パスワードが漏えいのおそれ。パスワードの多くを元に戻せる形、一部は変換しない形で保存していた。パスワードは必ず bcrypt / scrypt / Argon2 などで保存し、古い形式の残りがないか点検する。</li>
+    <li>メルカリ：Notion AI の処理を請け負う Fireworks AI への不正アクセスで、社員が AI に入れた記録から最大3,796名分と社内システムの一部の認証情報が流出（認証情報は無効化・再発行済み）。AI ツールに貼った認証情報は、その先の事業者まで届く前提で扱う。</li>
+    <li>ベストコ：口座番号・教育アプリの ID とパスワードを含む最大14.6万件。</li>
+  </ul>
+
+  <h3>7. 続いている話</h3>
+  <ul>
+    <li>simple-git <code>4.1.0</code>・binary-parser <code>2.3.1</code>、Ghostscript <code>10.08.0</code>、Apache HTTP Server <code>2.4.71</code>、GPGME <code>2.3.1</code> / <code>1.24.4</code>、PHP <code>8.5.13</code> / <code>8.4.28</code> / <code>8.3.37</code> / <code>8.2.36</code>、nginx <code>1.31.9</code> / <code>1.30.7</code>。</li>
+    <li>Cisco Expressway CVE-2026-76466（KEV 11/20）は、4台が root を取られ社内へ広げようとした例が報じられた。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。チェーンに <code>emSign</code> / <code>eMudhra</code> / <code>InCommon … G2C</code> があれば取り直す。今朝は新しい発表なし。</li>
+    <li>npm・PyPI：今週の新しい大きな侵害の報告は見つかっていない（11/15〜11/19 の悪性の版は 27件、npm の多くは <code>omnirush</code>、WhatsApp のライブラリ Baileys の偽物も、と Xygeni）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://research-panel.jp/faq/?mode=article_simple&amp;genre_id=0&amp;article_id=1743">リサーチパネル：不正アクセスに関するお知らせ</a></li>
+    <li><a href="https://bestco.jp/news/74/">ベストコ：不正アクセスによる個人情報漏洩の可能性について</a></li>
+    <li><a href="https://about.mercari.com/press/news/articles/20261120_incidentreport/">メルカリ：インシデントの発生について</a></li>
+    <li><a href="https://cyberinsider.com/moldyroost-iphone-malvertising-coruna-darksword-exploits/">"MoldyRoost" campaign hacks iPhones using malicious ads（CyberInsider）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html">Hackers Exploit Critical ScreenConnect Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html">Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html">Hackers Exploited GL.iNet Cloud Flaw（The Hacker News）</a></li>
+    <li><a href="https://cve.now/CVE-2026-130165.md">React CVE-2026-130165（cve.now）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html">Weekly Recap（The Hacker News）</a> ／ <a href="https://xygeni.io/blog/xygeni-malicious-code-digest-95/">Xygeni Malicious Code Digest 95</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
