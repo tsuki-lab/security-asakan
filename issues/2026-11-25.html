@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/25（水）</title>
+<meta name="description">Chrome に重大な欠陥の修正、更新して再起動を。巨人のファンクラブから約80万件のメールアドレスが流出、作品投稿サービス Privatter+ ではパスワード再設定の欠陥でアカウントの乗っ取り。開発者向けには VMware vCenter の新しい認証回避、Azure API Management の秘密情報の窃取、CISA KEV の追加、Synology・Roundcube・WHMCS の修正。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月25日（水）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：Chrome を最新に更新して、いったん閉じて開き直してください（パソコンも Android も）。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>Chrome に重大な欠陥。更新して再起動を</h2>
+  <p class="lede">Google は 11/23、Chrome の重大な欠陥（作りの不備）1件を直した更新を出しました。</p>
+  <p>攻撃に使われているという情報は今のところありません。ただ、更新は数日から数週間かけて順に届くため、自分で更新を確かめると早く直せます。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>パソコンの Chrome：右上の「︙」→「ヘルプ」→「Google Chrome について」を開き、更新が終わったら「再起動」を押す</li>
+      <li>Android の Chrome：Google Play ストアで Chrome を更新する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>巨人のファンクラブから約80万件のメールアドレスが流出</h2>
+  <p class="lede">読売巨人軍のファンクラブ「CLUB GIANTS」の会員システムが繰り返し攻撃を受け、会員のメールアドレス 約80万7千件が流出したと報じられました。</p>
+  <p>一部の会員は氏名（約1万7千件）・住所・電話番号・生年月日なども含まれ、274件はパスワードを変換した値（ハッシュ値）も流出しました。攻撃はすでに止めており、悪用は確認されていないとしています。対象の会員にはメールで連絡しています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>巨人や関係者を名乗るメール・電話・SMS のリンクは開かず、公式サイトやアプリから確かめる</li>
+      <li>ファンクラブと同じパスワードを他のサービスでも使っていれば、そちらを変える</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>作品投稿の Privatter+ で、他人にパスワードを書き換えられる欠陥</h2>
+  <p class="lede">イラストや小説を載せるサービス「Privatter+」で、パスワードの再設定の機能に欠陥があり、他人がパスワードを勝手に変えられる状態だったと公表されました。</p>
+  <p>11/24 までに13人のアカウントで、パスワードと登録メールアドレスが無断で変えられたことが確認されています。似たような被害は、創作や配信をしている人のアカウントが狙われることもあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Privatter+ を使っていれば、ログインできるか、登録メールアドレスが自分のものかを確かめ、パスワードを変える</li>
+      <li>ほかのサービスでも、二段階認証（ログイン時の確認コード）やパスキーを使えるところはオンにする</li>
+    </ul>
+  </div>
+  <p class="words"><b>パスキー</b>：パスワードの代わりに、スマホの指紋・顔認証などでログインするしくみ。偽のログイン画面に入力させられる被害を防げます。</p>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM・電話には従わず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Chrome 158.0.8127.88 / .89（11/23）：CVE-2026-134401（Critical）</h3>
+  <ul>
+    <li>Variations の入力検証の欠陥 1件。Windows / Mac は <code>158.0.8127.88</code> / <code>.89</code>、Linux は <code>158.0.8127.88</code>。悪用の記載はない。管理下の端末は配布を待たずに当てる。</li>
+  </ul>
+
+  <h3>2. Azure API Management（Classic 層）：秘密情報を探す攻撃（悪用あり）</h3>
+  <ul>
+    <li>Microsoft が 11/18 に把握し 11/19 に経路を塞いだ。推奨設定どおりでない Classic 層で管理機能の一部に権限なしで届き、named value の秘密・IdP / OIDC のクライアントシークレット・サブスクリプションキー・管理 API のトークンが読まれたおそれ。v2 層は対象外。CVE なし。</li>
+    <li>やること：11/21 の Microsoft の手順に沿って APIM に置いた秘密情報を洗い出して交換し、それぞれが何に届くかを確かめる。</li>
+  </ul>
+
+  <h3>3. VMware vCenter CVE-2026-123903（CVSS 9.8）：別の vmdir の認証回避</h3>
+  <ul>
+    <li>9月から悪用された CVE-2026-123890 とは別物。同じ告知にアーカイブ処理の任意ファイル書き込み CVE-2026-123904（7.5）と DoS 3件。新しい欠陥の悪用の報告はない。</li>
+    <li>修正版：vCenter <code>8.0 U3m</code>、VCF / vSphere Foundation <code>9.1.2</code>・<code>9.0.2.0300</code>、VCF <code>5.2.5</code>。</li>
+  </ul>
+
+  <h3>4. CISA KEV 11/23：N-able MailAssure CVE-2026-134624・MONAI Label CVE-2026-133968（期限 11/26）</h3>
+  <ul>
+    <li>MailAssure（9.3）は LDAP 同期の接続確認の SSRF。N-able は 11/16 に侵害を検知し、11/21 に復旧。</li>
+    <li>MONAI Label（9.8）は認証なしのパストラバーサル。AI エージェントを使う攻撃者が大学のサーバーで約11分で悪用し、<code>sitecustomize.py</code> にリバースシェルを書いて root を取った。修正版は各プロジェクトの告知で確かめる。</li>
+  </ul>
+
+  <h3>5. Synology・Roundcube・WHMCS・LiteLLM の修正</h3>
+  <ul>
+    <li>Synology DSM / BeeStation OS：OAuth API の CVE-2026-120382（9.8、認証なしでファイルの読み書き）。DSM <code>7.4.1-90080 Update 2</code> / <code>7.3.2-86009 Update 6</code>。</li>
+    <li>Roundcube <code>1.7.7</code> / <code>1.6.22</code>（11/23）：12件の修正（スペルチェックの HTTP リクエスト注入、HTML メールの CSS 制限の回避、添付を ImageMagick に渡す問題の再修正など）。1.6 系は今回が最後。</li>
+    <li>WHMCS：認証なしの SQL インジェクション CVE-2026-82981（8.7）は <code>9.0.10</code> / <code>8.13.8</code>。メールキャンペーンの CVE-2026-93700 は、キャンペーンを消してテンプレートのキャッシュを空にしてから更新。</li>
+    <li>LiteLLM：pass-through エンドポイントのコード注入 CVE-2026-136539・MCP のコマンド注入 CVE-2026-136535（どちらも 7.2、管理者級の権限が要る）ほか計6件。修正版は確かめられていない。管理用エンドポイントに届く人を絞る。</li>
+  </ul>
+
+  <h3>6. 電話で「法務」を名乗る標的型の手口（Okta：O-UNC-053 / INCEPTION）</h3>
+  <ul>
+    <li>電話で担当者をだまし、<code>legal-&lt;会社名&gt;.com</code> のような偽ページで ID・パスワード・ワンタイムコードを入れさせ、プッシュ通知を承認させて SaaS に入る。10月以降に 70 以上のドメイン（Unit 42）。11/16 から新しいリークサイト「INCEPTION」。</li>
+    <li>パスキーや FastPass などフィッシングに強い認証は破れない。社内の重要な権限から切り替える。</li>
+  </ul>
+
+  <h3>7. 続いている話</h3>
+  <ul>
+    <li>Ruby「Ruby2Shell」CVE-2026-132825：公開の実証コードは今朝の時点で確認できない。修正は <code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code>。gem の更新では直らず、本体の更新と再起動が要る。</li>
+    <li>ScreenConnect CVE-2026-84869（<code>26.6.5</code>）・Idunno.AntiCsrf CVE-2026-131914（置き換え）・GL.iNet の GoodCloud 経由の侵入・React CVE-2026-130165（<code>19.0.9</code> / <code>19.1.10</code> / <code>19.2.9</code> / <code>19.3.1</code>）。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。今朝は新しい発表なし。</li>
+    <li>情報漏洩：タワーレコード オンラインはログイン情報 約1,021万件（パスワードのハッシュ値を含む）、うち約278万件は氏名・生年月日なども。ミスタードーナツのネットオーダーは 11/15 の侵害で停止中（流出した項目は未公表）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.security-next.com/193218">「Chrome」がアップデート - 「クリティカル」脆弱性1件を修正（Security NEXT）</a></li>
+    <li><a href="https://www.security-next.com/192864">ファンクラブ会員の個人情報が流出 - 読売巨人（Security NEXT）</a></li>
+    <li><a href="https://incidents.seory.co.jp/incidents/20261123-4dbcb5/">Privatter+ の不正アクセス（セキュリコ）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html">Microsoft Fixes Azure API Management Classic Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html">VMware vCenter Hit by Another Critical Auth Bypass Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html">Hackers Exploit N-able MailAssure Flaw / MONAI Label Zero-Day（The Hacker News）</a></li>
+    <li><a href="https://www.security-next.com/193243">Synology製NASに深刻な脆弱性（Security NEXT）</a> ／ <a href="https://www.security-next.com/193210">「Roundcube」にセキュリティ修正（Security NEXT）</a> ／ <a href="https://thehackernews.com/2026/11/whmcs-sql-injection-flaw-could-expose.html">WHMCS SQL Injection（The Hacker News）</a></li>
+    <li><a href="https://cve.now/CVE-2026-136539.md">LiteLLM CVE-2026-136539（cve.now）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html">Okta Links ShinyHunters-Associated Vishing Group to INCEPTION（The Hacker News）</a></li>
+    <li><a href="https://www.security-next.com/193228">タワレコ通販サイト、顧客情報が流出</a> ／ <a href="https://www.security-next.com/193086">ネットオーダーで侵害、サービスを停止 - ミスド</a>（Security NEXT）</li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
