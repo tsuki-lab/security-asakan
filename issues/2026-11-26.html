@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/26（木）</title>
+<meta name="description">京王電鉄がサイバー攻撃を受け、顧客など約1,063万人分の個人情報が流出したおそれ。マクドナルドのアプリと DHC の通販にも不正アクセス。Firefox・Thunderbird は更新を。開発者向けには Drupal「Fail2Install」の悪用と CISA KEV、Hex.pm の侵害、WordPress の裏口入りプラグイン、GeoServer・Check Point の攻撃。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月26日（木）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：京王・マクドナルド・DHC を名乗る突然のメールや SMS のリンクは開かず、公式アプリやサイトから確かめてください。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>京王電鉄にサイバー攻撃。約1,063万人分の個人情報が流出したおそれ</h2>
+  <p class="lede">京王電鉄は、9月にグループのネットワークが「ランサムウェア」（データを人質にする攻撃）を受け、グループの客や取引先 約1,063万人分の個人情報が流出したおそれがあると明らかにしました。</p>
+  <p>対象は氏名・住所・電話番号・メールアドレスで、一部にはマイナンバー、パスポートの写しや番号、クレジットカード番号、本人確認書類が含まれる可能性があるとしています。賃貸物件の契約者や採用の応募者、従業員など約1万2千人分は、流出が確認されています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>京王グループ（電車・百貨店・ストア・不動産・ホテルなど）を名乗るメール・SMS・電話のリンクは開かず、公式サイトから確かめる</li>
+      <li>クレジットカードの明細に覚えのない利用がないか、ときどき確認する</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>マクドナルドのアプリと DHC の通販にも不正アクセス</h2>
+  <p class="lede">マクドナルドの公式アプリでは、利用時のスマホの位置情報や購入履歴などが不正に見られ、DHC の通販サイトでは会員 5,096件の登録内容が書き換えられて、不審な注文もありました。</p>
+  <p>マクドナルドは、氏名・住所・カード情報は含まれないとしています。DHC は、届け先の氏名・住所・電話番号・購入履歴・カード番号の下4桁を見られたおそれがあり、書き換えられた情報は元に戻して対象者に連絡しているとしています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>DHC の会員なら、ログインして届け先と注文履歴に覚えのないものがないか確かめる</li>
+      <li>どちらも、各社を名乗る「返金」「確認」の連絡のリンクは開かない。同じパスワードを他のサービスで使っていれば変えておくと安心</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>Firefox とメールソフト Thunderbird に更新</h2>
+  <p class="lede">Mozilla は 11/24、Firefox と Thunderbird の欠陥（作りの不備）を多数直した更新を出しました。</p>
+  <p>Thunderbird では、電子署名付きのメールで、実際とは違う人から届いたように見せかけられる欠陥などが直っています。攻撃に使われているという情報は今のところありません。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Firefox：メニュー「≡」→「ヘルプ」→「Firefox について」を開き、更新が終わったら再起動する</li>
+      <li>Thunderbird：「ヘルプ」→「Thunderbird について」から同じように更新する</li>
+    </ul>
+  </div>
+  <p class="words"><b>電子署名</b>：メールが本人から届き、途中で書き換えられていないことを確かめるしくみ。</p>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM・電話には従わず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Drupal「Fail2Install」CVE-2026-132165（CVSS 9.8）：悪用あり・CISA KEV（期限 11/27）</h3>
+  <ul>
+    <li>負荷でインストール済みの確認を失敗させ、<code>install.php</code> から SQLite の DB を文書ルートの下に <code>.php</code> として作らせて PHP を実行する。Drupal 8.9・9・10・11 が対象。11/19 19:00 UTC から実際のサイトで悪用。</li>
+    <li>修正版：<code>11.4.13</code> / <code>11.3.22</code> / <code>10.6.22</code>。8.9・9・10.5 以前の修正版は記事に無い。回避策の記載はない。更新後、文書ルートに覚えのない <code>.php</code> や SQLite ファイルが無いか確かめる。</li>
+    <li>同じ 11/24 の KEV：Idunno.AntiCsrf CVE-2026-131914（置き換え）、Optimizely Web Experimentation CVE-2026-132224。</li>
+  </ul>
+
+  <h3>2. Hex.pm（Elixir / Erlang）：CVSS 10.0 の CVE-2026-129514 でサーバー 6台が侵害</h3>
+  <ul>
+    <li>Erlang 形式のリクエスト本文の解析が認証より前に動き、任意の構造体を装えた。メール・パスワードと API キーのハッシュ・2FA の秘密・非公開パッケージを読まれた可能性がある。レジストリの署名鍵は取り替えておらず、新しい署名の仕組みを入れたクライアントが数日内に出る。</li>
+    <li>公開パッケージの改ざんは見つかっていない。やること：パスワード変更・2FA の作り直し・<code>mix hex.user auth</code> / <code>rebar3 hex user auth</code> で再ログイン、新しいクライアントが出たら更新、それまで repo.hex.pm 以外のミラーを使わない。</li>
+    <li>同時に <code>ash</code> 3.38.0、<code>db_connection</code> 2.10.3、<code>flop</code> 0.26.7 / 0.27.3 / 0.28.1 / 0.29.2 の修正。</li>
+  </ul>
+
+  <h3>3. WordPress：WP Connect の6プラグインに裏口（CVE-2026-135202、9.8）</h3>
+  <ul>
+    <li>Air WP Sync <code>2.9.1</code>〜<code>2.9.4</code>、WP Sync for Notion <code>1.7.4</code>、Add-on Brevo for Gravity Forms <code>2.6.3</code>、Add-On for Contact Form 7 to Airtable <code>2.5.4</code>、Add-On for Contact Form 7 to Notion <code>1.6.4</code>、Orders Sync to Airtable for WooCommerce <code>1.0.2</code>。11/22 に作られ、WordPress.org がプラグインを永久に閉じた。修正版は出ない。</li>
+    <li>入れていれば削除し、<code>includes/airwp-online.php</code>・<code>tascredit-pay[.]com</code> への通信・uploads のウェブシェル・1時間ごとの WP-Cron・覚えのない DB ユーザーを確認。見つかれば侵害として扱い、パスワードを交換。</li>
+  </ul>
+
+  <h3>4. GeoServer の2件が悪用・Check Point の管理サーバー 24台が侵害</h3>
+  <ul>
+    <li>GeoServer：CVE-2026-120705（ファイル読み出し 8.6）と CVE-2026-129243（認可回避 8.8）が悪用。同じ修正に固定の署名鍵で管理者を偽れる CVE-2026-129245（9.2）など。<code>3.0.2</code> / <code>2.28.6</code> / <code>2.27.7</code> へ。ファイルを読まれた可能性があればパスワードと鍵を取り替える。</li>
+    <li>Check Point：GreyNoise の「GT13」が 10/17〜11/2 に約16か国 22組織で、修正済みの CVE-2026-16232 などを使い、ファイアウォールの DB と社内 CA のファイルを盗み、ポリシーを外した。AI を使った攻撃とみられる。更新・堅牢化と管理画面への到達の制限を。</li>
+  </ul>
+
+  <h3>5. Firefox 161・ESR 153.8 / 115.46、Thunderbird 161 / 153.8（11/24）</h3>
+  <ul>
+    <li>Firefox 161 は 110件（High 59、Critical なし、サンドボックス回避 13件）。Thunderbird は Critical：OpenPGP 署名メールの差出人の食い違い CVE-2026-136226、細工したメールで IMAP コマンドを送られる CVE-2026-136227。悪用の記載はない。</li>
+  </ul>
+
+  <h3>6. 「IT サポート」を名乗る電話からクラウドの乗っ取り（Unit 42）</h3>
+  <ul>
+    <li>電話で認証の不具合を装い、組織に合わせた偽ドメインの中継型フィッシングでパスワード・セッション・MFA の承認を盗み、すぐ自分の MFA 端末と OAuth アプリを登録して Microsoft 365 のデータを抜いて脅す。開発者モードで偽の Chrome 拡張を入れさせる例も。</li>
+    <li>フィッシングに強い認証（パスキー・ハードウェアキー）へ切り替え、MFA の再設定はヘルプデスクが既知の連絡先で本人確認する。新しい MFA 端末・OAuth の同意・メールのルール変更に警告を出す。</li>
+  </ul>
+
+  <h3>7. 続いている話</h3>
+  <ul>
+    <li>Ruby「Ruby2Shell」CVE-2026-132825：発見者は今日（11/26）前後に実証コードを公開する見込み。今朝の時点で攻撃の報告はない。<code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code> へ上げて、アプリサーバーを再起動。</li>
+    <li>Chrome <code>158.0.8127.88</code> / <code>.89</code>（11/23、CVE-2026-134401）・VMware vCenter CVE-2026-123903（<code>8.0 U3m</code> ほか）・Azure API Management Classic の秘密情報の交換。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。今朝は新しい発表なし。</li>
+    <li>情報漏洩：ほかに 11/24〜25 にヴェレダ公式通販・ペットメディカルサポート・TENTIAL（KARTE 経由）・PLANT Pay・JAXA などの公表があった（一覧で確認したのみ）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://www.security-next.com/193305">ランサム攻撃で個人情報流出、パスポート写しも - 京王電鉄（Security NEXT）</a></li>
+    <li><a href="https://www.security-next.com/193232">アプリの顧客情報DBに不正アクセス - マクドナルド</a> ／ <a href="https://www.security-next.com/193316">通販サイトに不正アクセス、会員情報改ざんや不正注文も - DHC</a>（Security NEXT）</li>
+    <li><a href="https://www.security-next.com/193284">「Firefox 161」がリリース</a> ／ <a href="https://www.security-next.com/193277">「Thunderbird」に深刻な脆弱性</a>（Security NEXT） ／ <a href="https://www.mozilla.org/en-US/security/advisories/">Mozilla Foundation Security Advisories</a></li>
+    <li><a href="https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html">Drupal Fail2Install Exploit Details Emerge（The Hacker News）</a> ／ <a href="https://www.security-next.com/193290">米当局、「Drupal」など脆弱性3件の悪用に注意喚起（Security NEXT）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html">Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html">WordPress Blocks Six Backdoored WP Connect Plugins（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html">Hackers Exploit Two GeoServer Flaws</a> ／ <a href="https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html">Hackers Compromise 24 Check Point Management Servers</a>（The Hacker News）</li>
+    <li><a href="https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html">Com-Affiliated Hackers Hijack Cloud Accounts via Vishing（The Hacker News）</a></li>
+    <li><a href="https://incidents.seory.co.jp/monthly/2026-11/">2026年11月のセキュリティインシデント一覧（セキュリコ）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
