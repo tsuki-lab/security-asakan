@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/27（金）</title>
+<meta name="description">パスワード管理の 1Password に不正アクセス、一部の利用者の名前とメールアドレスが流出（保存したパスワードは無事）。東京都「赤ちゃんファースト」の QUOカードPay が使えなくなった件、保険会社を装ってスマホに不正アプリを入れさせるメールの急増。開発者向けには Drupal の新しい悪用中の欠陥、GitHub のリポジトリを汚染する PolinRider、CISA KEV の10件。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月27日（金）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：メールや SMS のリンクからアプリを入れないでください。アプリは必ず公式のアプリストアから。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>パスワード管理の 1Password に不正アクセス。保存したパスワードは無事</h2>
+  <p class="lede">パスワード管理サービスの 1Password は、社員のアカウントが乗っ取られ、一部の利用者の名前やメールアドレスなどが盗まれたと発表しました。</p>
+  <p>盗まれたのは名前・メールアドレス・アカウントの登録日などと、招待や復旧のメールに入っているリンクの一部です。保存しているパスワードやその中身、ログイン用のパスワードと秘密の鍵は盗まれていないとしています。影響のあった人には個別にメールで知らせています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>1Password を使っていても、会社はパスワードの変更などは必要ないとしている。慌てて設定を変えなくてよい</li>
+      <li>1Password を名乗る「招待」「アカウントの復旧」のメールのリンクは開かず、アプリから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>東京都「赤ちゃんファースト」の QUOカードPay が使えなくなる</h2>
+  <p class="lede">東京都の子育て支援「赤ちゃんファースト」で交換した QUOカードPay が、使えない・残高が0になる事態が起き、都は委託先の会社への不正アクセスが原因としています。</p>
+  <p>報道では約1万2千人分・計約9千万円分が使えなくなりました。都と委託先のリンベルは、使えなくなった残りの金額分を作り直して、登録したメールアドレスに送るとしています（1週間ほどかかる見込み）。リンベルは自社の通販サイトの会員など約250万人分の個人情報が漏れたおそれも公表しています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>交換した QUOカードPay の残高を確かめ、リンベルからの再発行のメールを待つ</li>
+      <li>リンベルや東京都を名乗る「再発行の手続き」などのメール・電話で、カード番号や暗証番号を入れない。迷ったら都の公式サイトから確かめる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>保険会社を装って、スマホに不正なアプリを入れさせるメールが急増</h2>
+  <p class="lede">第一生命などをかたり、「保険の手続き」「控除証明書」などを口実に、Android のスマホに不正なアプリ（悪いことをするアプリ）を入れさせるメールが急に増えています。</p>
+  <p>偽のサイトは保険の契約内容を確認できるように見せかけますが、実際には関係のないアプリを入れさせます。また、ENEOS は公式アプリに外部からの不正なアクセスがあったとしてアプリを止めていて（給油はふだんどおり）、ENEOS を名乗る連絡にも注意を呼びかけています。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>メールや SMS のリンクからアプリを入れない。アプリは Google Play などの公式ストアから</li>
+      <li>保険の手続きは、保険証券や公式サイトに書かれた窓口から確かめる</li>
+    </ul>
+  </div>
+  <p class="words"><b>控除証明書</b>：年末調整や確定申告で、払った保険料を申告するときに使う書類。この時期に届くので、口実に使われやすい。</p>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM・電話には従わず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Drupal SA-CORE-2026-019「Access bypass」CVE-2026-136716（Highly critical）：悪用あり</h3>
+  <ul>
+    <li>11/18 の Fail2Install（CVE-2026-132165）の修正の後も、インストールが中途半端・普通でない状態のサイトは乗っ取れた（CWE-754）。本番サイトも含み、その状態は管理画面からは見えない。Drupal は実際の悪用を確認している（11/25）。</li>
+    <li>修正版：<code>11.4.14</code> / <code>11.3.23</code> / <code>10.6.23</code>（前号の 11.4.13 / 11.3.22 / 10.6.22 では足りない）。11.0〜11.2・10.5 以前は修正なし。更新後に <code>update.php</code>。インストーラ（<code>install.php</code>）を外から届かないようにしていたサイトは対象外。</li>
+    <li>確認：ログで不正アクセス、特に user 1 の変更を探す。user 1 のメールアドレスが自分の管理下にあるか確かめ、パスワード再設定を検討。すでに乗っ取られたサイトは脆弱に見えないことがある。</li>
+  </ul>
+
+  <h3>2. PolinRider（北朝鮮系とされる）：盗んだ GitHub トークンで 7,609 リポジトリのコミットを書き換え</h3>
+  <ul>
+    <li>作者・メッセージ・日付を保ったまま最近のコミットを書き換え、ビルド設定の数百の空白の後ろや <code>conftest.py</code>・小さな <code>utils</code> にローダーを隠し、30〜40分後に force-push で消す。最新の波は VS Code でフォルダを開くだけで動く（<code>.vscode/tasks.json</code>）。設定は Ethereum の取引から読み、切り離した <code>node -i</code> で次の段階を動かして、環境変数の秘密・ブラウザのパスワードと Cookie・ウォレットを盗む。</li>
+    <li>npm：<code>itsa-utils@1.4.2</code>・<code>itsa-jsext@2.0.3</code>・<code>itsa-cli@16.5.3</code>・<code>itsa-react-*</code>（乗っ取った保守者アカウントから）、版は不明だが <code>@adminide-stack/*</code>・<code>server-hemera-mongo</code>・<code>cdeops</code>・<code>@cdmbase/wiki-browser</code>・<code>@pubngo-stack/help-browser</code>。VS Code 拡張 <code>huntrole.assessment-tool</code>（偽の採用課題）。</li>
+    <li>痕跡：文字列 <code>68656c6C6f6970626f742121</code>、C2 <code>103.179.142.155</code>・<code>95.135.181.84</code>・<code>95.135.181.151</code>（443）、パス <code>/0x/cls</code>・<code>/0x/ls</code>。</li>
+    <li>やること：リポジトリの force-push・覚えのないコミットを確かめ、手元のコピーと比べる。知らない相手の「採用課題」はビルド・テスト・VS Code で開く前に中身を読む。該当すれば GitHub・npm のトークンと SSH 鍵を交換。</li>
+  </ul>
+
+  <h3>3. 1Password：従業員の GitHub アカウント経由でバックエンドに不正なコード</h3>
+  <ul>
+    <li>11/19 に調査を開始、11/25 に公表。非公開リポジトリのコードの複製と CI/CD への侵入もあった。一部の顧客の氏名・メール・ID・公開鍵・SRP のパラメータ・招待や復旧のリンクのトークンが流出。保管庫・アカウントのパスワード・Secret Key・復旧キー・配布済みのアプリと拡張は影響なし。</li>
+    <li>トークン単独では入れない（SSO かメールの確認コードが要る）。1Password は確認コードを6桁の数字から10文字に延ばした。従業員の GitHub アカウントとトークンが入り口になる例として、自分の組織の GitHub のトークンの権限と期限も見直したい。</li>
+  </ul>
+
+  <h3>4. CISA KEV 11/25：10件（期限 11/28、一部 12/9）</h3>
+  <ul>
+    <li>Mitel MiCollab の AWV 5件（CVE-2026-133323 は 10.0、CVE-2026-133303 は 9.0）。10.3 以前は <code>10.3.0.18</code> のパッチ以降、当てられなければ AWV を外から届かないように。</li>
+    <li>Vates Xen Orchestra CVE-2026-133469（9.8）、HPE Juniper Session Smart Conductor / Router CVE-2026-103406（9.8）、Danfoss AK-SM 800A（CVE-2023-25914 / CVE-2023-25915 / CVE-2025-41450）。修正版の番号は記事に無い。</li>
+  </ul>
+
+  <h3>5. NuGet：偽の .NET の採用課題から 13 の悪性パッケージ（削除済み）</h3>
+  <ul>
+    <li><code>WinUI.Button</code>・<code>VS_Builder.MSBuildAnalyzer</code>・<code>VS_Builder.WinUI3Controls</code>・<code>HappyOne.MSBuildAnalyzer</code>・<code>HappyOne.WinUI3Controls</code>・<code>Web3TotalButton</code>・<code>RevertButtonIcon</code>・<code>WinUI3IconButton</code>・<code>WindowsAccentColorName</code>・<code>SetButtonColor</code>・<code>InitializeCustomButton</code>・<code>StyledAppButton</code>・<code>StyledComponent</code>。ビルドで実行ファイルを取ってきたり、<code>osk.exe</code> を使った DLL の横取りで Chrome のデータを盗む。<code>.csproj</code> の参照と <code>%LOCALAPPDATA%\osk\OskSupport.dll</code> を確認。</li>
+  </ul>
+
+  <h3>6. Joomla 6.2.1 / 5.4.11（11/24）：58件、Critical 4件</h3>
+  <ul>
+    <li>インストール用ディレクトリが残っていると認証なしで設定を書き換えられる CVE-2026-123214、メディアのカスタムフィールド（CVE-2026-129393）・ログ出力（CVE-2026-127297）からのコード実行のおそれ。悪用の報告はない。</li>
+  </ul>
+
+  <h3>7. 続いている話</h3>
+  <ul>
+    <li>Ruby「Ruby2Shell」CVE-2026-132825：実証コードの公開は今朝の時点で確かめられない。<code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code> へ上げてアプリサーバーを再起動。</li>
+    <li>nginx2root CVE-2026-123007：Censys は該当の HTTP/2 の版の nginx が外に 1,000万以上と数える。<code>1.31.9</code> / <code>1.30.7</code> へ上げて再起動（reload ではなく）。</li>
+    <li>ブラウザ拡張「SleeperWidget」：Edge・Chrome・Firefox の公式ストアの 250 以上の拡張が、有料の検索広告から入れた時だけ閲覧データを集める（Microsoft）。Ollama などの AI サーバー 数千台が認証なしで外に出ていて、半数以上が他人に使われていた（Rapid7）。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。今朝は新しい発表なし。</li>
+    <li>情報漏洩：11/25 にパルシステム（1,997,972件、組合員番号など）・サツドラ（229,026件）・JCB（社内の管理コード値 最大約15万件）などの公表があった（一覧で確認したのみ）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html">1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach（The Hacker News）</a> ／ <a href="https://piyolog.hatenadiary.jp/entry/2026/11/26/153937">1Passwordへの不正アクセスについてまとめてみた（piyolog）</a></li>
+    <li><a href="https://piyolog.hatenadiary.jp/entry/2026/11/27/004031">東京都「赤ちゃんファースト」で交換したQUOカードPayが使えなくなった件についてまとめてみた（piyolog）</a></li>
+    <li><a href="https://www.security-next.com/193365">不正アプリ導入を促すメール急増 - 「第一生命」などブランド悪用</a> ／ <a href="https://www.security-next.com/193377">ENEOS公式アプリで侵害、サービス停止</a> ／ <a href="https://www.security-next.com/193353">「Joomla」に58件の脆弱性</a>（Security NEXT）</li>
+    <li><a href="https://www.drupal.org/security/core">Drupal core security advisories</a> ／ <a href="https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html">Drupal Warns of New Highly Critical Site Takeover Vulnerability（The Hacker News）</a></li>
+    <li><a href="https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html">North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories</a> ／ <a href="https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html">13 Malicious NuGet Packages</a>（The Hacker News）</li>
+    <li><a href="https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html">Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Products</a> ／ <a href="https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html">ThreatsDay</a>（The Hacker News）</li>
+    <li><a href="https://incidents.seory.co.jp/monthly/2026-11/">2026年11月のセキュリティインシデント一覧（セキュリコ）</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
