@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セキュリティ朝刊 11/28（土）</title>
+<meta name="description">Windows のファイル管理ソフト Q-Dir などで、公式サイトの配布物にウイルスが仕込まれていた件。化粧品のヴェレダの通販でカード情報、東京海上ダイレクトのマイページで事故の情報などが流出。開発者向けには修正のない Cacti の欠陥、BusyBox、Serv-U、Drupal の続報。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="masthead">
+  <a class="site" href="../">セキュリティ朝刊</a>
+  <h1>11月28日（土）の朝刊</h1>
+</header>
+
+<p class="today">今日のひとこと：ソフトは検索結果の広告やリンクからではなく、公式サイトから入れてください。それでも「おかしい」と感じたらウイルス対策ソフトで全体を調べましょう。</p>
+
+<article class="topic">
+  <h2><span class="num">1</span>公式サイトで配られていた Windows のソフトにウイルス</h2>
+  <p class="lede">Windows のファイル管理ソフト「Q-Dir」とデスクトップのアイコン配置を保存する「DesktopOK」で、開発元の公式サイトから配られていたファイルに、パソコンを遠隔操作するウイルスが仕込まれていました。</p>
+  <p>新しく入れた場合だけでなく、入っているソフトの更新でも配られていました。ソフトは普通に動くので気づきにくく、裏で Microsoft Edge を装った自動実行の設定を作ります。別の件では、Microsoft Store に並んでいたアプリ「Setup Assistant」が、検索結果から誘導された偽の「切り取りツール」のページ経由で入れられ、パソコンを乗っ取るウイルスを入れていました（今はストアから消えています）。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>Q-Dir・DesktopOK を最近入れた・更新した人は、ウイルス対策ソフトでパソコン全体を調べる（ソフトを入れ直すだけでは消えない）</li>
+      <li>ソフトは検索結果の広告や知らないサイトからではなく、開発元の公式サイトや公式ストアから入れる</li>
+    </ul>
+  </div>
+</article>
+
+<article class="topic">
+  <h2><span class="num">2</span>化粧品のヴェレダの通販でカード情報、東京海上ダイレクトでは事故の情報も流出</h2>
+  <p class="lede">化粧品「ヴェレダ」の公式通販サイトで、約20万件の個人情報と約4.6万人分のクレジットカード情報（裏面の3桁の番号を含む）が流出したおそれがあると報じられました。</p>
+  <p>自動車保険の東京海上ダイレクトでは、契約者向けのマイページとアプリに不正なアクセスがあり、93人分の名前・住所・車の登録番号・保険の契約内容・事故の情報・カード番号の下4桁などが流出しました。文部科学省の調達のシステムからも、取引先の会社名と代表者の名前など最大約16万件が流出したおそれがあります。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>ヴェレダの通販で買い物をしたことがある人は、カードの利用明細を確かめ、覚えのない請求があればすぐカード会社へ</li>
+      <li>契約内容や事故のことを知っている相手からの連絡でも、本物とは限らない。保険会社の公式アプリや証券に書かれた窓口から確かめる</li>
+    </ul>
+  </div>
+  <p class="words"><b>セキュリティコード</b>：カードの裏面などにある3〜4桁の番号。番号・期限と一緒に盗まれると、ネットで勝手に使われやすい。</p>
+</article>
+
+<article class="topic">
+  <h2><span class="num">3</span>KARTE 経由の流出がみずほ銀行・ニューバランスなどにも</h2>
+  <p class="lede">多くの企業のサイトに組み込まれているサービス「KARTE」への不正アクセスで、みずほ銀行・ニューバランスジャパン・化粧品のアテニアなども顧客の情報が流出したと公表しました（インシデントの一覧サイトによる）。</p>
+  <p>みずほ銀行は社内で使う顧客の管理番号だけで、名前・暗証番号・ログイン ID は含まれないとしています。どの会社もパスワードの流出は挙げていません。ただ、流出の連絡や「返金」を装った偽のメール・SMS が届きやすい時期です。</p>
+  <div class="todo"><strong>みんながやること</strong>
+    <ul>
+      <li>「情報流出のお詫び」「返金の手続き」などのメール・SMS のリンクは開かず、公式アプリやブックマークから確かめる</li>
+      <li>暗証番号やパスワードを電話やメールで聞かれても答えない</li>
+    </ul>
+  </div>
+</article>
+
+<section class="basics">
+  <h2>いつでも効く3つの基本</h2>
+  <ol>
+    <li>OS・アプリ・ブラウザは自動更新をオンにして、ときどき再起動する</li>
+    <li>パスワードはサービスごとに変え、二段階認証（ログイン時の確認コード）やパスキーをオンにする</li>
+    <li>急がせるメール・SMS・DM・電話には従わず、公式の入り口から確かめる</li>
+  </ol>
+</section>
+
+<section class="dev">
+  <h2>エンジニア向け</h2>
+  <p class="dev-note">ここから先は、サービスの開発や運用をしている人向けの情報です。前号で既出の話は続報だけ載せています。</p>
+
+  <h3>1. Cacti 1.2.31：ゲストのアカウント経由で認証なしの RCE「4HTTP2SHELL」（root まで「4HTTP2ROOT」）— 修正なし</h3>
+  <ul>
+    <li>ゲストのアカウントを有効にしている Cacti Core 1.2.31（記事の時点の最新）で、HTTP 要求4回でコードを実行される。CVE 未採番・修正版なし、実証コードは公開済み。実際の攻撃の報告は記事に無い。</li>
+    <li>当座の策：ゲストを無効にする（0.8.7 以降は既定で無効）、Web 画面への到達を絞る、ポーラーの設定に覚えのないコマンドが無いか確認。修正が出たらすぐ当てる。</li>
+  </ul>
+
+  <h3>2. Q-Dir / DesktopOK の公式配布物の改ざん（サプライチェーン）</h3>
+  <ul>
+    <li>Q-Dir <code>12.83.0.0</code> / <code>12.84.0.0</code> / <code>12.85.0.0</code>、DesktopOK <code>12.82.0.0</code> / <code>12.85.0.0</code>。直接のダウンロードとアプリ内の更新の両方。改ざんの経路は不明。</li>
+    <li>本物のアプリを動かしつつ <code>mail.c1a2[.]top</code> から <code>7zr.exe</code> と <code>dsv2_py39_agent.7z</code> を取得、Edge を装う予定タスクで <code>py_client_dsv2.py</code>（Python 製 RAT）を常駐。C2 は <code>8.210.69[.]51:9876</code>。</li>
+    <li>社内の Windows 端末に配っているなら SHA-256 を正規のものと比べ、予定タスク・C2 への通信を確認。</li>
+  </ul>
+
+  <h3>3. BusyBox 1.38.0 以前：tftpd のパストラバーサル CVE-2026-136411（CVSS 9.8）</h3>
+  <ul>
+    <li>tftpd を対象ディレクトリの指定なしで起動すると、認証なしで任意のファイルを読み書きできる。11/6 にソースで修正、11/24 時点で修正を含むリリースはない。悪用の記述はない。</li>
+    <li>組み込み機器・Alpine 系のイメージで tftpd を動かしていなければ影響なし。使うならディレクトリを指定し、外から届かないように。</li>
+  </ul>
+
+  <h3>4. SolarWinds Serv-U 2026.4（11/24）：18件、Critical 9件</h3>
+  <ul>
+    <li>Linux で root への昇格（CVE-2026-123172・CVE-2026-123168）、型の取り違えでドメイン管理者がシステム管理者に（CVE-2026-82320 / CVE-2026-82321）、ファイルの読み書きからコード実行（CVE-2026-82315 / CVE-2026-82316）ほか。対象の版・悪用の有無は記事に無い。</li>
+  </ul>
+
+  <h3>5. Microsoft Store のアプリ「Setup Assistant」から Vinci RAT</h3>
+  <ul>
+    <li>偽の Snipping Tool サイト（<code>snipp.codes-team[.]com</code>）から Microsoft 署名のインストーラーで Store のアプリ（ETPS Ltd、Electron 製、6/1 公開）を入れさせ、C2（<code>setup-assistant[.]com</code>・<code>monkeysholder[.]info</code>）の指示で PowerShell を実行。AMSI を無効化し 10分ごとのタスクを作る。Store の審査や署名があっても安全とは限らない例。</li>
+  </ul>
+
+  <h3>6. 続いている話</h3>
+  <ul>
+    <li>Drupal SA-CORE-2026-019（CVE-2026-136716、悪用あり）：修正版は <code>11.4.14</code> / <code>11.3.23</code> / <code>10.6.23</code>。前回の更新を当てたサイトも、インストールの完了と侵害の有無を確認。</li>
+    <li>CISA KEV 11/25 の10件（Mitel MiCollab・Xen Orchestra・Juniper Session Smart・Danfoss）は今日 11/28 が連邦機関の期限。</li>
+    <li>ARTEX（AI のペネトレーションテストツールの悪用）：WorkOS・Chainstack・Barracuda などが被害を公表。既定の認証情報・外に出た管理画面・失効させていない長期の鍵（第三者の AI 企業に渡した鍵を含む）が入口。使っていない鍵の失効と、管理画面・AI 推論エンドポイントの非公開を。</li>
+    <li>Ruby「Ruby2Shell」CVE-2026-132825：実証コードの公開は今朝の時点で確かめられない。<code>4.0.10</code> / <code>3.4.13</code> / <code>3.3.14</code> へ上げてアプリサーバーを再起動。</li>
+    <li>eMudhra：Apple は 11/30 に既存の <code>emSign Root CA - G1</code> の証明書の信頼も終える（eMudhra の告知による）。発行元に emSign / eMudhra がある証明書はそれまでに取り直す。今朝は新しい発表なし。</li>
+    <li>cve.now の新着：WordPress の MemberPress Discord Addon 1.1.5 以前（権限昇格 CVE-2026-136115、9.8）・Hello Clever Gateway for WooCommerce 1.8.4 以前（SQL インジェクション CVE-2026-136113、9.3）、PHP の <code>smalot/pdfparser</code> 2.14.0 未満の DoS（CVE-2026-134129）。</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <b>出典</b>
+  <ul>
+    <li><a href="https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html">Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware</a> ／ <a href="https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html">Microsoft Store App Found Delivering Vinci RAT</a> ／ <a href="https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html">Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests</a>（The Hacker News）</li>
+    <li><a href="https://www.security-next.com/193310">化粧品通販サイトに不正アクセス - 個人情報流出の可能性</a> ／ <a href="https://www.security-next.com/193168">契約者向けマイページに不正アクセス - 東京海上ダイレクト</a> ／ <a href="https://www.security-next.com/193439">政府調達情報システムのサーバから個人情報流出か - 文科省</a>（Security NEXT）</li>
+    <li><a href="https://www.security-next.com/193294">「BusyBox」に深刻な脆弱性</a> ／ <a href="https://www.security-next.com/193429">「SolarWinds Serv-U」に脆弱性</a> ／ <a href="https://www.security-next.com/193451">「Drupal」が再アップデート</a>（Security NEXT）</li>
+    <li><a href="https://piyolog.hatenadiary.jp/entry/2026/11/27/134842">「ARTEX」を使った攻撃の観測と被害組織の公表についてまとめてみた（piyolog）</a></li>
+    <li><a href="https://incidents.seory.co.jp/monthly/2026-11/">2026年11月のセキュリティインシデント一覧（セキュリコ）</a> ／ <a href="https://cve.now/cves">cve.now</a></li>
+  </ul>
+</section>
+
+<footer>セキュリティ朝刊は毎朝更新されます ・ <a href="../">過去の号</a></footer>
+</div>
+</body>
+</html>
